@@ -8,10 +8,10 @@ const Footer = () => {
       <div className="w-full h-2/5 flex justify-center items-center flex-col text-white md:flex  md:flex-row md:h-2/6 md:p-2">
         <div>
           <Image
-            src={"/taxiLogoWhite.png"}
+            src={"/taxiLogo.jpg"}
             alt="not found"
-            width={149}
-            height={50}
+            width={200}
+            height={80}
             className="lg:w-[13rem]"
           ></Image>
           <p>Travel Securely With US!</p>

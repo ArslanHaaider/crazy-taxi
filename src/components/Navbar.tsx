@@ -31,17 +31,17 @@ const Navbar = () => {
   const [active, setActive] = useState(0);
   return (
     <>
-      <Container fluid h={80} className="bg-[#ffffff] flex p-0 mt ">
+      <Container fluid h={80} className="bg-[#ffffff] flex p-0">
         <Container
           fluid
           h={90}
-          className=" w-2/5 flex justify-center flex-col items-center"
+          className=" w-2/5 flex items-start justify-start flex-col"
         >
           <Image
-            src={"/taxiLogo.png"}
+            src={"/taxiLogo.jpg"}
             alt="not found"
-            width={120}
-            height={50}
+            width={150}
+            height={80}
             className="lg:w-[13rem]"
           ></Image>
         </Container>
