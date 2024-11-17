@@ -11,23 +11,13 @@ import {
 } from '@tabler/icons-react';
 import { useState } from 'react';
 import styles from "./form.module.css";
-import OneWay from './OneWay';
+import StepOne from './StepOne';
+import StepTwo from './StepTwo';
 interface BookingForm {
   styles:{ readonly [key: string]: string; }
 }
 const BookingForm = () => {
-    const form = useForm({
-      mode: 'uncontrolled',
-      initialValues: {
-        pickup: '',
-        termsOfService: false,
-      },
-  
-      validate: {
-        
-      },
-    });
-    const [active, setActive] = useState(1);
+    const [active, setActive] = useState(0);
     const [highestStepVisited, setHighestStepVisited] = useState(active);
     const handleStepChange = (nextStep: number) => {
       const isOutOfBounds = nextStep > 4 || nextStep < 0;
@@ -42,6 +32,18 @@ const BookingForm = () => {
   
     // Allow the user to freely go back and forth between visited steps.
     const shouldAllowSelectStep = (step: number) => highestStepVisited >= step && active !== step;
+
+    const form = useForm({
+      mode: 'uncontrolled',
+      initialValues: {
+        PickUpLocation: '',
+        DropOffLocation:'',
+      },
+      validate: {
+        
+      },
+    });
+
   return (
     <div className="w-full flex flex-col items-center">
     <Stepper
@@ -60,7 +62,9 @@ const BookingForm = () => {
         description="Enter Ride Details"
         allowStepSelect={shouldAllowSelectStep(0)}
         classNames={{step:styles.step,stepIcon:styles.stepIcon,verticalSeparator:styles.verticalSeparator}}
-      />
+      >
+      <StepOne form={form}/>
+    </Stepper.Step>
       <Stepper.Step
         icon={<IconMailOpened style={{ width: rem(18), height: rem(18) }} />}
         label="Step 2"
@@ -68,7 +72,9 @@ const BookingForm = () => {
         allowStepSelect={shouldAllowSelectStep(1)}
         classNames={{step:styles.step,stepIcon:styles.stepIcon  }}
         
-      />
+      >
+        <StepTwo />
+      </Stepper.Step>
       <Stepper.Step
         icon={<IconShieldCheck style={{ width: rem(18), height: rem(18) }} />}
         label="Step 3"
@@ -85,7 +91,7 @@ const BookingForm = () => {
         classNames={{step:styles.step,stepIcon:styles.stepIcon}}
       />
     </Stepper>
-    <Tabs defaultValue="gallery" className="w-5/6" color="orange">
+    {/* <Tabs defaultValue="gallery" className="w-5/6" color="orange">
       <Tabs.List grow>
         <Tabs.Tab value="gallery" leftSection={<IconArrowUp />}>
         One Way
@@ -103,7 +109,7 @@ const BookingForm = () => {
         Messages tab content
       </Tabs.Panel>
 
-    </Tabs>
+    </Tabs> */}
     <Group justify="center" mt="xl">
         <Button variant="default" onClick={() => handleStepChange(active - 1)}>
           Back

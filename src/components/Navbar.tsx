@@ -38,11 +38,11 @@ const Navbar = () => {
           className=" w-2/5 flex items-start justify-start flex-col"
         >
           <Image
-            src={"/taxiLogo.jpg"}
+            src={"/taxiLogo.png"}
             alt="not found"
-            width={150}
+            width={100}
             height={80}
-            className="lg:w-[13rem]"
+            className="lg:w-[13rem] bg-orange-500"
           ></Image>
         </Container>
 

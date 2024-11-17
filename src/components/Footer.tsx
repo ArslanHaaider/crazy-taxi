@@ -8,7 +8,7 @@ const Footer = () => {
       <div className="w-full h-2/5 flex justify-center items-center flex-col text-white md:flex  md:flex-row md:h-2/6 md:p-2">
         <div>
           <Image
-            src={"/taxiLogo.jpg"}
+            src={"/taxiLogo.png"}
             alt="not found"
             width={200}
             height={80}
