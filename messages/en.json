@@ -1,0 +1,76 @@
+{
+  "hero": {
+    "tagline": "Travel Securely with Us",
+    "heading1": "Book your taxi from",
+    "heading2": "your doorstep",
+    "calculateFare": "Calculate Fare",
+    "modalTitle": "Calculate Fare"
+  },
+  "whyChooseUs": {
+    "title": "Why choose us?",
+    "fixedPrice": {
+      "title": "FIXED PRICE GUARANTEE",
+      "description": "Begin your trip, whether for leisure or business, with peace of mind. With our fixed rates, there’s no need to worry about extra fees or hidden costs. Both our airport transfers and our pricing are clear and dependable."
+    },
+    "cancelFree": {
+      "title": "CANCEL FOR FREE",
+      "description": "Plans changed? No problem! At FH Airport Transfer, we offer a flexible cancellation policy with no booking or credit card fees, as long as you cancel at least 4 hours before your scheduled journey."
+    },
+    "ourServices": {
+      "title": "OUR SERVICES",
+      "description": "Alongside our airport transfer and shuttle services in Frankfurt, we offer a variety of other options to enhance your travel experience. Sit back and enjoy the ride while we handle all the details. Explore our range of services to ensure a smooth and enjoyable journey."
+    },
+    "reliableTransfers": {
+      "title": "RELIABLE TRANSFERS",
+      "description": "Our airport transfer service in Frankfurt is something you can trust! We offer stress-free, timely, and secure transportation to Frankfurt Airport or any other destination. Our long-standing experience reflects our commitment to quality."
+    },
+    "doorToDoor": {
+      "title": "DOOR-TO-DOOR SERVICE",
+      "description": "Our drivers provide punctual pickup at Frankfurt Airport and take you straight to your destination’s doorstep. We’re also available to pick you up from your home and drive you to the airport on time—more convenient, efficient, and cost-effective than a taxi."
+    },
+    "meetAndGreet": {
+      "title": "MEET & GREET SERVICE",
+      "description": "Even if your flight is delayed, your driver will be waiting for you with a name sign after baggage claim. No need to search or wait—just continue your journey seamlessly."
+    }
+  },
+  "services": {
+    "heading": "Our Services",
+    "subtitle": "Looking for Reliable Transportation to and from Frankfurt Airport?",
+    "description": "We provide Dependable and timely airport transportation service in Frankfurt",
+    "section1Title": "Our services include",
+    "list1_item1": "Door-to-door airport transfer service in Frankfurt, ensuring timely and safe arrival for your flight.",
+  "list1_item2": "Pick-up from Frankfurt Airport with a name sign, providing stress-free recognition and efficient service.",
+  "list1_item3": "Available for travel anywhere in Germany or Europe, including nearby cities like Mainz, Heidelberg, and any other German airport.",
+  "list1_item4": "Extended services for event transfers, city tours, trade fairs, and other destinations across Europe.",
+  "list1_item5": "24/7 availability to accommodate plan changes and last-minute schedules.",
+  "list2_item1": "Airport transfer & airport shuttle",
+  "list2_item2": "Pick up with name tag",
+  "list2_item3": "City tours & event trips",
+  "list2_item4": "Courier service",
+  "list2_item5": "Luggage service"
+},
+  "calculate_price_oneway": "OneWay",
+  "calculate_price_return": "Return",
+  "calculate_price_pickup_location_label": "PickUp Location",
+  "calculate_price_pickup_location_placeholder": "Enter Your Pickup Location",
+  "calculate_price_dropoff_location_label": "DropOff Location",
+  "calculate_price_dropoff_location_placeholder": "Enter Your DropOff Location",
+  "calculate_price_pickup_date_label": "Pickup date",
+  "calculate_price_pickup_date_placeholder": "Pick date",
+  "calculate_price_pick_time_label": "Pick Time",
+  "calculate_price_return_date_label": "Return date",
+  "calculate_price_return_date_placeholder": "Pick date",
+  "calculate_price_return_time_label": "Return Time",
+  "calculate_price_passenger_label": "Passenger(s)",
+  "calculate_price_suitcase_label": "SuitCase(23kgs)",
+  "calculate_price_calculate_fare_button": "Calculate Fare",
+  "Navbar": {
+    "home": "Home",
+    "services": "Services",
+    "about": "About",
+    "callNow": "Call NOW",
+    "emailNow": "Email NOW",
+    "book": "BOOK",
+    "toggleNav": "Toggle navigation",
+    "logoAlt": "Taxi Service Logo"}
+}

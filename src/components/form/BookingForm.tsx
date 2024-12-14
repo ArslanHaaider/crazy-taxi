@@ -1,9 +1,7 @@
 'use client'
-import { Button, Group, Stepper, Tabs, rem } from '@mantine/core';
+import { Button, Group, Stepper, rem } from '@mantine/core';
 import { useForm } from '@mantine/form';
 import {
-  IconArrowUp,
-  IconArrowsUpDown,
   IconCircleCheck,
   IconMailOpened,
   IconShieldCheck,
@@ -11,7 +9,9 @@ import {
 } from '@tabler/icons-react';
 import { useState } from 'react';
 import styles from "./form.module.css";
+import StepFour from './StepFour';
 import StepOne from './StepOne';
+import StepThree from './StepThree';
 import StepTwo from './StepTwo';
 interface BookingForm {
   styles:{ readonly [key: string]: string; }
@@ -21,11 +21,9 @@ const BookingForm = () => {
     const [highestStepVisited, setHighestStepVisited] = useState(active);
     const handleStepChange = (nextStep: number) => {
       const isOutOfBounds = nextStep > 4 || nextStep < 0;
-  
       if (isOutOfBounds) {
         return;
       }
-  
       setActive(nextStep);
       setHighestStepVisited((hSC) => Math.max(hSC, nextStep));
     };
@@ -63,7 +61,9 @@ const BookingForm = () => {
         allowStepSelect={shouldAllowSelectStep(0)}
         classNames={{step:styles.step,stepIcon:styles.stepIcon,verticalSeparator:styles.verticalSeparator}}
       >
+      <div className='p-3'>
       <StepOne form={form}/>
+      </div>
     </Stepper.Step>
       <Stepper.Step
         icon={<IconMailOpened style={{ width: rem(18), height: rem(18) }} />}
@@ -71,7 +71,6 @@ const BookingForm = () => {
         description="Choose a vehicle"
         allowStepSelect={shouldAllowSelectStep(1)}
         classNames={{step:styles.step,stepIcon:styles.stepIcon  }}
-        
       >
         <StepTwo />
       </Stepper.Step>
@@ -81,40 +80,31 @@ const BookingForm = () => {
         description="Contact details"
         allowStepSelect={shouldAllowSelectStep(2)}
         classNames={{step:styles.step,stepIcon:styles.stepIcon  }}
+        className='p-3'
+      >
+        <div className='p-3'> 
+        <StepThree form={form}/>
 
-      />
+        </div>
+      </Stepper.Step>
       <Stepper.Step
         icon={<IconShieldCheck style={{ width: rem(18), height: rem(18) }} />}
         label="Step 4"
         description="Booking Summary"
         allowStepSelect={shouldAllowSelectStep(3)}
         classNames={{step:styles.step,stepIcon:styles.stepIcon}}
-      />
+      >
+        <div className='p-3'>
+        <StepFour/>
+        </div>
+        </Stepper.Step>
+
     </Stepper>
-    {/* <Tabs defaultValue="gallery" className="w-5/6" color="orange">
-      <Tabs.List grow>
-        <Tabs.Tab value="gallery" leftSection={<IconArrowUp />}>
-        One Way
-        </Tabs.Tab>
-        <Tabs.Tab value="messages" leftSection={<IconArrowsUpDown  />}>
-          Return
-        </Tabs.Tab>
-      </Tabs.List>
-
-      <Tabs.Panel value="gallery">
-        <OneWay/>
-      </Tabs.Panel>
-
-      <Tabs.Panel value="messages">
-        Messages tab content
-      </Tabs.Panel>
-
-    </Tabs> */}
-    <Group justify="center" mt="xl">
+    <Group justify="center" mt="xl" mb={'xl'}>
         <Button variant="default" onClick={() => handleStepChange(active - 1)}>
           Back
         </Button>
-        <Button onClick={() => handleStepChange(active + 1)}>Next step</Button>
+       {active !== 3 ?  <Button color='orange' onClick={() => handleStepChange(active + 1)}>Next step</Button>:<Button color='Green' onClick={() => handleStepChange(active + 1)}>Confirm Ride</Button>}
       </Group>
     </div>
   )

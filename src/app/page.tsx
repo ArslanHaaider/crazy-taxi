@@ -1,4 +1,3 @@
-import BookingForm from '@/components/form/BookingForm';
 import Footer from '@/components/Footer';
 import Hero from '@/components/Hero';
 import Navbar from '@/components/Navbar';
@@ -10,7 +9,6 @@ export default function Home() {
       <Navbar/>
       <Hero/>
       <Services/>
-      <BookingForm/>
       <WhyChooseUS/>
       <Footer/>
   </div>;

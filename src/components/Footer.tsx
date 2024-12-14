@@ -18,8 +18,8 @@ const Footer = () => {
         </div>
         <div className="w-full md:w-4/5 md:ml-3 flex justify-center items-center bg-primary ">
           <IconPhone size="2rem" className="text-white" stroke={1.5} />
-          <p>Call for Tax!</p>
-          <p className="text-black">5267-214-392</p>
+          <p>Call for Tax! </p>
+          <p className="text-black"> 06142-61111</p>
         </div>
       </div>
       <div>
@@ -27,35 +27,55 @@ const Footer = () => {
           <div className="text p-2 ">
             <h3 className="text-primary">Links</h3>
             <div className="flex flex-col ">
+            <ul className="m-0">
+              <li className="text-white">
               <Link href={""} className="no-underline text-white text-lg">
                 Home
               </Link>
+              </li>
+              <li className="text-white">
               <Link href={""} className="no-underline text-white text-lg">
                 Services
               </Link>
+              </li>
+              <li className="text-white">
               <Link href={""} className="no-underline text-white text-lg">
                 About
               </Link>
+              </li >
+              <li className="text-white">
               <Link href={""} className="no-underline text-white text-lg">
                 Contact
               </Link>
+              </li>
+            </ul>
             </div>
           </div>
           <div className="text p-2 hidden md:inline-block">
             <h3 className="text-primary">Contact US</h3>
             <div className="flex flex-col ">
+            <ul className="m-0">
+              <li className="text-white">
               <Link href={""} className="no-underline text-white text-lg">
                 Home
               </Link>
+              </li>
+              <li className="text-white">
               <Link href={""} className="no-underline text-white text-lg">
                 Services
               </Link>
+              </li>
+              <li className="text-white">
               <Link href={""} className="no-underline text-white text-lg">
                 About
               </Link>
+              </li >
+              <li className="text-white">
               <Link href={""} className="no-underline text-white text-lg">
                 Contact
               </Link>
+              </li>
+            </ul>
             </div>
           </div>
           <div className="payment p-2">

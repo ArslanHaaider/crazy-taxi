@@ -4,10 +4,25 @@ import { Button } from '@mantine/core'
 import Image from 'next/image'
 import React from 'react'
 
+const carsArray = [{
+  name: 'Mercedies Benz E Class ',
+  cost: '$200',
+  image: '/mercedies.png'
+},{
+  name: 'VolksWagen Touran',
+  cost: '$140',
+  image: '/VolksWagen.Png'
+},{
+  name: 'Mercedies V Class',
+  cost: '$400',
+  image: '/mercediesVClass.Png'
+}]
 const StepTwo = () => {
   return (
     <div  className='w-full h-full flex flex-col items-center justify-center'>
-      <CarCard/>
+      {carsArray.map((car, index) => (
+        <CarCard key={index} name={car.name} cost={car.cost} image={car.image} />
+      ))}
     </div>
   )
 }
@@ -15,18 +30,22 @@ const StepTwo = () => {
 export default StepTwo
 
 
-
-const CarCard = ()=>{
+type CarCardProps = {
+  name: string,
+  cost: string,
+  image: string
+}
+const CarCard = ({name,cost,image}:CarCardProps)=>{
     return (
-        <div className='border border-solid border-black w-3/4 h-52 flex items-center justify-evenly'>
-            <Image src={'/mercedies.png'} width={300} height={150} alt=""/>
+        <div className='border border-solid border-orange-400 w-10/12  h-[500px] md:h-52 flex items-center justify-evenly rounded-md mt-2 flex-col md:flex-row bg-orange-100'>
+            <Image src={image} width={200} height={100} alt="" className='w-52 h-36 md:w-72'/>
             <div className='flex flex-col items-center justify-center'>
-                <h1 className='text-2xl font-bold text-gray-400'>Mercedes-Benz</h1>
-                <h1 className='text-2xl font-bold'>GLA 200</h1>
+                <h1 className='text-2xl font-bold text-gray-400'>Model</h1>
+                <h1 className='text-xl font-bold text-wrap w-30 '>{name}</h1>
             </div>
             <div className='flex flex-col items-center justify-center'>
-                <h1 className='text-xl font-bold text-gray-400'>Cost</h1>
-                <h1 className='text-xl font-bold'>$100</h1>
+                <h1 className='text-2xl font-bold text-gray-400'>Cost</h1>
+                <h1 className='text-xl font-bold'>{cost}</h1>
             </div>
             <Button variant="filled" color={'orange'}>Choose</Button>
         </div>

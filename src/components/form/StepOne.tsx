@@ -1,6 +1,6 @@
-import { ActionIcon, Button, Checkbox, Group, NativeSelect, rem, TextInput } from '@mantine/core';
-import { DatePicker, DatePickerInput, TimeInput } from '@mantine/dates';
-import { TransformedValues, useForm, UseFormReturnType } from '@mantine/form';   
+import { ActionIcon, NativeSelect, rem, TextInput } from '@mantine/core';
+import { DatePickerInput, TimeInput } from '@mantine/dates';
+import { UseFormReturnType } from '@mantine/form';
 import { IconClock, IconLocation } from '@tabler/icons-react';
 import { useRef, useState } from 'react';
 interface FormValue {
@@ -20,7 +20,7 @@ const StepOne = (form:{form:UseFormReturnType<FormValue>}) =>{
     return (
       <>
       {}
-        <div className="w-full h-96 border-solid border-orange-400 bg-yellow-50">
+        <div className="w-full h-72 border-solid border-orange-400 bg-yellow-50">
         <form onSubmit={formProp.onSubmit((values) => console.log(values))}>
       <TextInput
         withAsterisk

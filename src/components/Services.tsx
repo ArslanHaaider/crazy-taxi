@@ -1,63 +1,76 @@
 "use client";
-import { Image, List, rem, ThemeIcon } from "@mantine/core";
+import { List, rem, ThemeIcon } from "@mantine/core";
 import { IconCircleCheck } from "@tabler/icons-react";
-
+import { motion } from "motion/react";
+import { useTranslations } from "next-intl";
 const Services = () => {
+  const t = useTranslations("services");
+  const list1 = [
+    t("list1_item1"),
+    t("list1_item2"),
+    t("list1_item3"),
+    t("list1_item4"),
+    t("list1_item5")
+  ];
+  
+  const list2 = [
+    t("list2_item1"),
+    t("list2_item2"),
+    t("list2_item3"),
+    t("list2_item4"),
+    t("list2_item5")
+  ];
   return (
-    <div className="relative z-10 w-full">
-      <h1 className="text-orange-500 pt-5 m-0 text-center">Our Services</h1>
+    <div className="relative z-10 w-full bg-yellow-100 p-3">
+      <motion.h1
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1, transition: { duration: 1 } }}
+        className="text-orange-500 pt-5 m-0 text-center text-3xl"
+      >
+        {t("heading")}
+      </motion.h1>
       <div className="w-full flex justify-center flex-col items-center">
-        <h4 className="text-center p-1">
-          Looking for Reliable Transportation to and from Frankfurt Airport?
-        </h4>
-        <Image src={"/services.jpg"} alt="taxi" className="w-4/5"></Image>
+        <h4 className="text-center p-1 text-2xl">{t("subtitle")}</h4>
       </div>
       <div className="p-1">
-        <h4 className="text-center text-orange-400">
-          We provide Dependable and timely airport transportation service in
-          Frankfur
-        </h4>
+        <h4 className="text-center text-orange-400">{t("description")}</h4>
+        <div className="md:flex md:flex-row md:items-center flex flex-col items-center justify-center">
+          <motion.img
+            initial={{ opacity: 0, x: -100 }}
+            whileInView={{ opacity: 1, x: 0, transition: { duration: 1 } }}
+            src={"/taxiVector.jpg"}
+            alt="taxi"
+            className="md:w-2/5 w-4/5"
+          />
+          <List
+            spacing="xs"
+            size="sm"
+            center
+            className="p-1"
+            icon={
+              <ThemeIcon color="orange" size={24} radius="xl" className="ml-3">
+                <IconCircleCheck style={{ width: rem(16), height: rem(16) }} />
+              </ThemeIcon>
+            }
+          >
+            {list1.map((item: string, index: number) => (
+              <List.Item key={index}>{item}</List.Item>
+            ))}
+          </List>
+        </div>
+      </div>
+      <h4 className="text-center text-5xl text-orange-400 m-0 mt-4">
+        {t("section1Title")}
+      </h4>
+      <div className="md:flex md:flex-row md:items-center md:justify-center flex flex-col items-center justify-center">
+        <motion.img
+          initial={{opacity: 0, x: -100}}
+          whileInView={{ opacity: 1, x: 0, transition: { duration: 1 } }}
+          src={"/taxiVector2.png"}
+          alt="taxi"
+          className="md:w-2/5 w-4/5"
+        />
         <List
-          spacing="xs"
-          size="sm"
-          center
-          className="p-1"
-          icon={
-            <ThemeIcon color="orange" size={24} radius="xl" className="ml-3">
-              <IconCircleCheck style={{ width: rem(16), height: rem(16) }} />
-            </ThemeIcon>
-          }
-        >
-          <List.Item>
-            Door-to-door airport transfer service in Frankfurt, ensuring timely
-            and safe arrival for your flight.
-          </List.Item>
-          <List.Item>
-            Pick-up from Frankfurt Airport with a name sign, providing
-            stress-free recognition and efficient service.
-          </List.Item>
-          <List.Item>
-            Available for travel anywhere in Germany or Europe, including nearby
-            cities like Mainz, Heidelberg, and any other German airport.
-          </List.Item>
-          <List.Item>
-            Extended services for event transfers, city tours, trade fairs, and
-            other destinations across Europe.
-          </List.Item>
-          <List.Item>
-            24/7 availability to accommodate plan changes and last-minute
-            schedules.
-          </List.Item>
-        </List>
-      </div>
-      <div className="w-full flex justify-center flex-col items-center">
-                  <h4 className="text-center p-1 text-orange-400">
-          Our services include
-        </h4>
-        <Image src={"/services2.jpg"} alt="taxi" className="w-5/6"></Image>
-      </div>
-      <div>
-      <List
           spacing="xs"
           size="sm"
           center
@@ -68,22 +81,10 @@ const Services = () => {
             </ThemeIcon>
           }
         >
-          <List.Item>
-          Airport transfer & airport shuttle
-          </List.Item>
-          <List.Item>
-          Pick up with name tag *
-          </List.Item>
-          <List.Item>
-          City tours & event trips
-          </List.Item>
-          <List.Item>
-          Courier service
-          </List.Item>
-          <List.Item>
-          Luggage service
-          </List.Item>
-        </List> 
+          {list2.map((item: string, index: number) => (
+            <List.Item key={index}>{item}</List.Item>
+          ))}
+        </List>
       </div>
     </div>
   );
