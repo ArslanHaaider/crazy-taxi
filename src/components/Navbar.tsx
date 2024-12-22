@@ -48,9 +48,9 @@ const Navbar = () => {
           <Image
             src={"/taxiLogo.png"}
             alt={t("logoAlt")}
-            width={100}
+            width={70}
             height={80}
-            className="lg:w-[13rem] bg-orange-500"
+            className="lg:w-[10rem] bg-orange-500"
             onClick={() => router.push("/")}
           ></Image>
         </Container>
@@ -64,7 +64,7 @@ const Navbar = () => {
               <IconPhone size="2rem" color="orange" stroke={1.5} />
               <div className="flex flex-col justify-center">
                 <p className="m-0 text-lg md:inline">{t("callNow")}</p>
-                <p className="m-0 font-bold md:inline">0614-261111</p>
+                <p className="m-0 font-bold md:inline">06142-61111</p>
               </div>
             </Container>
             <Container
@@ -75,7 +75,7 @@ const Navbar = () => {
               <div className="flex flex-col justify-center">
                 <p className="m-0 text-lg">{t("emailNow")}</p>
                 <p className="m-0 font-bold text-lg md:inline line-block">
-                  info.Ridek@Mail.com
+                  taxiraunheim@icloud.com
                 </p>
               </div>
             </Container>

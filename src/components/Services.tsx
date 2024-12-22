@@ -38,7 +38,7 @@ const Services = () => {
           <motion.img
             initial={{ opacity: 0, x: -100 }}
             whileInView={{ opacity: 1, x: 0, transition: { duration: 1 } }}
-            src={"/taxiVector.jpg"}
+            src={"/taxiVector.png"}
             alt="taxi"
             className="md:w-2/5 w-4/5"
           />
@@ -59,16 +59,16 @@ const Services = () => {
           </List>
         </div>
       </div>
-      <h4 className="text-center text-5xl text-orange-400 m-0 mt-4">
+      <h4 className="text-center text-5xl text-orange-400 m-0 mt-4 mb-4">
         {t("section1Title")}
       </h4>
       <div className="md:flex md:flex-row md:items-center md:justify-center flex flex-col items-center justify-center">
         <motion.img
           initial={{opacity: 0, x: -100}}
           whileInView={{ opacity: 1, x: 0, transition: { duration: 1 } }}
-          src={"/taxiVector2.png"}
+          src={"/taxiVector2.jpg"}
           alt="taxi"
-          className="md:w-2/5 w-4/5"
+          className="md:w-2/6 w-4/5"
         />
         <List
           spacing="xs"

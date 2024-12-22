@@ -54,7 +54,7 @@ const Hero = () => {
           </Button>
         </div>
         <div className='md:overflow-hidden w-1/2 md:3/6 h-2/5'>
-          <div className="bg-[url('/carBg.png')] bg-contain bg-center bg-no-repeat w-full h-full animate-pulse-scale">
+          <div className="bg-[url('/mercedies.png')] bg-contain bg-center bg-no-repeat w-full h-full animate-pulse-scale">
           </div>
         </div>
       </div>

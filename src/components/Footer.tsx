@@ -10,9 +10,9 @@ const Footer = () => {
           <Image
             src={"/taxiLogo.png"}
             alt="not found"
-            width={200}
+            width={100}
             height={80}
-            className="lg:w-[13rem]"
+            className="lg:w-[10rem]"
           ></Image>
           <p>Travel Securely With US!</p>
         </div>
@@ -25,7 +25,7 @@ const Footer = () => {
       <div>
         <div className="flex justify-between md:justify-around">
           <div className="text p-2 ">
-            <h3 className="text-primary">Links</h3>
+            <h3 className="text-primary text-center">Links</h3>
             <div className="flex flex-col ">
             <ul className="m-0">
               <li className="text-white">
@@ -52,7 +52,7 @@ const Footer = () => {
             </div>
           </div>
           <div className="text p-2 hidden md:inline-block">
-            <h3 className="text-primary">Contact US</h3>
+            <h3 className="text-primary text-end ml-6">Contact US</h3>
             <div className="flex flex-col ">
             <ul className="m-0">
               <li className="text-white">
