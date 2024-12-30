@@ -1,10 +1,12 @@
 {
   "hero": {
     "tagline": "Travel Securely with Us",
-    "heading1": "Book your taxi from",
+    "heading1": "Book your ride from",
     "heading2": "your doorstep",
     "calculateFare": "Calculate Fare",
-    "modalTitle": "Calculate Fare"
+    "modalTitle": "Calculate Fare",
+    "modalTitle2":"Fixed Price Routes",
+    "fixedPrice":"Fixed Price Routes"
   },
   "whyChooseUs": {
     "title": "Why choose us?",

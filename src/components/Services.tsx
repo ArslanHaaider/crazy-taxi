@@ -25,7 +25,7 @@ const Services = () => {
       <motion.h1
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1, transition: { duration: 1 } }}
-        className="text-orange-500 pt-5 m-0 text-center text-3xl"
+        className="text-orange-500 pt-5 m-0 text-center text-4xl"
       >
         {t("heading")}
       </motion.h1>

@@ -4,16 +4,20 @@ import { useDisclosure } from '@mantine/hooks';
 import { IconCar } from '@tabler/icons-react';
 import { motion } from "motion/react";
 import CalculatePrice from './CalculatePrice';
+import FixedPrices from './FixedPrice'; // Assuming you have a FixedPrices component
 import { useTranslations } from 'next-intl';
 
 const Hero = () => {
+  // UseDisclosure for the first modal
   const [opened, { open, close }] = useDisclosure(false);
+  // UseDisclosure for the second modal
+  const [openedFixedPrices, { open: openFixedPrices, close: closeFixedPrices }] = useDisclosure(false);
   const t = useTranslations('hero');
 
   return (
-    <div className="bg-[url('/heroBg.jpg')] bg-cover bg-center w-100vw h-[100vh] flex justify-center font-sans overflow-hidden" >
+    <div className="bg-[url('/heroBg.jpg')] bg-cover bg-center w-100vw h-[100vh] flex justify-center font-sans overflow-hidden">
       <div className='flex text-white w-full flex-col justify-end items-center md:flex-row lg-flex-row'>
-        <div className='w-full flex flex-col items-center justify-evenly h-1/3 md:h-2/4 md:w-3/6'>
+        <div className='w-full flex flex-col items-center justify-evenly h-1/3 md:h-3/4 md:w-3/6'>
           <Text size='xl'>{t('tagline')}</Text>
           <motion.h1 
             initial={{opacity:0}} 
@@ -31,6 +35,8 @@ const Hero = () => {
           >
             {t('heading2')}
           </motion.h1>
+          
+          {/* First Modal for Calculate Price */}
           <Modal 
             opened={opened} 
             onClose={close} 
@@ -39,18 +45,43 @@ const Hero = () => {
             size='xl' 
             className='bg-orange-500'
             styles={{
-              content:{height:"30rem"},
-              title:{color:"orange",fontSize:"1.5rem",fontWeight:"bold"}
+              content: { height: "30rem" },
+              title: { color: "orange", fontSize: "1.5rem", fontWeight: "bold" }
             }}
           >
-            <CalculatePrice/>
+            <CalculatePrice />
           </Modal>
+
+          {/* Second Modal for Fixed Prices */}
+          <Modal
+            opened={openedFixedPrices}
+            onClose={closeFixedPrices}
+            title={t('modalTitle2')}
+            centered
+            size="xl"
+            className="bg-orange-500"
+            styles={{
+              content: { height: "30rem" },
+              title: { color: "orange", fontSize: "1.5rem", fontWeight: "bold" },
+            }}
+          >
+            <FixedPrices /> {/* Your fixed prices component */}
+          </Modal>
+
+          {/* Button to open Calculate Price Modal */}
           <Button 
-            className="w-3/5 h-12 mb-10 text-2xl md:w-2/4 animate-pulse-scale bg-white text-orange-500 hover:text-white hover:bg-orange-500" 
+            className="w-3/5 h-12 mb-3 text-2xl md:w-2/4 animate-pulse-scale bg-white text-orange-500 hover:text-white hover:bg-orange-500" 
             onClick={open} 
             rightSection={<IconCar size={30} />}
           >
             {t('calculateFare')}
+          </Button>
+            {/* Button to open Fixed Prices Modal */}
+          <Button 
+            className="w-3/5 h-12 mb-10 text-2xl md:w-2/4 animate-pulse-scale bg-white text-orange-500 hover:text-white hover:bg-orange-500" 
+            onClick={openFixedPrices} 
+          >
+            {t('fixedPrice')} {/* Add the correct translation key for the button */}
           </Button>
         </div>
         <div className='md:overflow-hidden w-1/2 md:3/6 h-2/5'>
@@ -59,7 +90,7 @@ const Hero = () => {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default Hero
+export default Hero;
