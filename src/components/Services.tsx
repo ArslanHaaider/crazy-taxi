@@ -81,9 +81,11 @@ const Services = () => {
             </ThemeIcon>
           }
         >
+          
           {list2.map((item: string, index: number) => (
             <List.Item key={index}>{item}</List.Item>
           ))}
+
         </List>
       </div>
     </div>
