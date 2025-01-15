@@ -17,6 +17,7 @@
     "@react-google-maps/api": "^2.20.5",
     "@tabler/icons-react": "^3.19.0",
     "dayjs": "^1.11.13",
+    "mailersend": "^2.3.0",
     "motion": "^11.11.17",
     "next": "14.2.15",
     "next-intl": "^3.25.1",

@@ -5,7 +5,8 @@ import {
   IconCircleCheck,
   IconMailOpened,
   IconShieldCheck,
-  IconUserCheck
+  IconUserCheck,
+  IconCircleCheckFilled
 } from '@tabler/icons-react';
 import { useState } from 'react';
 import styles from "./form.module.css";
@@ -41,7 +42,7 @@ interface FormValues {
 }
 
 const BookingForm = () => {
-  const [active, setActive] = useState(3);
+  const [active, setActive] = useState(0);
   const [highestStepVisited, setHighestStepVisited] = useState(active);
   
   const form = useForm<FormValues>({
@@ -125,15 +126,22 @@ const BookingForm = () => {
 
   const shouldAllowSelectStep = (step: number) => highestStepVisited >= step && active !== step;
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     if (validateStep(3)) {
       // Handle form submission
+      handleStepChange(active + 1)
+      const submit = await fetch("http://localhost:3000/api/mail",{
+        method:"POST",
+        body:JSON.stringify(form.values)
+      })
+      console.log(submit)
+      console.log("Its working")
       console.log('Form submitted:', form.values);
     }
   };
 
   return (
-    <div className="w-full flex flex-col items-center">
+    <div className="w-full flex flex-col items-center font-serif">
       <Stepper
         active={active}
         color="orange"
@@ -189,20 +197,29 @@ const BookingForm = () => {
             <StepFour form={form} />
           </div>
         </Stepper.Step>
+
+        <Stepper.Completed>
+          <div className='flex items-center justify-center w-full border border-red- bg-orange-200 p-5  '>
+       
+          <p className='text-lg text-center md:text-md sm:text-sm'>Congratulations! Your ride is being booked you will recieve a confirmation call shortly!    <IconCircleCheckFilled className='w-[20rem] text-green-500 ' /></p>
+          </div>
+        </Stepper.Completed>
       </Stepper>
 
       <Group justify="center" mt="xl" mb={'xl'}>
         <Button variant="default" onClick={() => handleStepChange(active - 1)}>
           Back
         </Button>
-        {active !== 3 ? (
+        {active < 3 ? (
           <Button color='orange' onClick={() => handleStepChange(active + 1)}>
             Next step
           </Button>
         ) : (
-          <Button color='green' onClick={handleSubmit}>
+          active < 4 ?(
+            <Button color='green' onClick={handleSubmit}>
             Confirm Ride
           </Button>
+          ):(<></>)
         )}
       </Group>
     </div>

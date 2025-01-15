@@ -1,8 +1,7 @@
-// StepFour.tsx
 import { Divider, SegmentedControl } from '@mantine/core';
 import { UseFormReturnType } from '@mantine/form';
-import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
-
+import { GoogleMap, useJsApiLoader, DirectionsRenderer } from '@react-google-maps/api';
+import { useEffect, useState } from 'react';
 
 interface FormValues {
   pickUpLocation: string;
@@ -22,49 +21,79 @@ interface FormValues {
   duration?: string;
   estimatedPrice?: number;
 }
+
 const carsArray = [
-    {
-      id: 'mercedes-e',
-      name: 'Mercedies Benz E Class',
-      cost: '$200',
-      image: '/mercedies.png',
-    },
-    {
-      id: 'volkswagen',
-      name: 'VolksWagen Touran',
-      cost: '$140',
-      image: '/VolksWagen.Png',
-    },
-    {
-      id: 'mercedes-v',
-      name: 'Mercedies V Class',
-      cost: '$400',
-      image: '/mercediesVClass.Png',
-    },
-  ];
+  {
+    id: 'mercedes-e',
+    name: 'Mercedes Benz E Class',
+    cost: '$200',
+    image: '/mercedes.png',
+  },
+  {
+    id: 'volkswagen',
+    name: 'VolksWagen Touran',
+    cost: '$140',
+    image: '/VolksWagen.png',
+  },
+  {
+    id: 'mercedes-v',
+    name: 'Mercedes V Class',
+    cost: '$400',
+    image: '/mercedesVClass.png',
+  },
+];
 
 const StepFour = ({ form }: { form: UseFormReturnType<FormValues> }) => {
+  const [directionResult, setDirectionResult] = useState<google.maps.DirectionsResult | undefined>(undefined);
+  const [paypalLoaded, setPaypalLoaded] = useState(false);
+
+  useEffect(() => {
+    const fetchDirections = async () => {
+      try {
+        const directionsService = new google.maps.DirectionsService();
+        const result = await directionsService.route({
+          origin: form.values.pickUpLocation,
+          destination: form.values.dropOffLocation,
+          travelMode: google.maps.TravelMode.DRIVING,
+        });
+        setDirectionResult(result); // Store the result in state
+      } catch (error) {
+        console.error('Error fetching directions:', error);
+      }
+    };
+
+    if (form.values.pickUpLocation && form.values.dropOffLocation) {
+      fetchDirections();
+    }
+  }, [form.values.pickUpLocation, form.values.dropOffLocation]);
+
+  useEffect(() => {
+    // Load PayPal SDK dynamically
+    const script = document.createElement('script');
+    script.src = `https://www.paypal.com/sdk/js?client-id=${process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID}&currency=USD`;
+    script.addEventListener('load', () => setPaypalLoaded(true));
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
   const selectedCar = carsArray.find(car => car.id === form.values.selectedCar);
   const { isLoaded } = useJsApiLoader({
     googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY!,
     libraries: ['places'],
   });
+
   const containerStyle = {
     width: '100%',
     height: '300px',
   };
-  const defaultCenter = form.values.pickUpLocation ? form.values.pickUpLocation : { lat: 50.110924, lng: 8.682127};
-//   const defaultCenter = {
-//     lat: 37.7749, // Default latitude (example: San Francisco)
-//     lng: -122.4194, // Default longitude
-//   };
-  if (!isLoaded) return <span>Loading...</span>;
 
-  // Calculate total
-//   const rideCharges = selectedCar ? parseInt(selectedCar.cost.replace('$', '')) : 0;
-//   const bookingFee = 3;
-//   const tax = Math.round(rideCharges * 0.1);
-//   const total = rideCharges + bookingFee + tax;
+  const defaultCenter = { lat: 50.110924, lng: 8.682127 }; // Default center if no location is provided
+
+
+  if (!isLoaded) return <span>Loading...</span>;
 
   return (
     <div className="w-full md:flex gap-5">
@@ -133,41 +162,60 @@ const StepFour = ({ form }: { form: UseFormReturnType<FormValues> }) => {
           <p>${form.values.estimatedPrice}</p>
           <Divider size="xs" color="orange" />
         </div>
-        {/* <div className="w-full">
-          <h3>Booking Fee</h3>
-          <p>${bookingFee}</p>
-          <Divider size="xs" color="orange" />
-        </div>
-        <div className="w-full">
-          <h3>Tax</h3>
-          <p>${tax}</p>
-          <Divider size="xs" color="orange" />
-        </div>
-        <div className="w-full">
-          <h3>Total</h3>
-          <p>${total}</p>
-          <Divider size="xs" color="orange" />
-        </div> */}
         <div className="w-full">
           <h3>Payment Method</h3>
           <SegmentedControl
             size="md"
             color="orange"
-            data={['Paypal', 'Card', 'Cash']}
+            data={['Paypal', 'Cash']}
             value={form.values.paymentMethod}
             onChange={(value) => form.setFieldValue('paymentMethod', value)}
           />
         </div>
-            <div className='w-full h-74'>
-            <GoogleMap
-              mapContainerStyle={containerStyle}
-              center={defaultCenter}
-              zoom={12}
-              onLoad={(map) => {
-                console.log('Map loaded:', map);
-              }}
-            />
-            </div>
+        {(form.values.paymentMethod === 'Paypal' || form.values.paymentMethod === 'Card') && paypalLoaded && (
+          <div className="w-full mt-5">
+            <h3>Pay with {form.values.paymentMethod === 'Paypal' ? 'PayPal' : 'Card'}</h3>
+            <div id="paypal-button-container"></div>
+            <script>
+              {`
+                paypal.Buttons({
+                  createOrder: (data: any, actions: any) => {
+                    return actions.order.create({
+                      purchase_units: [{
+                        amount: {
+                          value: '${form.values.estimatedPrice}',
+                        },
+                      }],
+                    });
+                  },
+                  onApprove: (data: any, actions: any) => {
+                    return actions.order.capture().then((details: any) => {
+                      handlePaymentSuccess(details);
+                    });
+                  },
+                }).render('#paypal-button-container');
+              `}
+            </script>
+          </div>
+        )}
+        {form.values.paymentMethod === 'Cash' && (
+          <div className="w-full mt-5">
+            <h3>Pay with Cash</h3>
+            <p>Please pay the driver in cash upon arrival.</p>
+          </div>
+        )}
+        <div className='w-full h-74'>
+          <GoogleMap
+            mapContainerStyle={containerStyle}
+            zoom={12}
+            center={defaultCenter}
+            onLoad={(map) => {
+              console.log('Map loaded:', map);
+            }}
+          >
+            {directionResult && <DirectionsRenderer directions={directionResult} />}
+          </GoogleMap>
+        </div>
       </div>
     </div>
   );

@@ -19,7 +19,7 @@ const CalculatePrice = () => {
   const [duration, setDuration] = useState("");
   const [price, setPrice] = useState(0);
   
-  const ref = useRef(null);
+  const ref = useRef<HTMLInputElement | null>(null);
   const { isLoaded } = useJsApiLoader({
     googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY!,
     libraries: ['places'],
@@ -135,7 +135,7 @@ const CalculatePrice = () => {
             color="orange"
             ref={ref}
             rightSection={
-              <ActionIcon variant="subtle" color="gray" onClick={() => ref.current?.showPicker()}>
+              <ActionIcon variant="subtle" color="gray" onClick={() => ref.current?.showPicker?.()}>
                 <IconClock style={{ width: rem(16), height: rem(16) }} stroke={1.5} />
               </ActionIcon>
             }
