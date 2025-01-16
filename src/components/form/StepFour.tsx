@@ -67,17 +67,6 @@ const StepFour = ({ form }: { form: UseFormReturnType<FormValues> }) => {
     }
   }, [form.values.pickUpLocation, form.values.dropOffLocation]);
 
-  useEffect(() => {
-    // Load PayPal SDK dynamically
-    const script = document.createElement('script');
-    script.src = `https://www.paypal.com/sdk/js?client-id=${process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID}&currency=USD`;
-    script.addEventListener('load', () => setPaypalLoaded(true));
-    document.body.appendChild(script);
-
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
 
   const selectedCar = carsArray.find(car => car.id === form.values.selectedCar);
   const { isLoaded } = useJsApiLoader({

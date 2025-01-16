@@ -46,7 +46,7 @@ const Hero = () => {
             className='bg-orange-500'
             styles={{
               content: { height: "30rem" },
-              title: { color: "orange", fontSize: "1.5rem", fontWeight: "bold" }
+              title: { color: "orange", fontSize: "1.5rem", fontWeight: "bold"},
             }}
           >
             <CalculatePrice />
@@ -59,7 +59,7 @@ const Hero = () => {
             title={t('modalTitle2')}
             centered
             size="xl"
-            className="bg-orange-500"
+            className="bg-orange-500 p-5"
             styles={{
               content: { height: "30rem" },
               title: { color: "orange", fontSize: "1.5rem", fontWeight: "bold" },
@@ -70,7 +70,7 @@ const Hero = () => {
 
           {/* Button to open Calculate Price Modal */}
           <Button 
-            className="w-3/5 h-12 mb-3 text-2xl md:w-2/4 animate-pulse-scale bg-white text-orange-500 hover:text-white hover:bg-orange-500" 
+            className=" h-12 mb-3 text-2xl animate-pulse-scale bg-white text-orange-500 hover:text-white hover:bg-orange-500" 
             onClick={open} 
             rightSection={<IconCar size={30} />}
           >
@@ -78,10 +78,10 @@ const Hero = () => {
           </Button>
             {/* Button to open Fixed Prices Modal */}
           <Button 
-            className="w-3/5 h-12 mb-10 text-2xl md:w-2/4 animate-pulse-scale bg-white text-orange-500 hover:text-white hover:bg-orange-500" 
+            className=" h-12 mb-10 text-2xl animate-pulse-scale bg-white text-orange-500 hover:text-white hover:bg-orange-500" 
             onClick={openFixedPrices} 
           >
-            {t('fixedPrice')} {/* Add the correct translation key for the button */}
+            {t('fixedPrice')} 
           </Button>
         </div>
         <div className='md:overflow-hidden w-1/2 md:3/6 h-2/5'>

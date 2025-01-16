@@ -129,15 +129,19 @@ const BookingForm = () => {
   const handleSubmit = async () => {
     if (validateStep(3)) {
       // Handle form submission
-      handleStepChange(active + 1)
-      const submit = await fetch("http://localhost:3000/api/mail",{
-        method:"POST",
-        body:JSON.stringify(form.values)
-      })
-      console.log(submit)
-      console.log("Its working")
-      console.log('Form submitted:', form.values);
-    }
+      try{
+        handleStepChange(active + 1)
+        const submit = await fetch("http://localhost:3000/api/mail",{
+          method:"POST",
+          body:JSON.stringify(form.values)
+        })
+        console.log(submit)
+        console.log("Its working")
+        console.log('Form submitted:', form.values);
+      }catch(e){
+        console.log(e)
+      }
+      }
   };
 
   return (
