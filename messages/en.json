@@ -74,5 +74,107 @@
     "emailNow": "Email NOW",
     "book": "BOOK",
     "toggleNav": "Toggle navigation",
-    "logoAlt": "Taxi Service Logo"}
+    "logoAlt": "Taxi Service Logo"},
+      "pickupLocation": {
+        "label": "Pickup Location",
+        "placeholder": "Enter your pickup location"
+      },
+      "dropOffLocation": {
+        "label": "Drop-off Location",
+        "placeholder": "Enter your drop-off location"
+      },
+      "pickupDate": {
+        "label": "Pickup Date",
+        "placeholder": "Select a date"
+      },
+      "pickupTime": {
+        "label": "Pickup Time"
+      },
+      "passengers": {
+        "label": "Passengers"
+      },
+      "suitcases": {
+        "label": "Suitcases (23kg)"
+      },
+        "step1": {
+          "label": "Step 1",
+          "description": "Enter ride details"
+        },
+        "step2": {
+          "label": "Step 2",
+          "description": "Choose a vehicle"
+        },
+        "step3": {
+          "label": "Step 3",
+          "description": "Contact details"
+        },
+        "step4": {
+          "label": "Step 4",
+          "description": "Booking summary"
+        },
+        "completed": {
+          "message": "Congratulations! Your ride is being booked. You will receive a confirmation call shortly!"
+        },
+        "buttons": {
+          "back": "Back",
+          "nextStep": "Next step",
+          "confirmRide": "Confirm ride"
+        },
+        "carSelection": {
+    "error": "Bitte wählen Sie ein Auto aus"
+  },
+  "stepThree": {
+    "firstName": {
+      "label": "First Name",
+      "placeholder": "Your First Name"
+    },
+    "lastName": {
+      "label": "Last Name",
+      "placeholder": "Your Last Name"
+    },
+    "email": {
+      "label": "Email",
+      "placeholder": "Enter Your Email"
+    },
+    "contactNo": {
+      "label": "Contact No",
+      "placeholder": "Enter Your Contact No"
+    },
+    "remarks": {
+      "label": "Remarks",
+      "placeholder": "Any remarks"
+    }
+  },
+  "stepFour": {
+    "rideInfo": {
+      "title": "Ride Info",
+      "rideType": {
+        "label": "Ride Type",
+        "value": "One Way"
+      },
+      "carModel": {
+        "label": "Car Model",
+        "placeholder": "Not selected"
+      },
+      "from": "From",
+      "to": "To",
+      "departureDate": "Departure Date",
+      "departureTime": "Departure Time",
+      "numberOfPassengers": "Number of Passengers",
+      "luggage": "Luggage"
+    },
+    "contactBillingInfo": {
+      "title": "Contact and Billing Info",
+      "name": "Name",
+      "email": "Email",
+      "phoneNo": "Phone No",
+      "rideCharges": "Ride Charges",
+      "paymentMethod": "Payment Method",
+      "paymentMethods": ["Paypal", "Cash"]
+    }
+  },
+  "bookingHeading":{
+    "partOne":"BOOK YOUR",
+    "partTwo":"RIDE!"
+  }
 }

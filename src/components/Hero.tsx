@@ -13,7 +13,6 @@ const Hero = () => {
   // UseDisclosure for the second modal
   const [openedFixedPrices, { open: openFixedPrices, close: closeFixedPrices }] = useDisclosure(false);
   const t = useTranslations('hero');
-
   return (
     <div className="bg-[url('/heroBg.jpg')] bg-cover bg-center w-100vw h-[100vh] flex justify-center font-sans overflow-hidden">
       <div className='flex text-white w-full flex-col justify-end items-center md:flex-row lg-flex-row'>
@@ -67,7 +66,7 @@ const Hero = () => {
           >
             <FixedPrices /> {/* Your fixed prices component */}
           </Modal>
-
+          
           {/* Button to open Calculate Price Modal */}
           <Button 
             className=" h-12 mb-3 text-2xl animate-pulse-scale bg-white text-orange-500 hover:text-white hover:bg-orange-500" 

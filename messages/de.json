@@ -76,5 +76,110 @@
     "book": "BUCHEN",
     "toggleNav": "Navigation umschalten",
     "logoAlt": "Taxi-Service-Logo"
+  },
+    "step1": {
+      "label": "Schritt 1",
+      "description": "Fahrdetails eingeben"
+    },
+    "step2": {
+      "label": "Schritt 2",
+      "description": "Fahrzeug auswählen"
+    },
+    "step3": {
+      "label": "Schritt 3",
+      "description": "Kontaktdaten"
+    },
+    "step4": {
+      "label": "Schritt 4",
+      "description": "Buchungsübersicht"
+    },
+    "completed": {
+      "message": "Herzlichen Glückwunsch! Ihre Fahrt wird gebucht. Sie erhalten in Kürze einen Bestätigungsanruf!"
+    },
+    "buttons": {
+      "back": "Zurück",
+      "nextStep": "Nächster Schritt",
+      "confirmRide": "Fahrt bestätigen"
+    },
+      "pickupLocation": {
+        "label": "Abholort",
+        "placeholder": "Geben Sie Ihren Abholort ein"
+      },
+      "dropOffLocation": {
+        "label": "Abgabeort",
+        "placeholder": "Geben Sie Ihren Abgabeort ein"
+      },
+      "pickupDate": {
+        "label": "Abholdatum",
+        "placeholder": "Datum auswählen"
+      },
+      "pickupTime": {
+        "label": "Abholzeit"
+      },
+      "passengers": {
+        "label": "Passagiere"
+      },
+      "suitcases": {
+        "label": "Koffer (23kg)"
+      },
+      "carSelection": {
+    "error": "Please select a car"
+  },
+    "stepThree": {
+      "firstName": {
+        "label": "Vorname",
+        "placeholder": "Ihr Vorname"
+      },
+      "lastName": {
+        "label": "Nachname",
+        "placeholder": "Ihr Nachname"
+      },
+      "email": {
+        "label": "E-Mail",
+        "placeholder": "Geben Sie Ihre E-Mail ein"
+      },
+      "contactNo": {
+        "label": "Telefonnummer",
+        "placeholder": "Geben Sie Ihre Telefonnummer ein"
+      },
+      "remarks": {
+        "label": "Bemerkungen",
+        "placeholder": "Irgendwelche Bemerkungen"
+      }
+    },
+    "stepFour": {
+      "rideInfo": {
+        "title": "Fahrinformationen",
+        "rideType": {
+          "label": "Fahrttyp",
+          "value": "Einfach"
+        },
+        "carModel": {
+          "label": "Fahrzeugmodell",
+          "placeholder": "Nicht ausgewählt"
+        },
+        "from": "Von",
+        "to": "Nach",
+        "departureDate": "Abfahrtsdatum",
+        "departureTime": "Abfahrtszeit",
+        "numberOfPassengers": "Anzahl der Passagiere",
+        "luggage": "Gepäck"
+      },
+      "contactBillingInfo": {
+        "title": "Kontakt- und Abrechnungsinformationen",
+        "name": "Name",
+        "email": "E-Mail",
+        "phoneNo": "Telefonnummer",
+        "rideCharges": "Fahrtkosten",
+        "paymentMethod": "Zahlungsmethode",
+        "paymentMethods": ["Paypal", "Barzahlung"]
+      }
+    },
+    "bookingHeading":{
+      "partOne":"Buche deine",
+      "partTwo":"Fahrt"
+    }
   }
-}
+  
+  
+  

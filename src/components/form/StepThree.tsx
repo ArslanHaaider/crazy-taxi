@@ -2,6 +2,7 @@
 import { rem, Textarea, TextInput } from '@mantine/core';
 import { UseFormReturnType } from '@mantine/form';
 import { IconMail, IconPhone, IconUser } from '@tabler/icons-react';
+import { useTranslations } from 'next-intl';
 
 interface FormValues {
   pickUpLocation: string;
@@ -20,24 +21,26 @@ interface FormValues {
 }
 
 const StepThree = ({ form }: { form: UseFormReturnType<FormValues> }) => {
-  return (
+
+  const t = useTranslations();
+  return(
     <div className="w-full h-82 border-solid border-orange-400 bg-yellow-50 p-2">
       <div className="flex">
         <TextInput
           withAsterisk
           color="orange"
           className="p-2"
-          label="First Name"
+          label={t('stepThree.firstName.label')}
           leftSection={<IconUser style={{ width: rem(16), height: rem(16) }} />}
-          placeholder="Your First Name"
+          placeholder={t('stepThree.firstName.placeholder')}
           {...form.getInputProps('firstName')}
         />
         <TextInput
           color="orange"
           className="p-2"
-          label="Last Name"
+          label={t('stepThree.lastName.label')}
           leftSection={<IconUser style={{ width: rem(16), height: rem(16) }} />}
-          placeholder="Your Last Name"
+          placeholder={t('stepThree.lastName.placeholder')}
           {...form.getInputProps('lastName')}
         />
       </div>
@@ -45,23 +48,23 @@ const StepThree = ({ form }: { form: UseFormReturnType<FormValues> }) => {
         withAsterisk
         color="orange"
         className="p-2"
-        label="Email"
+        label={t('stepThree.email.label')}
         leftSection={<IconMail style={{ width: rem(16), height: rem(16) }} />}
-        placeholder="Enter Your Email"
+        placeholder={t('stepThree.email.placeholder')}
         {...form.getInputProps('email')}
       />
       <TextInput
         withAsterisk
         className="p-2"
-        label="Contact No"
+        label={t('stepThree.contactNo.label')}
         leftSection={<IconPhone style={{ width: rem(16), height: rem(16) }} />}
-        placeholder="Enter Your Contact No"
+        placeholder={t('stepThree.contactNo.placeholder')}
         {...form.getInputProps('contactNo')}
       />
       <Textarea
-        label="Remarks"
+        label={t('stepThree.remarks.label')}
         className="p-2"
-        placeholder="Any remarks"
+        placeholder={t('stepThree.remarks.placeholder')}
         {...form.getInputProps('remarks')}
       />
     </div>

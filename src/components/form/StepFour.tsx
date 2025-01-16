@@ -1,6 +1,7 @@
 import { Divider, SegmentedControl } from '@mantine/core';
 import { UseFormReturnType } from '@mantine/form';
 import { GoogleMap, useJsApiLoader, DirectionsRenderer } from '@react-google-maps/api';
+import { useTranslations } from 'next-intl';
 import { useEffect, useState } from 'react';
 
 interface FormValues {
@@ -45,7 +46,7 @@ const carsArray = [
 
 const StepFour = ({ form }: { form: UseFormReturnType<FormValues> }) => {
   const [directionResult, setDirectionResult] = useState<google.maps.DirectionsResult | undefined>(undefined);
-  const [paypalLoaded, setPaypalLoaded] = useState(false);
+  const  t  = useTranslations();
 
   useEffect(() => {
     const fetchDirections = async () => {
@@ -56,7 +57,7 @@ const StepFour = ({ form }: { form: UseFormReturnType<FormValues> }) => {
           destination: form.values.dropOffLocation,
           travelMode: google.maps.TravelMode.DRIVING,
         });
-        setDirectionResult(result); // Store the result in state
+        setDirectionResult(result);
       } catch (error) {
         console.error('Error fetching directions:', error);
       }
@@ -66,7 +67,6 @@ const StepFour = ({ form }: { form: UseFormReturnType<FormValues> }) => {
       fetchDirections();
     }
   }, [form.values.pickUpLocation, form.values.dropOffLocation]);
-
 
   const selectedCar = carsArray.find(car => car.id === form.values.selectedCar);
   const { isLoaded } = useJsApiLoader({
@@ -79,121 +79,88 @@ const StepFour = ({ form }: { form: UseFormReturnType<FormValues> }) => {
     height: '300px',
   };
 
-  const defaultCenter = { lat: 50.110924, lng: 8.682127 }; // Default center if no location is provided
-
+  const defaultCenter = { lat: 50.110924, lng: 8.682127 };
 
   if (!isLoaded) return <span>Loading...</span>;
 
   return (
     <div className="w-full md:flex gap-5">
       <div className="w-full p-5 border border-solid border-orange-500 bg-yellow-50 font-sans rounded-md shadow-lg">
-        <h2>Ride info</h2>
+        <h2>{t('stepFour.rideInfo.title')}</h2>
         <div className="w-full">
-          <h3>Ride Type</h3>
-          <p>One Way</p>
+          <h3>{t('stepFour.rideInfo.rideType.label')}</h3>
+          <p>{t('stepFour.rideInfo.rideType.value')}</p>
         </div>
         <Divider color="orange" />
         <div className="w-full">
-          <h3>Car Model</h3>
-          <p>{selectedCar?.name || 'Not selected'}</p>
+          <h3>{t('stepFour.rideInfo.carModel.label')}</h3>
+          <p>{selectedCar?.name || t('stepFour.rideInfo.carModel.placeholder')}</p>
         </div>
         <Divider color="orange" />
         <div className="w-full">
-          <h3>From</h3>
+          <h3>{t('stepFour.rideInfo.from')}</h3>
           <p>{form.values.pickUpLocation}</p>
         </div>
         <Divider color="orange" />
         <div className="w-full">
-          <h3>To</h3>
+          <h3>{t('stepFour.rideInfo.to')}</h3>
           <p>{form.values.dropOffLocation}</p>
         </div>
         <Divider color="orange" />
         <div className="w-full">
-          <h3>Departure Date</h3>
+          <h3>{t('stepFour.rideInfo.departureDate')}</h3>
           <p>{form.values.pickupDate?.toLocaleDateString()}</p>
         </div>
         <Divider color="orange" />
         <div className="w-full">
-          <h3>Departure Time</h3>
+          <h3>{t('stepFour.rideInfo.departureTime')}</h3>
           <p>{form.values.pickupTime}</p>
         </div>
         <Divider color="orange" />
         <div className="w-full">
-          <h3>Number of Passengers</h3>
+          <h3>{t('stepFour.rideInfo.numberOfPassengers')}</h3>
           <p>{form.values.passengers}</p>
         </div>
         <Divider color="orange" />
         <div className="w-full">
-          <h3>Luggage</h3>
+          <h3>{t('stepFour.rideInfo.luggage')}</h3>
           <p>{form.values.suitcases}</p>
         </div>
       </div>
 
       <div className="w-full p-5 border border-solid border-orange-500 bg-yellow-50 font-sans rounded-md shadow-lg mt-5 md:mt-0">
-        <h2>Contact and Billing Info</h2>
+        <h2>{t('stepFour.contactBillingInfo.title')}</h2>
         <div className="w-full">
-          <h3>Name</h3>
+          <h3>{t('stepFour.contactBillingInfo.name')}</h3>
           <p>{`${form.values.firstName} ${form.values.lastName}`}</p>
           <Divider size="xs" color="orange" />
         </div>
         <div className="w-full">
-          <h3>Email</h3>
+          <h3>{t('stepFour.contactBillingInfo.email')}</h3>
           <p>{form.values.email}</p>
           <Divider size="xs" color="orange" />
         </div>
         <div className="w-full">
-          <h3>Phone No</h3>
+          <h3>{t('stepFour.contactBillingInfo.phoneNo')}</h3>
           <p>{form.values.contactNo}</p>
           <Divider size="xs" color="orange" />
         </div>
         <div className="w-full">
-          <h3>Ride Charges</h3>
-          <p>${form.values.estimatedPrice}</p>
+          <h3>{t('stepFour.contactBillingInfo.rideCharges')}</h3>
+          <p>€{form.values.estimatedPrice}</p>
           <Divider size="xs" color="orange" />
         </div>
         <div className="w-full">
-          <h3>Payment Method</h3>
+          <h3>{t('stepFour.contactBillingInfo.paymentMethod')}</h3>
           <SegmentedControl
             size="md"
             color="orange"
-            data={['Paypal', 'Cash']}
+            data={["paypal","cash"]}
             value={form.values.paymentMethod}
             onChange={(value) => form.setFieldValue('paymentMethod', value)}
           />
         </div>
-        {(form.values.paymentMethod === 'Paypal' || form.values.paymentMethod === 'Card') && paypalLoaded && (
-          <div className="w-full mt-5">
-            <h3>Pay with {form.values.paymentMethod === 'Paypal' ? 'PayPal' : 'Card'}</h3>
-            <div id="paypal-button-container"></div>
-            <script>
-              {`
-                paypal.Buttons({
-                  createOrder: (data: any, actions: any) => {
-                    return actions.order.create({
-                      purchase_units: [{
-                        amount: {
-                          value: '${form.values.estimatedPrice}',
-                        },
-                      }],
-                    });
-                  },
-                  onApprove: (data: any, actions: any) => {
-                    return actions.order.capture().then((details: any) => {
-                      handlePaymentSuccess(details);
-                    });
-                  },
-                }).render('#paypal-button-container');
-              `}
-            </script>
-          </div>
-        )}
-        {form.values.paymentMethod === 'Cash' && (
-          <div className="w-full mt-5">
-            <h3>Pay with Cash</h3>
-            <p>Please pay the driver in cash upon arrival.</p>
-          </div>
-        )}
-        <div className='w-full h-74'>
+        <div className="w-full h-74">
           <GoogleMap
             mapContainerStyle={containerStyle}
             zoom={12}
@@ -209,5 +176,6 @@ const StepFour = ({ form }: { form: UseFormReturnType<FormValues> }) => {
     </div>
   );
 };
+
 
 export default StepFour;

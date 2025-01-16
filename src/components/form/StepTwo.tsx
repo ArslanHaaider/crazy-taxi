@@ -1,6 +1,7 @@
 // StepTwo.tsx
 import { Button } from '@mantine/core';
 import { UseFormReturnType } from '@mantine/form';
+import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 
 interface FormValues {
@@ -72,25 +73,23 @@ const StepTwo = ({ form }: { form: UseFormReturnType<FormValues> }) => {
   const handleSelectCar = (carId: string) => {
     form.setFieldValue('selectedCar', carId);
   };
-
-  return (
-    <div className="w-full h-full flex flex-col items-center justify-center">
-      {carsArray.map((car) => (
-        <CarCard
-          key={car.id}
-          id={car.id}
-          name={car.name}
-          cost={car.cost}
-          image={car.image}
-          isSelected={form.values.selectedCar === car.id}
-          onSelect={handleSelectCar}
-        />
-      ))}
-      {form.errors.selectedCar && (
-        <div className="text-red-500 mt-2">{form.errors.selectedCar}</div>
-      )}
-    </div>
-  );
+  const t = useTranslations();
+  return <div className="w-full h-full flex flex-col items-center justify-center">
+  {carsArray.map((car) => (
+    <CarCard
+      key={car.id}
+      id={car.id}
+      name={car.name}
+      cost={car.cost}
+      image={car.image}
+      isSelected={form.values.selectedCar === car.id}
+      onSelect={handleSelectCar}
+    />
+  ))}
+  {form.errors.selectedCar && (
+    <div className="text-red-500 mt-2">{ t('carSelection.error')}</div>
+  )}
+</div>
 };
 
 export default StepTwo;

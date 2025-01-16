@@ -52,27 +52,17 @@ const Footer = () => {
             </div>
           </div>
           <div className="text p-2 hidden md:inline-block">
-            <h3 className="text-primary text-end ml-6">Contact US</h3>
+            <h3 className="text-primary text-start ml-6">Contact US</h3>
             <div className="flex flex-col ">
             <ul className="m-0">
               <li className="text-white">
               <Link href={""} className="no-underline text-white text-lg">
-                Home
+                taxiraunheim@icloud.com
               </Link>
               </li>
               <li className="text-white">
               <Link href={""} className="no-underline text-white text-lg">
-                Services
-              </Link>
-              </li>
-              <li className="text-white">
-              <Link href={""} className="no-underline text-white text-lg">
-                About
-              </Link>
-              </li >
-              <li className="text-white">
-              <Link href={""} className="no-underline text-white text-lg">
-                Contact
+              06142-61111
               </Link>
               </li>
             </ul>
@@ -92,7 +82,7 @@ const Footer = () => {
       <div className="bg-[url('/skyLine.png')] bg-cover bg-center w-full h-1/4"></div>
 
       <p className="block text-white text-center">
-        &copy; 2023 All Rights Reserved
+        &copy; 2025 All Rights Reserved
       </p>
     </div>
   );

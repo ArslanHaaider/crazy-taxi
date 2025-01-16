@@ -4,6 +4,7 @@ import { DatePickerInput, TimeInput } from '@mantine/dates';
 import { UseFormReturnType } from '@mantine/form';
 import { Autocomplete, useJsApiLoader } from '@react-google-maps/api';
 import { IconClock, IconLocation } from '@tabler/icons-react';
+import { useTranslations } from 'next-intl';
 import { useRef, useState } from 'react';
 
 interface FormValues {
@@ -26,6 +27,7 @@ interface FormValues {
 }
 
 const StepOne = ({ form }: { form: UseFormReturnType<FormValues> }) => {
+  const t = useTranslations();
   const ref = useRef<HTMLInputElement>(null);
   const [originRef, setOriginRef] = useState<google.maps.places.Autocomplete | null>(null);
   const [destinationRef, setDestinationRef] = useState<google.maps.places.Autocomplete | null>(null);
@@ -35,40 +37,109 @@ const StepOne = ({ form }: { form: UseFormReturnType<FormValues> }) => {
     libraries: ['places'],
   });
 
-  const calculatePrice = (distanceInMeters: number) => {
+  const FIXED_ROUTES = new Map([
+    ['Raunheim', 21],
+    ['Rüsselsheim a. M.', 25],
+    ['Rüsselsheim/Königstädten', 27],
+    ['Bauschheim', 30],
+    ['Bischofsheim', 30],
+    ['Trebur', 30],
+    ['Astheim', 30],
+    ['Nauheim', 30],
+    ['Groß Gerau', 35],
+    ['Hochheim', 33],
+    ['Flörsheim a. M.', 25],
+    ['Flörsheim/Wicker', 28],
+    ['Flörsheim/Weilbach', 38],
+    ['Massenheim', 33],
+    ['Wallerstädten', 35],
+    ['Geinsheim', 40],
+    ['Hessenau', 40],
+    ['Gustavsburg', 33],
+    ['Ginsheim', 35]
+  ]);
+  
+  // Helper function to extract city name from full address
+  const extractCity = (address: string): string | null => {
+    // Common German address patterns
+    const patterns = [
+      /(?:,\s*)?(\w+(?:\/\w+)?(?:\s+a\.\s*M\.)?)\s*(?:,|$)/,  // Matches city names with possible variations
+      /(?:,\s*)?(\d{4,5})\s+(\w+(?:\/\w+)?(?:\s+a\.\s*M\.)?)/  // Matches postal code + city
+    ];
+  
+    for (const pattern of patterns) {
+      const match = address.match(pattern);
+      if (match) {
+        // If we matched a postal code pattern, return the city part
+        return match[2] || match[1];
+      }
+    }
+    return null;
+  };
+  
+  const calculatePrice = (originAddress: string, destinationAddress: string, distanceInMeters: number): number => {
+    // Try to find fixed price based on destination city
+    const destinationCity = extractCity(destinationAddress);
+    
+    if (destinationCity && FIXED_ROUTES.has(destinationCity)) {
+      return FIXED_ROUTES.get(destinationCity)!;
+    }
+  
+    // Fallback to distance-based calculation for unknown routes
     const distanceInKm = distanceInMeters / 1000;
     let basePrice = 0;
+  
+    if (distanceInKm <= 50) {
+      basePrice = Math.max(21, distanceInKm * 1.5); // Minimum 21€
+    } else if (distanceInKm <= 99) {
+      basePrice = distanceInKm * 1.3;
+    } else {
+      basePrice = distanceInKm;
+    }
 
-    if (distanceInKm <= 50) basePrice = distanceInKm * 1.5;
-    else if (distanceInKm <= 99) basePrice = distanceInKm * 1.3;
-    else basePrice = distanceInKm;
-
-    return basePrice;
+    return Math.ceil(basePrice); // Round up to nearest euro
   };
-
+  
+  // Updated route calculation function
   const calculateRoute = async () => {
-    if (!originRef || !destinationRef) return;
+    if (!originRef || !destinationRef) {
+      console.error('References not initialized');
+      return;
+    }
   
     const originPlace = originRef.getPlace();
     const destinationPlace = destinationRef.getPlace();
   
-    if (!originPlace || !destinationPlace) return;
+    if (!originPlace?.formatted_address || !destinationPlace?.formatted_address) {
+      console.error('Invalid addresses');
+      return;
+    }
+    try {
+      const service = new google.maps.DistanceMatrixService();
+      const result = await service.getDistanceMatrix({
+        origins: [originPlace.formatted_address],
+        destinations: [destinationPlace.formatted_address],
+        travelMode: google.maps.TravelMode.DRIVING,
+      });
   
-    const service = new google.maps.DistanceMatrixService();
-    const result = await service.getDistanceMatrix({
-      origins: [originPlace.formatted_address!],
-      destinations: [destinationPlace.formatted_address!],
-      travelMode: google.maps.TravelMode.DRIVING,
-    });
-  
-    if (result.rows[0].elements[0].status === "OK") {
-      const distance = result.rows[0].elements[0].distance.value;
-      const duration = result.rows[0].elements[0].duration.text;
-      const price = calculatePrice(distance);
+      if (result.rows[0].elements[0].status === "OK") {
+        const distance = result.rows[0].elements[0].distance.value;
+        const duration = result.rows[0].elements[0].duration.text;
+        const price = calculatePrice(
+          originPlace.formatted_address,
+          destinationPlace.formatted_address,
+          distance
+        );
+        console.log(distance)
+        form.setFieldValue('distance', distance);
+        form.setFieldValue('duration', duration);
+        form.setFieldValue('estimatedPrice', price);
+      } else {
+        console.error('Route calculation failed:', result.rows[0].elements[0].status);
+      }
+    } catch (error) {
 
-      form.setFieldValue('distance', distance);
-      form.setFieldValue('duration', duration);
-      form.setFieldValue('estimatedPrice', price);
+      console.error('Error calculating route:', error);
     }
   };
 
@@ -81,7 +152,6 @@ const StepOne = ({ form }: { form: UseFormReturnType<FormValues> }) => {
   if (!isLoaded) {
     return <div>Loading...</div>;
   }
-
   return (
     <div className="w-full border-solid border-orange-400 bg-yellow-50">
       <Autocomplete
@@ -98,9 +168,9 @@ const StepOne = ({ form }: { form: UseFormReturnType<FormValues> }) => {
           withAsterisk
           color="orange"
           className="p-2"
-          label="Pickup Location"
+          label={t('pickupLocation.label')}
           leftSection={<IconLocation style={{ width: rem(16), height: rem(16) }} />}
-          placeholder="Enter Your Pickup Location"
+          placeholder={t('pickupLocation.placeholder')}
           {...form.getInputProps('pickUpLocation')}
         />
       </Autocomplete>
@@ -114,27 +184,27 @@ const StepOne = ({ form }: { form: UseFormReturnType<FormValues> }) => {
             calculateRoute();
           }
         }}
-      >
+      > 
         <TextInput
           withAsterisk
           className="p-2"
-          label="DropOff Location"
+          label={t('dropOffLocation.label')}
           leftSection={<IconLocation style={{ width: rem(16), height: rem(16) }} />}
-          placeholder="Enter Your DropOff Location"
+          placeholder={t('dropOffLocation.placeholder')}
           {...form.getInputProps('dropOffLocation')}
         />
       </Autocomplete>
 
       <div className="w-full flex justify-evenly items-center">
         <DatePickerInput
-          label="Pick date"
-          placeholder="Pick date"
+          label={t('pickupDate.label')}
+          placeholder={t('pickupDate.placeholder')}
           className="w-2/6"
           withAsterisk
           {...form.getInputProps('pickupDate')}
         />
         <TimeInput
-          label="Pick Time"
+          label={t('pickupTime.label')}
           className="w-3/6"
           color="orange"
           ref={ref}
@@ -145,31 +215,18 @@ const StepOne = ({ form }: { form: UseFormReturnType<FormValues> }) => {
       </div>
       <div className="w-full flex justify-evenly items-center m-3">
         <NativeSelect
-          label="Passenger(s)"
+          label={t('passengers.label')}
           className="w-2/6"
-          data={['1', '2', '3', '4', '5', '6', '7', '8']}
+          data={['1', '2', '3', '4', '5']}
           {...form.getInputProps('passengers')}
         />
         <NativeSelect
-          label="SuitCase(23kgs)"
+          label={t('suitcases.label')}
           className="w-3/6"
           data={['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '15']}
           {...form.getInputProps('suitcases')}
         />
       </div>
-
-      {/* {form.values.distance && form.values.duration && form.values.estimatedPrice && (
-        <div className="p-4 bg-white rounded-lg shadow mx-2 mt-4">
-          <div className="text-lg font-bold text-center mb-2">Trip Details</div>
-          <div className="space-y-2">
-            <div>Distance: {(form.values.distance / 1000).toFixed(1)} km</div>
-            <div>Duration: {form.values.duration}</div>
-            <div className="text-xl font-bold text-orange-500">
-              Estimated Price: €{form.values.estimatedPrice.toFixed(2)}
-            </div>
-          </div>
-        </div>
-      )} */}
     </div>
   );
 };
