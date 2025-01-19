@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <div className="w-full bg-[#1c1c1c] h-[105vh]">
       <div className="w-full h-2/5 flex justify-center items-center flex-col text-white md:flex  md:flex-row md:h-2/6 md:p-2">
-        <div>
+        <div className="flex items-center justify-center flex-col">
           <Image
             src={"/taxiLogo.png"}
             alt="not found"

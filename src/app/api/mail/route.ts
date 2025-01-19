@@ -62,7 +62,7 @@ export async function POST(request: Request) {
                 </div>
             `
         };
-        
+    
         const mailOptions2 = {
             from: 'romanempire707@gmail.com',
             to: "taxiraunheim@icloud.com",
