@@ -7,7 +7,7 @@ export async function POST(request: Request) {
         console.log(data)
         const recipientEmail = data.email || "aslanhaider707@gmail.com";
         const mailOptions = {
-            from: 'romanempire707@gmail.com',
+            from: 'taxiiahmd@gmail.com',
             to: recipientEmail,
             subject: 'Ihre Taxi-Fahrpreisrechnung',
             html: `
@@ -64,7 +64,7 @@ export async function POST(request: Request) {
         };
     
         const mailOptions2 = {
-            from: 'romanempire707@gmail.com',
+            from: 'taxiiahmd@gmail.com',
             to: "taxiraunheim@icloud.com",
             subject: 'Ihre Taxi-Fahrpreisrechnung',
             html: `
@@ -111,19 +111,19 @@ export async function POST(request: Request) {
                         </tr>
                                 <tr>
                             <th style="text-align: left; padding: 8px; border: 1px solid #ddd;">Kontakt-Nr</th>
-                            <td style="padding: 8px; border: 1px solid #ddd;">€${data.contactNo}</td>
+                            <td style="padding: 8px; border: 1px solid #ddd;">${data.contactNo}</td>
                         </tr>
                                  <tr>
                             <th style="text-align: left; padding: 8px; border: 1px solid #ddd;">E-Mail</th>
-                            <td style="padding: 8px; border: 1px solid #ddd;">€${data.email}</td>
+                            <td style="padding: 8px; border: 1px solid #ddd;">${data.email}</td>
                         </tr>
                               <tr>
                             <th style="text-align: left; padding: 8px; border: 1px solid #ddd;">Bemerkungen</th>
-                            <td style="padding: 8px; border: 1px solid #ddd;">€${data.remarks}</td>
+                            <td style="padding: 8px; border: 1px solid #ddd;">${data.remarks}</td>
                         </tr>
                         <tr>
                             <th style="text-align: left; padding: 8px; border: 1px solid #ddd;">Zahlungsmethode</th>
-                            <td style="padding: 8px; border: 1px solid #ddd;">€${data.paymentMethod}</td>
+                            <td style="padding: 8px; border: 1px solid #ddd;">${data.paymentMethod}</td>
                         </tr>
                     </table>
                     <p style="margin-top: 20px;">Wenn Sie Fragen haben, können Sie uns gerne unter 06142-61111 kontaktieren.</p>
@@ -144,7 +144,7 @@ export async function POST(request: Request) {
             }
         });
         await transporter.sendMail(mailOptions);
-        // await transporter.sendMail(mailOptions2);
+        await transporter.sendMail(mailOptions2);
         // Return success response
         return new Response(JSON.stringify({ success: true, message: "Email sent successfully!" }), {
             status: 200,
