@@ -42,7 +42,7 @@ const Hero = () => {
             title={t('modalTitle')} 
             centered 
             size='xl' 
-            className='bg-orange-500'
+            className='bg-primary'
             styles={{
               content: { height: "30rem" },
               title: { color: "orange", fontSize: "1.5rem", fontWeight: "bold"},
@@ -58,7 +58,7 @@ const Hero = () => {
             title={t('modalTitle2')}
             centered
             size="xl"
-            className="bg-orange-500 p-5"
+            className="bg-primary"
             styles={{
               content: { height: "30rem" },
               title: { color: "orange", fontSize: "1.5rem", fontWeight: "bold" },
@@ -69,7 +69,7 @@ const Hero = () => {
           
           {/* Button to open Calculate Price Modal */}
           <Button 
-            className=" h-12 mb-3 text-2xl animate-pulse-scale bg-white text-orange-500 hover:text-white hover:bg-orange-500" 
+            className=" h-12 mb-3 text-2xl animate-pulse-scale bg-white text-primary hover:text-white hover:bg-primary" 
             onClick={open} 
             rightSection={<IconCar size={30} />}
           >
@@ -77,7 +77,7 @@ const Hero = () => {
           </Button>
             {/* Button to open Fixed Prices Modal */}
           <Button 
-            className=" h-12 mb-10 text-2xl animate-pulse-scale bg-white text-orange-500 hover:text-white hover:bg-orange-500" 
+            className=" h-12 mb-10 text-2xl animate-pulse-scale bg-white text-primary hover:text-white hover:bg-primary" 
             onClick={openFixedPrices} 
           >
             {t('fixedPrice')} 

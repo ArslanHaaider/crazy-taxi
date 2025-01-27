@@ -39,7 +39,7 @@ const Navbar = () => {
 
   return (
     <>
-      <Container fluid h={80} className="bg-[#ffffff] flex p-0 sticky w-full">
+      <Container fluid h={80} className="bg-section-bg flex p-0 sticky w-full">
         <Container
           fluid
           h={90}
@@ -50,7 +50,7 @@ const Navbar = () => {
             alt={t("logoAlt")}
             width={70}
             height={80}
-            className="lg:w-[10rem] bg-orange-500"
+            className="lg:w-[10rem] bg-primary"
             onClick={() => router.push("/")}
           ></Image>
         </Container>
@@ -61,7 +61,7 @@ const Navbar = () => {
               fluid
               className="justify-center items-center ml-10 font-sans hidden md:flex"
             >
-              <IconPhone size="2rem" color="orange" stroke={1.5} />
+              <IconPhone size="2rem" color="#2973B2" stroke={1.5} />
               <div className="flex flex-col justify-center">
                 <p className="m-0 text-lg md:inline">{t("callNow")}</p>
                 <p className="m-0 font-bold md:inline">06142-61111</p>
@@ -71,7 +71,7 @@ const Navbar = () => {
               fluid
               className="md:flex justify-center items-center font-sans p-0 m-0 hidden"
             >
-              <IconMail size="2rem" color="orange" stroke={1.5} />
+              <IconMail size="2rem" color="#2973B2" stroke={1.5} />
               <div className="flex flex-col justify-center">
                 <p className="m-0 text-lg">{t("emailNow")}</p>
                 <p className="m-0 font-bold text-lg md:inline line-block">
@@ -94,7 +94,7 @@ const Navbar = () => {
                 leftSection={<item.icon size="2rem" stroke={1.5} />}
                 onClick={() => setActive(index)}
                 color="white"
-                className="font-bold flex justify-center items-center mt-4 hover:transition-all hover:bg-orange-600 rounded-md"
+                className="font-bold flex justify-center items-center mt-4 hover:transition-all hover:bg-primary-hover rounded-md"
                 variant="light"
               />
             ))}

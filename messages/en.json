@@ -30,10 +30,10 @@
       "title": "DOOR-TO-DOOR SERVICE",
       "description": "Our drivers provide punctual pickup at Frankfurt Airport and take you straight to your destination’s doorstep. We’re also available to pick you up from your home and drive you to the airport on time—more convenient, efficient, and cost-effective than a taxi."
     },
-    "meetAndGreet": {
-      "title": "MEET & GREET SERVICE",
-      "description": "Even if your flight is delayed, your driver will be waiting for you with a name sign after baggage claim. No need to search or wait—just continue your journey seamlessly."
-    }
+"reliableService": {
+  "title": "RELIABLE & TIMELY SERVICE",
+  "description": "No matter the time or weather conditions, our dedicated team ensures your ride is always on time. With real-time tracking and proactive updates, you can trust us to get you to your destination safely and efficiently."
+}
   },
   "services": {
     "heading": "Our Services",

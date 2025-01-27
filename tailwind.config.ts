@@ -11,11 +11,12 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        primary:"#f7a30f"
+        primary:"#344CB7"
       },
       backgroundColor:{
-        'primary': '#f7a30f',
-        // 'primary-hover': '#2779bd',
+        'primary': '#344CB7',
+        'primary-hover': '#000957',
+        'section-bg':"#F2EFE7"
       },
       keyframes: {
         'pulse-scale': {

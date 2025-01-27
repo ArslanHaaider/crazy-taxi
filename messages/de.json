@@ -30,10 +30,10 @@
       "title": "HAUSTÜR-SERVICE",
       "description": "Unsere Fahrer holen Sie pünktlich am Flughafen Frankfurt ab und bringen Sie direkt bis vor Ihre Haustür. Wir können Sie auch von Ihrem Zuhause abholen und rechtzeitig zum Flughafen bringen – bequemer, effizienter und kostengünstiger als ein Taxi."
     },
-    "meetAndGreet": {
-      "title": "MEET & GREET SERVICE",
-      "description": "Selbst wenn Ihr Flug verspätet ist, wartet Ihr Fahrer mit einem Namensschild nach der Gepäckausgabe auf Sie. Kein Suchen oder Warten – setzen Sie Ihre Reise einfach nahtlos fort."
-    }
+"reliableService": {
+  "title": "ZUVERLÄSSIGER & PÜNKTLICHER SERVICE",
+  "description": "Egal zu welcher Uhrzeit oder bei welchem Wetter – unser engagiertes Team sorgt dafür, dass Ihre Fahrt immer pünktlich ist. Mit Echtzeit-Verfolgung und proaktiven Updates können Sie sich darauf verlassen, dass wir Sie sicher und effizient an Ihr Ziel bringen."
+}
   },
   "services": {
     "heading": "Unsere Dienstleistungen",

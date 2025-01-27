@@ -149,7 +149,7 @@ const BookingForm = () => {
     <div className="w-full flex flex-col items-center font-serif">
       <Stepper
         active={active}
-        color="orange"
+        color="blue"
         className="w-full md:w-3/4 h-1/6 text-xs mt-4"
         onStepClick={setActive}
         size="xs"

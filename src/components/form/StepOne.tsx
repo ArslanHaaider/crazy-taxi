@@ -153,7 +153,7 @@ const StepOne = ({ form }: { form: UseFormReturnType<FormValues> }) => {
     return <div>Loading...</div>;
   }
   return (
-    <div className="w-full border-solid border-orange-400 bg-yellow-50">
+    <div className="w-full border-solid border-primary bg-section-bg">
       <Autocomplete
         onLoad={(ref) => setOriginRef(ref)}
         onPlaceChanged={() => {

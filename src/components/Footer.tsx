@@ -16,10 +16,10 @@ const Footer = () => {
           ></Image>
           <p>Travel Securely With US!</p>
         </div>
-        <div className="w-full md:w-4/5 md:ml-3 flex justify-center items-center bg-primary ">
+        <div className="w-full md:w-4/5 md:ml-3 flex justify-center items-center gap-1 bg-primary ">
           <IconPhone size="2rem" className="text-white" stroke={1.5} />
-          <p>Call for Tax! </p>
-          <p className="text-black"> 06142-61111</p>
+          <p>Call for Ride </p>
+          <p className="text-black font-bold"> 06142-61111</p>
         </div>
       </div>
       <div>
