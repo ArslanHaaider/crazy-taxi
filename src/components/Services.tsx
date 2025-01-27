@@ -38,9 +38,9 @@ const Services = () => {
           <motion.img
             initial={{ opacity: 0, x: -100 }}
             whileInView={{ opacity: 1, x: 0, transition: { duration: 1 } }}
-            src={"/taxiVector.png"}
+            src={"/taxiVector.jpg"}
             alt="taxi"
-            className="md:w-2/5 w-4/5"
+            className="md:w-2/5 w-3/5"
           />
           <List
             spacing="xs"
@@ -68,7 +68,7 @@ const Services = () => {
           whileInView={{ opacity: 1, x: 0, transition: { duration: 1 } }}
           src={"/taxiVector2.jpg"}
           alt="taxi"
-          className="md:w-2/6 w-4/5"
+          className="md:w-2/5 w-3/5"
         />
         <List
           spacing="xs"

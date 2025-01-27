@@ -22,13 +22,13 @@ interface FormValues {
 
 const carsArray = [
   {
-    id: 'mercedes-e',
+    id: '5 seater',
     name: '5 Seater',
     cost: '$200',
     image: '/mercedies.png',
   },
   {
-    id: 'mercedes-v',
+    id: '7 seater',
     name: '7 seater',
     cost: '$400',
     image: '/mercediesVClass.Png',
