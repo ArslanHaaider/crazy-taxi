@@ -23,19 +23,13 @@ interface FormValues {
 const carsArray = [
   {
     id: 'mercedes-e',
-    name: 'Mercedies Benz E Class',
+    name: '5 Seater',
     cost: '$200',
     image: '/mercedies.png',
   },
   {
-    id: 'volkswagen',
-    name: 'VolksWagen Touran',
-    cost: '$140',
-    image: '/VolksWagen.Png',
-  },
-  {
     id: 'mercedes-v',
-    name: 'Mercedies V Class',
+    name: '7 seater',
     cost: '$400',
     image: '/mercediesVClass.Png',
   },
@@ -52,15 +46,15 @@ interface CarCardProps {
 
 const CarCard = ({ name, image, id, isSelected, onSelect }: CarCardProps) => {
   return (
-    <div className="border border-solid border-orange-400 w-10/12 h-[500px] md:h-52 flex items-center justify-evenly rounded-md mt-2 flex-col md:flex-row bg-orange-100">
+    <div className="border border-solid border-primary w-10/12 h-[500px] md:h-52 flex items-center justify-evenly rounded-md mt-2 flex-col md:flex-row bg-section-bg">
       <Image src={image} width={200} height={100} alt="" className="w-52 h-36 md:w-72" />
       <div className="flex flex-col items-center justify-center">
-        <h1 className="text-2xl font-bold text-gray-400">Model</h1>
+        <h1 className="text-2xl font-bold text-gray-400">Capacity</h1>
         <h1 className="text-xl font-bold text-wrap w-30">{name}</h1>
       </div>
       <Button
         variant={isSelected ? "filled" : "outline"}
-        color="orange"
+        color="blue"
         onClick={() => onSelect(id)}
       >
         {isSelected ? 'Selected' : 'Choose'}

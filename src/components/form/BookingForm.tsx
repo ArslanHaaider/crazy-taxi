@@ -217,7 +217,7 @@ const BookingForm = () => {
           {t('buttons.back')}
         </Button>
         {active < 3 ? (
-          <Button color="orange" onClick={() => handleStepChange(active + 1)}>
+          <Button color="blue" onClick={() => handleStepChange(active + 1)}>
             {t('buttons.nextStep')}
           </Button>
         ) : active < 4 ? (
