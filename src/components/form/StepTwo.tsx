@@ -31,7 +31,7 @@ const carsArray = [
     id: '7 seater',
     name: '7 seater',
     cost: '$400',
-    image: '/mercediesVClass.png',
+    image: '/VClass.png',
   },
 ];
 
