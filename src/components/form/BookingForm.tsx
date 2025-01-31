@@ -132,7 +132,7 @@ const BookingForm = () => {
       // Handle form submission
       try{
         handleStepChange(active + 1)
-        const submit = await fetch("http://localhost:3000/api/mail",{
+        const submit = await fetch("/api/mail",{
           method:"POST",
           body:JSON.stringify(form.values)
         })
