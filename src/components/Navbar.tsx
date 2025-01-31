@@ -49,7 +49,7 @@ const Navbar = () => {
           className="w-2/5 flex items-start justify-start flex-col"
         >
           <Image
-            src={"/logo.jpg"}
+            src={"/navbarLogo.jpg"}
             alt={t("logoAlt")}
             width={70}
             height={80}

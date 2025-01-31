@@ -8,7 +8,7 @@ const Footer = () => {
       <div className="w-full h-2/5 flex justify-center items-center flex-col text-white md:flex  md:flex-row md:h-2/6 md:p-2">
         <div className="flex items-center justify-center flex-col">
           <Image
-            src={"/logo.jpg"}
+            src={"/navbarLogo.jpg"}
             alt="not found"
             width={100}
             height={80}
