@@ -118,7 +118,7 @@ const Navbar = () => {
         <Container
           fluid
           h={80}
-          className="bg-white w-3/5 flex justify-end items-center md:hidden"
+          className="bg-section-bg w-3/5 flex justify-end items-center md:hidden"
         >
           <Burger
             opened={menuIsOpen}
@@ -142,14 +142,14 @@ const Navbar = () => {
             label={item.label}
             leftSection={<item.icon size="2rem" stroke={1.5} />}
             onClick={() =>scrollToSection(item.tag,index)}
-            color="orange"
+            color="blue"
             className="font-bold flex justify-center items-center mt-4"
           />
         ))}
 
         <div className="flex justify-center items-center w-full">
           <Button
-            color="orange"
+            color="blue"
             className="w-2/3 h-20 mt-10 text-3xl animate-pulse-scale"
             rightSection={<IconCar size={40} />}
             onClick={() => router.push("/booking")}

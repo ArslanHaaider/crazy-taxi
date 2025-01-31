@@ -21,6 +21,9 @@ const Footer = () => {
           <p>Call for Ride </p>
           <p className="text-black font-bold"> +49 6142499601</p>
         </div>
+        <div className="w-4/5 md:w-4/5 md:ml-3 flex justify-center items-center gap-1 bg-primary rounded-b-md">
+        <p className="font-bold text-lg">flughafentransfer123@hotmail.com</p>
+        </div>
       </div>
       <div>
         <div className="flex justify-between md:justify-around">
@@ -29,25 +32,20 @@ const Footer = () => {
             <div className="flex flex-col ">
             <ul className="m-0">
               <li className="text-white">
-              <Link href={""} className="no-underline text-white text-lg">
+              <Link href={"home"} className="no-underline text-white text-lg">
                 Home
               </Link>
               </li>
               <li className="text-white">
-              <Link href={""} className="no-underline text-white text-lg">
+              <Link href={"#services"} className="no-underline text-white text-lg">
                 Services
               </Link>
               </li>
               <li className="text-white">
-              <Link href={""} className="no-underline text-white text-lg">
+              <Link href={"#about"} className="no-underline text-white text-lg">
                 About
               </Link>
               </li >
-              <li className="text-white">
-              <Link href={""} className="no-underline text-white text-lg">
-                Contact
-              </Link>
-              </li>
             </ul>
             </div>
           </div>
