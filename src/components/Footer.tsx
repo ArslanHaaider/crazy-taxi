@@ -8,11 +8,11 @@ const Footer = () => {
       <div className="w-full h-2/5 flex justify-center items-center flex-col text-white md:flex  md:flex-row md:h-2/6 md:p-2">
         <div className="flex items-center justify-center flex-col">
           <Image
-            src={"/logoBg.png"}
+            src={"/logo.jpg"}
             alt="not found"
             width={100}
             height={80}
-            className="lg:w-[10rem]"
+            className="lg:w-[10rem] rounded-md"
           ></Image>
           <p>Travel Securely With US!</p>
       </div>
@@ -32,7 +32,7 @@ const Footer = () => {
             <div className="flex flex-col ">
             <ul className="m-0">
               <li className="text-white">
-              <Link href={"home"} className="no-underline text-white text-lg">
+              <Link href={"#home"} className="no-underline text-white text-lg">
                 Home
               </Link>
               </li>
