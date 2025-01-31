@@ -58,7 +58,7 @@ export async function POST(request: Request) {
                         </tr>
                     </table>
                     <p style="margin-top: 20px;">Wenn Sie Fragen haben, können Sie uns gerne unter 06142-61111 kontaktieren.</p>
-                    <p>Mit freundlichen Grüßen,<br>TaxiAhmed</p>
+                    <p>Mit freundlichen Grüßen,<br>FlughafentransferAhmed</p>
                 </div>
             `
         };
@@ -127,7 +127,7 @@ export async function POST(request: Request) {
                         </tr>
                     </table>
                     <p style="margin-top: 20px;">Wenn Sie Fragen haben, können Sie uns gerne unter 06142-61111 kontaktieren.</p>
-                    <p>Mit freundlichen Grüßen,<br>TaxiAhmed</p>
+                    <p>Mit freundlichen Grüßen,<br>FlughafentransferAhmed</p>
                 </div>
             `
         };

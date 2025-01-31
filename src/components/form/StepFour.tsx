@@ -155,7 +155,7 @@ const StepFour = ({ form }: { form: UseFormReturnType<FormValues> }) => {
           <SegmentedControl
             size="md"
             color="blue"
-            data={["paypal","cash"]}
+            data={["paypal","cash","card"]}
             value={form.values.paymentMethod}
             onChange={(value) => form.setFieldValue('paymentMethod', value)}
           />
