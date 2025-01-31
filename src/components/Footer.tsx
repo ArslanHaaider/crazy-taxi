@@ -16,12 +16,12 @@ const Footer = () => {
           ></Image>
           <p>Travel Securely With US!</p>
       </div>
-        <div className="w-full md:w-4/5 md:ml-3 flex justify-center items-center gap-1 bg-primary ">
+        <div className="w-full md:w-4/5 md:ml-3 flex justify-center items-center gap-1 bg-primary rounded-md ">
           <IconPhone size="2rem" className="text-white" stroke={1.5} />
           <p>Call for Ride </p>
-          <p className="text-black font-bold"> +49 6142499601</p>
+          <p className="text-black font-bold text-lg"> +49 6142499601</p>
         </div>
-        <div className="w-4/5 md:w-4/5 md:ml-3 flex justify-center items-center gap-1 bg-primary rounded-b-md">
+        <div className="w-4/5 md:w-4/5 md:ml-3 flex justify-center items-center gap-1 bg-primary rounded-b-md md:rounded-md">
         <p className="font-bold text-lg">flughafentransfer123@hotmail.com</p>
         </div>
       </div>
