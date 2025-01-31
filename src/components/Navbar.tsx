@@ -24,15 +24,18 @@ const Navbar = () => {
     onOpen: () => console.log("Opened"),
     onClose: () => console.log("Closed"),
   });
-
+  const scrollToSection = (id: string,index:number) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    setActive(index);
+  };
   const data = [
-    { icon: IconHome, label: t("home") },
+    { icon: IconHome, label: t("home") ,tag:"home"},
     {
       icon: IconBriefcase,
       label: t("services"),
       rightSection: <IconChevronRight size="1rem" stroke={1.5} />,
-    },
-    { icon: IconInfoCircle, label: t("about") },
+   tag:'services' },
+    { icon: IconInfoCircle, label: t("about")  ,tag:"about",}
   ];
 
   const [active, setActive] = useState(0);
@@ -46,7 +49,7 @@ const Navbar = () => {
           className="w-2/5 flex items-start justify-start flex-col"
         >
           <Image
-            src={"/taxiLogo.png"}
+            src={"/logo.png"}
             alt={t("logoAlt")}
             width={70}
             height={80}
@@ -64,7 +67,7 @@ const Navbar = () => {
               <IconPhone size="2rem" color="#2973B2" stroke={1.5} />
               <div className="flex flex-col justify-center">
                 <p className="m-0 text-lg md:inline">{t("callNow")}</p>
-                <p className="m-0 font-bold md:inline">06142-61111</p>
+                <p className="m-0 font-bold md:inline">+49 6142499601</p>
               </div>
             </Container>
             <Container
@@ -75,7 +78,7 @@ const Navbar = () => {
               <div className="flex flex-col justify-center">
                 <p className="m-0 text-lg">{t("emailNow")}</p>
                 <p className="m-0 font-bold text-lg md:inline line-block">
-                  taxiraunheim@icloud.com
+                flughafentransfer123@hotmail.com
                 </p>
               </div>
             </Container>
@@ -92,10 +95,11 @@ const Navbar = () => {
                 active={index === active}
                 label={item.label}
                 leftSection={<item.icon size="2rem" stroke={1.5} />}
-                onClick={() => setActive(index)}
+                onClick={() =>scrollToSection(item.tag,index)}
                 color="white"
                 className="font-bold flex justify-center items-center mt-4 hover:transition-all hover:bg-primary-hover rounded-md"
                 variant="light"
+
               />
             ))}
             <div className="flex justify-center items-center w-full">
@@ -137,7 +141,7 @@ const Navbar = () => {
             active={index === active}
             label={item.label}
             leftSection={<item.icon size="2rem" stroke={1.5} />}
-            onClick={() => setActive(index)}
+            onClick={() =>scrollToSection(item.tag,index)}
             color="orange"
             className="font-bold flex justify-center items-center mt-4"
           />

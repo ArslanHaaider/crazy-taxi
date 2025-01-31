@@ -29,7 +29,7 @@ const WhyChooseUS = () => {
   ];
 
   return (
-    <div className="relative w-full bg-[url('/chooseUs.jpg')] bg-cover bg-center">
+    <div className="relative w-full bg-[url('/chooseUs.jpg')] bg-cover bg-center" id="about">
     {/* Black Overlay */}
     <div className="absolute inset-0 bg-black bg-opacity-70 z-10"></div>
   

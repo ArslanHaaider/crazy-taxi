@@ -14,7 +14,7 @@ const Hero = () => {
   const [openedFixedPrices, { open: openFixedPrices, close: closeFixedPrices }] = useDisclosure(false);
   const t = useTranslations('hero');
   return (
-    <div className="bg-[url('/heroBg.jpg')] bg-cover bg-center w-100vw h-[100vh] flex justify-center font-sans overflow-hidden">
+    <div className="bg-[url('/heroBg.jpg')] bg-cover bg-center w-100vw h-[100vh] flex justify-center font-sans overflow-hidden" id='home'>
       <div className='flex text-white w-full flex-col justify-end items-center md:flex-row lg-flex-row'>
         <div className='w-full flex flex-col items-center justify-evenly h-1/3 md:h-3/4 md:w-3/6'>
           <Text size='xl'>{t('tagline')}</Text>

@@ -65,7 +65,7 @@ export async function POST(request: Request) {
     
         const mailOptions2 = {
             from: 'taxiiahmd@gmail.com',
-            to: "taxiraunheim@icloud.com",
+            to: "flughafentransfer123@hotmail.com",
             subject: 'Ihre Taxi-Fahrpreisrechnung',
             html: `
                 <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; padding: 20px;">

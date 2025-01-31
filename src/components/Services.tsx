@@ -21,7 +21,7 @@ const Services = () => {
     t("list2_item5")
   ];
   return (
-    <div className="relative z-10 w-full bg-section-bg p-3">
+    <div className="relative z-10 w-full bg-section-bg p-3" id="services">
       <motion.h1
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1, transition: { duration: 1 } }}
@@ -38,9 +38,9 @@ const Services = () => {
           <motion.img
             initial={{ opacity: 0, x: -100 }}
             whileInView={{ opacity: 1, x: 0, transition: { duration: 1 } }}
-            src={"/taxiVector.jpg"}
+            src={"/services1.jpg"}
             alt="taxi"
-            className="md:w-2/5 w-3/5"
+            className="md:w-2/5 w-3/5 rounded-md"
           />
           <List
             spacing="xs"
@@ -68,7 +68,7 @@ const Services = () => {
           whileInView={{ opacity: 1, x: 0, transition: { duration: 1 } }}
           src={"/taxiVector2.jpg"}
           alt="taxi"
-          className="md:w-2/5 w-3/5"
+          className="md:w-2/5 w-3/5 rounded-md"
         />
         <List
           spacing="xs"

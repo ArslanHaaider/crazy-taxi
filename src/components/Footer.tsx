@@ -8,18 +8,18 @@ const Footer = () => {
       <div className="w-full h-2/5 flex justify-center items-center flex-col text-white md:flex  md:flex-row md:h-2/6 md:p-2">
         <div className="flex items-center justify-center flex-col">
           <Image
-            src={"/taxiLogo.png"}
+            src={"/logoBg.png"}
             alt="not found"
             width={100}
             height={80}
             className="lg:w-[10rem]"
           ></Image>
           <p>Travel Securely With US!</p>
-        </div>
+      </div>
         <div className="w-full md:w-4/5 md:ml-3 flex justify-center items-center gap-1 bg-primary ">
           <IconPhone size="2rem" className="text-white" stroke={1.5} />
           <p>Call for Ride </p>
-          <p className="text-black font-bold"> 06142-61111</p>
+          <p className="text-black font-bold"> +49 6142499601</p>
         </div>
       </div>
       <div>
@@ -57,12 +57,12 @@ const Footer = () => {
             <ul className="m-0">
               <li className="text-white">
               <Link href={""} className="no-underline text-white text-lg">
-                taxiraunheim@icloud.com
+              flughafentransfer123@hotmail.com
               </Link>
               </li>
               <li className="text-white">
               <Link href={""} className="no-underline text-white text-lg">
-              06142-61111
+              +49 6142499601
               </Link>
               </li>
             </ul>
