@@ -77,8 +77,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="bg-[url('/skyLine.png')] bg-cover bg-center w-full h-1/4"></div>
-
+      <div className="bg-[url('/skyLine.jpg')] bg-cover bg-center w-full h-1/4"></div>
       <p className="block text-white text-center">
         &copy; 2025 All Rights Reserved
       </p>

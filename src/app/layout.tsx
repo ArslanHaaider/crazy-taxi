@@ -12,8 +12,8 @@ import {
 import './globals.css';
 import { DatesProvider } from '@mantine/dates';
 export const metadata = {
-  title: 'Taxi in Germany',
-  description: 'Order taxi anywhere in frankfurt',
+  title: 'Ride for Frankfurt',
+  description: 'Book ride anywhere in frankfurt',
 };
 const theme = createTheme({
   fontFamily: 'Verdana, sans-serif',

@@ -23,13 +23,13 @@ interface FormValues {
 const carsArray = [
   {
     id: '5 seater',
-    name: '5 Seater',
+    name: 'Pkw (bis 4 Personen)',
     cost: '$200',
     image: '/mercedies.png',
   },
   {
     id: '7 seater',
-    name: '7 seater',
+    name: 'Großraumfahrzeug (bis 8 Personen)',
     cost: '$400',
     image: '/VClass.png',
   },
@@ -49,7 +49,6 @@ const CarCard = ({ name, image, id, isSelected, onSelect }: CarCardProps) => {
     <div className="border border-solid border-primary w-10/12 h-[500px] md:h-52 flex items-center justify-evenly rounded-md mt-2 flex-col md:flex-row bg-section-bg">
       <Image src={image} width={200} height={100} alt="" className="w-52 h-36 md:w-72" />
       <div className="flex flex-col items-center justify-center">
-        <h1 className="text-2xl font-bold text-gray-400">Capacity</h1>
         <h1 className="text-xl font-bold text-wrap w-30">{name}</h1>
       </div>
       <Button

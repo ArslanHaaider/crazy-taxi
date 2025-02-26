@@ -6,7 +6,7 @@
     "calculateFare": "Preis berechnen",
     "modalTitle": "Fahrpreis berechnen",
     "modalTitle2": "Feste Preisrouten anzeigen",
-    "fixedPrice": "Feste Preisrouten anzeigen"
+    "fixedPrice": "Günstige Pauschalpreise zum Frankfurter Flughafen"
   },
   "whyChooseUs": {
     "title": "Warum uns wählen?",
@@ -52,11 +52,11 @@
     "list2_item4": "Kurierdienst",
     "list2_item5": "Gepäckservice"
   },
-  "calculate_price_oneway": "Einfach",
-  "calculate_price_return": "Rückkehr",
+  "calculate_price_oneway": "(Einfach) Hinfahrt ",
+  "calculate_price_return": "(Rückkehr) Hin - und Rückfahrt",
   "calculate_price_pickup_location_label": "Abholort",
   "calculate_price_pickup_location_placeholder": "Geben Sie Ihren Abholort ein",
-  "calculate_price_dropoff_location_label": "Abgabeort",
+  "calculate_price_dropoff_location_label": "Zielort",
   "calculate_price_dropoff_location_placeholder": "Geben Sie Ihren Abgabeort ein",
   "calculate_price_pickup_date_label": "Abholdatum",
   "calculate_price_pickup_date_placeholder": "Datum auswählen",
@@ -106,7 +106,7 @@
         "placeholder": "Geben Sie Ihren Abholort ein"
       },
       "dropOffLocation": {
-        "label": "Abgabeort",
+        "label": "Zielort",
         "placeholder": "Geben Sie Ihren Abgabeort ein"
       },
       "pickupDate": {

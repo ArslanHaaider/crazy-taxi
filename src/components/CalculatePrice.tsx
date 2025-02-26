@@ -68,21 +68,21 @@ const CalculatePrice = () => {
   if (!isLoaded) return <span>Loading...</span>;
 
   return (
-    <div className="w-full border-solid border-orange-400 bg-yellow-50">
+    <div className="w-full border-solid border-blue-800 bg-yellow-50">
       <form onSubmit={(e) => {
         e.preventDefault();
         calculateRoute();
       }}>
         <div className="flex justify-center gap-3 mt-3">
           <Button
-            color="orange"
+            color="blue"
             onClick={() => setIsReturn(false)}
-            className={`${!isReturn ? "bg-orange-400 text-white" : "bg-white text-orange-400"} border-orange-500`}
+            className={`${!isReturn ? "bg-blue-400 text-white" : "bg-white text-blue-400"} border-blue-500`}
           >
             {t("calculate_price_oneway")}
           </Button>
           <Button
-            className={`${isReturn ? "bg-orange-400 text-white" : "bg-white text-orange-400 border-orange-400"}`}
+            className={`${isReturn ? "bg-blue-400 text-white" : "bg-white text-blue-400 border-blue-400"}`}
             onClick={() => setIsReturn(true)}
           >
             {t("calculate_price_return")}
@@ -132,7 +132,7 @@ const CalculatePrice = () => {
           <TimeInput
             label={t("calculate_price_pick_time_label")}
             className="w-3/6"
-            color="orange"
+            color="blue"
             ref={ref}
             rightSection={
               <ActionIcon variant="subtle" color="gray" onClick={() => ref.current?.showPicker?.()}>
@@ -152,7 +152,7 @@ const CalculatePrice = () => {
             <TimeInput
               label={t("calculate_price_return_time_label")}
               className="w-3/6"
-              color="orange"
+              color="blue"
               ref={ref}
               rightSection={
                 <ActionIcon variant="subtle" color="gray" onClick={() => ref.current?.showPicker()}>
@@ -181,7 +181,7 @@ const CalculatePrice = () => {
         </div>
 
         <div className="flex justify-center items-center mt-7 mb-5">
-          <Button type="submit" color="orange">{t("calculate_price_calculate_fare_button")}</Button>
+          <Button type="submit" color="blue">{t("calculate_price_calculate_fare_button")}</Button>
         </div>
 
         {distance > 0 && (
@@ -190,7 +190,7 @@ const CalculatePrice = () => {
             <div className="space-y-2">
               <Text>Distance: {(distance / 1000).toFixed(1)} km</Text>
               <Text>Duration: {duration}</Text>
-              <Text className="text-xl font-bold text-orange-500">
+              <Text className="text-xl font-bold text-blue-500">
                 Price: €{price.toFixed(2)}
               </Text>
             </div>

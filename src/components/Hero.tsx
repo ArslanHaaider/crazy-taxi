@@ -6,13 +6,15 @@ import { motion } from "motion/react";
 import CalculatePrice from './CalculatePrice';
 import FixedPrices from './FixedPrice'; // Assuming you have a FixedPrices component
 import { useTranslations } from 'next-intl';
+import { useRouter } from 'next/navigation';
 
 const Hero = () => {
   // UseDisclosure for the first modal
   const [opened, { open, close }] = useDisclosure(false);
-  // UseDisclosure for the second modal
+const router = useRouter();  // UseDisclosure for the second modal
   const [openedFixedPrices, { open: openFixedPrices, close: closeFixedPrices }] = useDisclosure(false);
   const t = useTranslations('hero');
+  const ts = useTranslations("Navbar");
   return (
     <div className="bg-[url('/heroBg.jpg')] bg-cover bg-center w-100vw h-[100vh] flex justify-center font-sans overflow-hidden" id='home'>
       <div className='flex text-white w-full flex-col justify-end items-center md:flex-row lg-flex-row'>
@@ -45,7 +47,7 @@ const Hero = () => {
             className='bg-primary'
             styles={{
               content: { height: "30rem" },
-              title: { color: "orange", fontSize: "1.5rem", fontWeight: "bold"},
+              title: { color: "#1d87da", fontSize: "1.5rem", fontWeight: "bold"},
             }}
           >
             <CalculatePrice />
@@ -61,7 +63,7 @@ const Hero = () => {
             className="bg-primary"
             styles={{
               content: { height: "30rem" },
-              title: { color: "orange", fontSize: "1.5rem", fontWeight: "bold" },
+              title: { color: "blue", fontSize: "1.5rem", fontWeight: "bold" },
             }}
           >
             <FixedPrices /> {/* Your fixed prices component */}
@@ -77,10 +79,20 @@ const Hero = () => {
           </Button>
             {/* Button to open Fixed Prices Modal */}
           <Button 
-            className=" h-12 mb-10 text-2xl animate-pulse-scale bg-white text-primary hover:text-white hover:bg-primary" 
+            className=" h-12 mb-10 text-xl animate-pulse-scale bg-white text-primary hover:text-white hover:bg-primary" 
             onClick={openFixedPrices} 
           >
             {t('fixedPrice')} 
+          </Button>
+        </div>
+        <div className="flex justify-center items-center w-full md:hidden">
+          <Button
+            color="blue"
+            className="w-2/3 h-20 mt-10 text-2xl md:w-2/5 animate-pulse-scale"
+            rightSection={<IconCar size={40} />}
+            onClick={() => router.push("/booking")}
+          >
+            {ts("book")}
           </Button>
         </div>
         <div className='md:overflow-hidden w-1/2 md:3/6 h-2/5'>
