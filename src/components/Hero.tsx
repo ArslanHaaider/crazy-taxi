@@ -79,12 +79,12 @@ const router = useRouter();  // UseDisclosure for the second modal
           </Button>
             {/* Button to open Fixed Prices Modal */}
           <Button 
-            className="w-11/12 mb-10 text-2xl animate-pulse-scale bg-white text-primary hover:text-white hover:bg-primary" 
+            className="w-11/12 text:xl sm:text-2xl animate-pulse-scale bg-white text-primary hover:text-white hover:bg-primary overflow-visible" 
             onClick={openFixedPrices}
             styles={{
               root: {
                 height: 'auto',
-                padding: '0.5rem'
+                padding: '0.5rem',
               },
               inner: {
                 whiteSpace: 'normal',
@@ -95,6 +95,8 @@ const router = useRouter();  // UseDisclosure for the second modal
               label: {
                 whiteSpace: 'pre-wrap',
                 textAlign: 'center',
+                overflow:'visible',
+
                 wordBreak: 'break-word',
                 overflowWrap: 'break-word'
               }
@@ -103,10 +105,10 @@ const router = useRouter();  // UseDisclosure for the second modal
             {t('fixedPrice')} 
           </Button>
         </div>
-        <div className="flex justify-center items-center w-full md:hidden">
+        <div className="flex justify-center items-center w-full md:hidden mt-5 ">
           <Button
             color="blue"
-            className="w-2/3 h-20  md:mt-10 text-2xl md:w-2/5 animate-pulse-scale"
+            className="w-2/3 h-20 md:mt-10 text-2xl md:w-2/5 animate-pulse-scale"
             rightSection={<IconCar size={40} />}
             onClick={() => router.push("/booking")}
           >

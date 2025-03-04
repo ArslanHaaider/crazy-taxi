@@ -25,7 +25,7 @@ const Services = () => {
       <motion.h1
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1, transition: { duration: 1 } }}
-        className="text-primary pt-5 m-0 text-center text-4xl"
+        className="text-primary pt-5 m-0 text-center text-4xl "
       >
         {t("heading")}
       </motion.h1>
@@ -59,7 +59,7 @@ const Services = () => {
           </List>
         </div>
       </div>
-      <h4 className="text-center text-5xl text-primary m-0 mt-4 mb-4">
+      <h4 className="text-center text-5xl text-primary m-0 mt-4 mb-4 text-wrap break-words">
         {t("section1Title")}
       </h4>
       <div className="md:flex md:flex-row md:items-center md:justify-center flex flex-col items-center justify-center">
