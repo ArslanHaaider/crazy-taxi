@@ -79,8 +79,26 @@ const router = useRouter();  // UseDisclosure for the second modal
           </Button>
             {/* Button to open Fixed Prices Modal */}
           <Button 
-            className=" h-12 mb-10 text-xl animate-pulse-scale bg-white text-primary hover:text-white hover:bg-primary" 
-            onClick={openFixedPrices} 
+            className="w-11/12 mb-10 text-2xl animate-pulse-scale bg-white text-primary hover:text-white hover:bg-primary" 
+            onClick={openFixedPrices}
+            styles={{
+              root: {
+                height: 'auto',
+                padding: '0.5rem'
+              },
+              inner: {
+                whiteSpace: 'normal',
+                height: 'auto',
+                flexWrap: 'wrap',
+                minHeight: '2.5rem'
+              },
+              label: {
+                whiteSpace: 'pre-wrap',
+                textAlign: 'center',
+                wordBreak: 'break-word',
+                overflowWrap: 'break-word'
+              }
+            }}
           >
             {t('fixedPrice')} 
           </Button>
