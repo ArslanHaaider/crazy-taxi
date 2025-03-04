@@ -184,7 +184,7 @@ const CalculatePrice = () => {
           <Button type="submit" color="blue">{t("calculate_price_calculate_fare_button")}</Button>
         </div>
 
-        {distance > 0 && (
+        {distance >= 0 && (
           <div className="p-4 bg-white rounded-lg shadow mx-2">
             <Text size="lg" className="font-bold text-center mb-2">Trip Details</Text>
             <div className="space-y-2">

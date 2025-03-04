@@ -46,7 +46,7 @@ const router = useRouter();  // UseDisclosure for the second modal
             size='xl' 
             className='bg-primary'
             styles={{
-              content: { height: "30rem" },
+              content: { height: "45rem" },
               title: { color: "#1d87da", fontSize: "1.5rem", fontWeight: "bold"},
             }}
           >
@@ -71,7 +71,7 @@ const router = useRouter();  // UseDisclosure for the second modal
           
           {/* Button to open Calculate Price Modal */}
           <Button 
-            className=" h-12 mb-3 text-2xl animate-pulse-scale bg-white text-primary hover:text-white hover:bg-primary" 
+            className=" h-20 md:h-15 text-2xl animate-pulse-scale bg-white text-primary hover:text-white hover:bg-primary" 
             onClick={open} 
             rightSection={<IconCar size={30} />}
           >
@@ -106,7 +106,7 @@ const router = useRouter();  // UseDisclosure for the second modal
         <div className="flex justify-center items-center w-full md:hidden">
           <Button
             color="blue"
-            className="w-2/3 h-20 mt-10 text-2xl md:w-2/5 animate-pulse-scale"
+            className="w-2/3 h-20  md:mt-10 text-2xl md:w-2/5 animate-pulse-scale"
             rightSection={<IconCar size={40} />}
             onClick={() => router.push("/booking")}
           >
