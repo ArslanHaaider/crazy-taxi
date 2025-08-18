@@ -1,41 +1,52 @@
 "use client";
 
-import { Burger, Button, Container, Drawer, NavLink } from "@mantine/core";
-import { useDisclosure } from "@mantine/hooks";
 import {
-  IconBriefcase,
-  IconCar,
-  IconChevronRight,
-  IconHome,
-  IconInfoCircle,
-  IconPhone,
-  IconMail,
-} from "@tabler/icons-react";
+  Briefcase,
+  Car,
+  ChevronRight,
+  Home,
+  Info,
+  Phone,
+  Mail,
+  Menu,
+} from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import LocaleSwitcher from "./LocalSwitcher";
 import { useTranslations } from "next-intl";
+import { Button } from "@/components/ui/button";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+import {
+  NavigationMenu,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  navigationMenuTriggerStyle,
+} from "@/components/ui/navigation-menu";
+import Link from "next/link";
 
 const Navbar = () => {
   const router = useRouter();
   const t = useTranslations("Navbar");
-  const [menuIsOpen, { open, close }] = useDisclosure(false, {
-    onOpen: () => console.log("Opened"),
-    onClose: () => console.log("Closed"),
-  });
-  const scrollToSection = (id: string,index:number) => {
+  const [menuIsOpen, setMenuIsOpen] = useState(false);
+  
+  const scrollToSection = (id: string, index: number) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
     setActive(index);
+    setMenuIsOpen(false);
   };
+  
   const data = [
-    { icon: IconHome, label: t("home") ,tag:"home"},
-    {
-      icon: IconBriefcase,
-      label: t("services"),
-      rightSection: <IconChevronRight size="1rem" stroke={1.5} />,
-   tag:'services' },
-    { icon: IconInfoCircle, label: t("about")  ,tag:"about",}
+    { icon: Home, label: t("home"), tag: "home" },
+    { icon: Briefcase, label: t("services"), tag: "services" },
+    { icon: Info, label: t("about"), tag: "about" },
   ];
 
   const [active, setActive] = useState(0);
