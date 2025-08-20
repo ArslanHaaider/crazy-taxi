@@ -1,18 +1,20 @@
 'use client'
-import { Button, Modal, Text } from '@mantine/core';
-import { useDisclosure } from '@mantine/hooks';
-import { IconCar } from '@tabler/icons-react';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+import { Button } from '@mantine/core';
+import { Car } from 'lucide-react';
 import { motion } from "motion/react";
 import CalculatePrice from './CalculatePrice';
 import FixedPrices from './FixedPrice'; // Assuming you have a FixedPrices component
 import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+import { Modal, Text } from '@mantine/core';
 
 const Hero = () => {
-  // UseDisclosure for the first modal
-  const [opened, { open, close }] = useDisclosure(false);
-const router = useRouter();  // UseDisclosure for the second modal
-  const [openedFixedPrices, { open: openFixedPrices, close: closeFixedPrices }] = useDisclosure(false);
+  // State for dialog management
+  const [calculatePriceOpen, setCalculatePriceOpen] = useState(false);
+  const [fixedPricesOpen, setFixedPricesOpen] = useState(false);
+  const router = useRouter();
   const t = useTranslations('hero');
   const ts = useTranslations("Navbar");
   return (
@@ -38,9 +40,9 @@ const router = useRouter();  // UseDisclosure for the second modal
           </motion.h1>
           
           {/* First Modal for Calculate Price */}
-          <Modal 
-            opened={opened} 
-            onClose={close} 
+          <Modal
+            opened={calculatePriceOpen}
+            onClose={() => setCalculatePriceOpen(false)}
             title={t('modalTitle')} 
             centered 
             size='xl' 
@@ -55,8 +57,8 @@ const router = useRouter();  // UseDisclosure for the second modal
 
           {/* Second Modal for Fixed Prices */}
           <Modal
-            opened={openedFixedPrices}
-            onClose={closeFixedPrices}
+            opened={fixedPricesOpen}
+            onClose={() => setFixedPricesOpen(false)}
             title={t('modalTitle2')}
             centered
             size="xl"
@@ -72,15 +74,15 @@ const router = useRouter();  // UseDisclosure for the second modal
           {/* Button to open Calculate Price Modal */}
           <Button 
             className=" h-20 md:h-15 text-2xl animate-pulse-scale bg-white text-primary hover:text-white hover:bg-primary" 
-            onClick={open} 
-            rightSection={<IconCar size={30} />}
+            onClick={() => setCalculatePriceOpen(true)}
+            rightSection={<Car size={30} />}
           >
             {t('calculateFare')}
           </Button>
             {/* Button to open Fixed Prices Modal */}
           <Button 
             className="w-11/12 text:xl sm:text-2xl animate-pulse-scale bg-white text-primary hover:text-white hover:bg-primary overflow-visible" 
-            onClick={openFixedPrices}
+            onClick={() => setFixedPricesOpen(true)}
             styles={{
               root: {
                 height: 'auto',
@@ -109,7 +111,7 @@ const router = useRouter();  // UseDisclosure for the second modal
           <Button
             color="blue"
             className="w-2/3 h-20 md:mt-10 text-2xl md:w-2/5 animate-pulse-scale"
-            rightSection={<IconCar size={40} />}
+            rightSection={<Car size={40} />}
             onClick={() => router.push("/booking")}
           >
             {ts("book")}

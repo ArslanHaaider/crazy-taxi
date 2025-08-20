@@ -75,7 +75,13 @@
     "emailNow": "JETZT EMAIL SCHICKEN",
     "book": "BUCHEN",
     "toggleNav": "Navigation umschalten",
-    "logoAlt": "Taxi-Service-Logo"
+    "logoAlt": "Taxi-Service-Logo",
+    "navigation": "Navigation"
+  },
+  "LocaleSwitcher": {
+    "en": "English",
+    "de": "Deutsch",
+    "label": "Sprache"
   },
     "step1": {
       "label": "Schritt 1",

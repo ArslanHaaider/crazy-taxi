@@ -1,3 +1,4 @@
+import EnhancedNavbar from '@/components/EnhancedNavbar';
 import Footer from '@/components/Footer';
 import Hero from '@/components/Hero';
 import Navbar from '@/components/Navbar';
@@ -6,7 +7,7 @@ import WhyChooseUS from '@/components/WhyChooseUS';
 
 export default function Home() {
   return <div>
-      <Navbar/>
+      <EnhancedNavbar/>
       <Hero/>
       <Services/>
       <WhyChooseUS/>

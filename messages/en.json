@@ -74,7 +74,14 @@
     "emailNow": "Email NOW",
     "book": "BOOK",
     "toggleNav": "Toggle navigation",
-    "logoAlt": "Taxi Service Logo"},
+    "logoAlt": "Taxi Service Logo",
+    "navigation": "Navigation"
+  },
+  "LocaleSwitcher": {
+    "en": "English",
+    "de": "German",
+    "label": "Language"
+  },
       "pickupLocation": {
         "label": "Pickup Location",
         "placeholder": "Enter your pickup location"
