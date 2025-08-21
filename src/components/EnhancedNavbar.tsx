@@ -179,12 +179,12 @@ const EnhancedNavbar: React.FC = () => {
         ref={navRef}
         className={`fixed top-0 z-50 w-full transition-all duration-300 ${
           isScrolled
-            ? "bg-white/95 backdrop-blur-md shadow-lg"
+            ? "bg-amber-500/95 backdrop-blur-md shadow-lg"
             : "bg-transparent"
         }`}
       >
         {/* Top Contact Bar */}
-        <div className="hidden md:flex justify-end items-center px-6 py-2 bg-primary text-white text-sm">
+        <div className="hidden md:flex justify-end items-center px-6 py-2 bg-amber-500 text-black text-sm">   
           <div className="flex items-center gap-6">
             <div className="flex items-center gap-2 hover:opacity-80 transition-opacity cursor-pointer">
               <Phone size={16} />
@@ -227,10 +227,10 @@ const EnhancedNavbar: React.FC = () => {
                           pillRefs.current[index] = el;
                           return undefined;
                         }}
-                        className={`relative overflow-hidden inline-flex items-center justify-center h-12 px-6 rounded-full font-semibold text-white transition-all duration-300 cursor-pointer ${
+                        className={`relative overflow-hidden inline-flex items-center justify-center h-12 px-6 rounded-full font-semibold text-black transition-all duration-300 cursor-pointer ${
                           activeSection === index
-                            ? "bg-primary"
-                            : "bg-primary/80 hover:bg-primary/90"
+                            ? "bg-amber-400"
+                            : "bg-amber-300/80 hover:bg-amber-400/90"
                         }`}
                         onClick={() => scrollToSection(item.tag, index)}
                         onMouseEnter={() => handlePillHover(index, true)}
@@ -279,7 +279,7 @@ const EnhancedNavbar: React.FC = () => {
               
               {/* Enhanced Book Button with StarBorder Animation */}
                   <Button
-                    className="bg-primary text-white hover:bg-primary-hover text-xl h-16 mt-4 animate-pulse-scale flex items-center gap-3"
+                    className="bg-blue-500 text-white hover:bg-blue-600 text-xl h-16 mt-4 animate-pulse-scale flex items-center gap-3"
                     onClick={() => {
                       router.push("/booking");
                       setIsMobileMenuOpen(false);
@@ -299,8 +299,8 @@ const EnhancedNavbar: React.FC = () => {
                   variant="ghost"
                   size="icon"
                   className={`${
-                    isScrolled ? "text-gray-800" : "text-white"
-                  } hover:bg-white/20`}
+                    isScrolled ? "text-black" : "text-white"
+                  } hover:bg-amber-500/20`}
                 >
                   <Menu className="h-6 w-6" />
                 </Button>
