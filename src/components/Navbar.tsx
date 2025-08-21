@@ -30,6 +30,7 @@ import {
   NavigationMenuList,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
+import { RainbowButton } from "@/components/ui/rainbowButton";
 import Link from "next/link";
 
 const Navbar = () => {
@@ -105,13 +106,13 @@ const Navbar = () => {
                   </NavigationMenuItem>
                 ))}
                 <NavigationMenuItem>
-                  <Button
-                    className="bg-black text-white hover:bg-gray-800 text-lg animate-pulse-scale flex items-center gap-2"
+                  <RainbowButton
+                    className="text-lg animate-pulse-scale flex items-center gap-2"
                     onClick={() => router.push("/booking")}
                   >
                     <Car size={20} />
                     {t("book")}
-                  </Button>
+                  </RainbowButton>
                 </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>
@@ -141,8 +142,8 @@ const Navbar = () => {
                       {item.label}
                     </Button>
                   ))}
-                  <Button
-                    className="bg-primary text-white hover:bg-primary-hover text-xl h-16 mt-4 animate-pulse-scale flex items-center gap-3"
+                  <RainbowButton
+                    className="text-xl h-16 mt-4 animate-pulse-scale flex items-center gap-3"
                     onClick={() => {
                       router.push("/booking");
                       setMenuIsOpen(false);
@@ -150,7 +151,7 @@ const Navbar = () => {
                   >
                     <Car size={32} />
                     {t("book")}
-                  </Button>
+                  </RainbowButton>
                 </div>
               </SheetContent>
             </Sheet>

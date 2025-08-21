@@ -1,41 +1,48 @@
-'use client';
+"use client";
 
 // import {CheckIcon, LanguageIcon} from '@heroicons/react/24/solid';
-import * as Select from '@radix-ui/react-select';
-import clsx from 'clsx';
-import {useTransition} from 'react';
-import {Locale} from '@/i18n/config';
-import {setUserLocale} from '@/services/locale';
-import { IconCheck, IconLanguage } from '@tabler/icons-react';
+import * as Select from "@radix-ui/react-select";
+import clsx from "clsx";
+import { useState, useTransition } from "react";
+import { Locale } from "@/i18n/config";
+import { setUserLocale } from "@/services/locale";
+import { IconCheck, IconLanguage } from "@tabler/icons-react";
+import { useRouter } from "next/navigation";
 
 type Props = {
   defaultValue: string;
-  items: Array<{value: string; label: string}>;
+  items: Array<{ value: string; label: string }>;
   label: string;
 };
 
-export default function LocaleSwitcherSelect({
-  defaultValue,
-  items,
-  label
-}: Props) {
+export default function LocaleSwitcherSelect({ defaultValue, items, label }: Props) {
+  const router = useRouter();
   const [isPending, startTransition] = useTransition();
+  const [value, setValue] = useState<string>(defaultValue);
 
-  function onChange(value: string) {
-    const locale = value as Locale;
-    startTransition(() => {
-      setUserLocale(locale);
+  async function onChange(nextValue: string) {
+    const locale = nextValue as Locale;
+    setValue(nextValue); // update UI immediately
+    startTransition(async () => {
+      try {
+        await setUserLocale(locale);
+        router.refresh();
+      } catch (e) {
+        // revert on error
+        setValue(defaultValue);
+        console.error("Failed to set locale", e);
+      }
     });
   }
 
   return (
     <div className="relative">
-      <Select.Root defaultValue={defaultValue} onValueChange={onChange}>
+      <Select.Root value={value} onValueChange={onChange}>
         <Select.Trigger
           aria-label={label}
           className={clsx(
-            'rounded-sm p-2 transition-colors hover:bg-slate-200',
-            isPending && 'pointer-events-none opacity-60'
+            "rounded-sm p-2 transition-colors hover:bg-slate-200",
+            isPending && "pointer-events-none opacity-60"
           )}
         >
           <Select.Icon>
@@ -56,7 +63,7 @@ export default function LocaleSwitcherSelect({
                   value={item.value}
                 >
                   <div className="mr-2 w-[1rem]">
-                    {item.value === defaultValue && (
+                    {item.value === value && (
                       <IconCheck className="h-5 w-5 text-slate-600" />
                     )}
                   </div>

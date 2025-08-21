@@ -32,6 +32,7 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
 } from "@/components/ui/navigation-menu";
+import { RainbowButton } from "@/components/ui/rainbowButton";
 
 interface NavItem {
   icon: React.ElementType;
@@ -159,13 +160,18 @@ const EnhancedNavbar: React.FC = () => {
     setIsMobileMenuOpen(false);
   };
 
-  const toggleLanguage = () => {
+  const toggleLanguage = async () => {
     const newLocale = locale === 'en' ? 'de' : 'en';
-    const currentPath = window.location.pathname;
-    const newPath = currentPath.startsWith('/' + locale) 
-      ? currentPath.replace('/' + locale, '/' + newLocale)
-      : '/' + newLocale + currentPath;
-    router.push(newPath);
+    try {
+      await fetch('/api/locale', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ locale: newLocale })
+      });
+      router.refresh();
+    } catch (e) {
+      console.error('Failed to toggle language', e);
+    }
   };
 
   const handleLogoClick = () => {
@@ -177,9 +183,9 @@ const EnhancedNavbar: React.FC = () => {
     <>
       <nav
         ref={navRef}
-        className={`fixed top-0 z-50 w-full transition-all duration-300 ${
+        className={` top-0 z-50 w-full transition-all duration-300 ${
           isScrolled
-            ? "bg-amber-500/95 backdrop-blur-md shadow-lg"
+            ? "bg-amber-500/95 backdrop-blur-md shadow-lg sticky"
             : "bg-transparent"
         }`}
       >
@@ -277,17 +283,17 @@ const EnhancedNavbar: React.FC = () => {
                 {locale === 'en' ? 'DEU' : 'ENG'}
               </button>
               
-              {/* Enhanced Book Button with StarBorder Animation */}
-                  <Button
-                    className="bg-blue-500 text-white hover:bg-blue-600 text-xl h-16 mt-4 animate-pulse-scale flex items-center gap-3"
-                    onClick={() => {
-                      router.push("/booking");
-                      setIsMobileMenuOpen(false);
-                    }}
-                  >
-                    <Car size={32} />
-                    {t("book")}
-                  </Button>
+              {/* Enhanced Book Button replaced with RainbowButton */}
+              <RainbowButton
+              className="bg-blue-600"
+                onClick={() => {
+                  router.push("/booking");
+                  setIsMobileMenuOpen(false);
+                }}
+              >
+                <Car size={32} />
+                {t("book")}
+              </RainbowButton>
             </div>    
           </div>
 

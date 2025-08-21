@@ -1,15 +1,14 @@
 'use client';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import { Car } from 'lucide-react';
-import Image from 'next/image';
+import { Calculator, MapPin, Clock, Shield } from 'lucide-react';
 import CalculatePrice from './CalculatePrice';
 import FixedPrices from './FixedPrice';
 import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
 import { Modal, Text } from '@mantine/core';
 import { FloatingPaths } from './Background';
-import {Button} from '@mantine/core'
+
 const Hero = () => {
   const [calculatePriceOpen, setCalculatePriceOpen] = useState(false);
   const [fixedPricesOpen, setFixedPricesOpen] = useState(false);
@@ -17,150 +16,259 @@ const Hero = () => {
   const t = useTranslations('hero');
   const ts = useTranslations('Navbar');
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.3
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: [0.25, 0.46, 0.45, 0.94]
+      }
+    }
+  };
+
   return (
-    <div className="relative w-full h-screen overflow-hidden bg-gradient-to-br from-amber-50 via-white to-amber-100 dark:from-neutral-900 dark:via-neutral-950 dark:to-black" id="home">
-      {/* Background Paths - Using the actual BackgroundPaths structure */}
+    <div className="relative w-full min-h-screen lg:h-screen overflow-hidden bg-gradient-to-br from-slate-50 via-white to-slate-100 dark:from-slate-900 dark:via-slate-950 dark:to-black" id="home">
+      {/* Background Elements */}
       <div className="absolute inset-0">
         <FloatingPaths position={1} />
         <FloatingPaths position={-1} />
       </div>
 
-      <div className="absolute inset-0 flex text-white w-full flex-col justify-end items-center md:flex-row lg-flex-row z-10">
-        <div className="w-full flex flex-col items-center justify-evenly h-1/3 md:h-3/4 md:w-3/6">
-          <div className="text-center space-y-6">
-            <motion.div
-               initial={{ opacity: 0, y: 20 }}
-               animate={{ opacity: 1, y: 0 }}
-               transition={{ duration: 1 }}
-             >
-               <Text size="xl" className="text-neutral-700 dark:text-amber-200 font-light tracking-wide">
-                 {t('tagline')}
-               </Text>
-             </motion.div>
- 
-             <motion.h1
-               initial={{ opacity: 0, y: 50 }}
-               animate={{ opacity: 1, y: 0 }}
-               transition={{ duration: 1.2, delay: 0.2 }}
-               className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-amber-500 via-amber-600 to-amber-700 dark:from-amber-400 dark:via-amber-500 dark:to-amber-600"
-             >
-               {t('heading1')}
-             </motion.h1>
- 
-             <motion.h2
-               initial={{ opacity: 0, y: 30 }}
-               animate={{ opacity: 1, y: 0 }}
-               transition={{ duration: 1.2, delay: 0.4 }}
-               className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-neutral-800 via-neutral-700 to-neutral-600 dark:from-neutral-100 dark:via-neutral-200 dark:to-neutral-300"
-             >
-               {t('heading2')}
-             </motion.h2>
-          </div>
-
-          {/* First Modal for Calculate Price */}
-          <Modal
-            opened={calculatePriceOpen}
-            onClose={() => setCalculatePriceOpen(false)}
-            title={t('modalTitle')}
-            centered
-            size="xl"
-            className="bg-primary"
-            styles={{
-              content: { height: '45rem' },
-              title: { color: '#1d87da', fontSize: '1.5rem', fontWeight: 'bold' },
-            }}
-          >
-            <CalculatePrice />
-          </Modal>
-
-          {/* Second Modal for Fixed Prices */}
-          <Modal
-            opened={fixedPricesOpen}
-            onClose={() => setFixedPricesOpen(false)}
-            title={t('modalTitle2')}
-            centered
-            size="xl"
-            className="bg-primary"
-            styles={{
-              content: { height: '30rem' },
-              title: { color: 'blue', fontSize: '1.5rem', fontWeight: 'bold' },
-            }}
-          >
-            <FixedPrices />
-          </Modal>
-
-          <div className="flex flex-col gap-4 w-full items-center">
-            {/* Button to open Calculate Price Modal */}
-            <motion.div
-               initial={{ opacity: 0, scale: 0.9 }}
-               animate={{ opacity: 1, scale: 1 }}
-               transition={{ delay: 0.8, duration: 0.5 }}
-               whileHover={{ scale: 1.05 }}
-               whileTap={{ scale: 0.95 }}
-               className="inline-block group relative bg-gradient-to-b from-amber-500 to-amber-600 dark:from-amber-600 dark:to-amber-700 p-px rounded-2xl backdrop-blur-lg overflow-hidden shadow-lg hover:shadow-amber-500/25 transition-shadow duration-300"
-             >
-               <Button
-                 className="h-16 md:h-20 text-xl md:text-2xl rounded-[1.15rem] px-8 py-6 backdrop-blur-md bg-amber-500 hover:bg-amber-600 dark:bg-amber-600 dark:hover:bg-amber-500 text-black dark:text-black font-semibold transition-all duration-300 group-hover:-translate-y-0.5 border border-amber-400/50 dark:border-amber-700/50 hover:shadow-lg hover:shadow-amber-500/30"
-                 onClick={() => setCalculatePriceOpen(true)}
-                 rightSection={<Car size={30} />}
-                 styles={{
-                   root: {
-                     minWidth: '280px',
-                     maxWidth: '400px',
-                   },
-                 }}
-               >
-                 <span className="opacity-90 group-hover:opacity-100 transition-opacity">
-                   {t('calculateFare')}
-                 </span>
-               </Button>
-             </motion.div>
-             
-             {/* Button to open Fixed Prices Modal */}
-             <motion.div
-               initial={{ opacity: 0, scale: 0.9 }}
-               animate={{ opacity: 1, scale: 1 }}
-               transition={{ delay: 0.9, duration: 0.5 }}
-               whileHover={{ scale: 1.05 }}
-               whileTap={{ scale: 0.95 }}
-               className="inline-block group relative bg-gradient-to-b from-blue-600 to-blue-700 dark:from-blue-500 dark:to-blue-600 p-px rounded-2xl backdrop-blur-lg overflow-hidden shadow-lg hover:shadow-blue-500/25 transition-shadow duration-300"
-             >
-               <Button
-                 className="h-16 md:h-20 text-lg md:text-xl rounded-[1.15rem] px-8 py-6 backdrop-blur-md bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white font-semibold transition-all duration-300 group-hover:-translate-y-0.5 border border-blue-500/50 dark:border-blue-400/50 hover:shadow-lg hover:shadow-blue-500/30"
-                 onClick={() => setFixedPricesOpen(true)}
-                 styles={{
-                   root: {
-                     minWidth: '280px',
-                     maxWidth: '400px',
-                   },
-                 }}
-               >
-                 <span className="opacity-90 group-hover:opacity-100 transition-opacity">
-                   {t('fixedPrice')}
-                 </span>
-               </Button>
-             </motion.div>
-          </div>
-        </div>
-        <div className="flex justify-center items-center w-full md:hidden mt-5">
-          <Button
-            color="blue"
-            className="w-2/3 h-20 md:mt-10 text-2xl md:w-2/5 animate-pulse-scale"
-            rightSection={<Car size={40} />}
-            onClick={() => router.push('/booking')}
-          >
-            {ts('book')}
-          </Button>
-        </div>
-        <motion.div
-          className="md:overflow-hidden w-1/2 md:w-2/5 h-2/5 md:h-3/5"
-          initial={{ opacity: 0, x: 100 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1, delay: 0.5 }}
+      {/* Main Content Grid - Mobile First */}
+      <div className="relative z-10 min-h-screen lg:h-full grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center px-4 sm:px-6 lg:px-8 py-8 lg:py-0">
+        
+        {/* Left Content Section */}
+        <motion.div 
+          className="lg:col-span-7 xl:col-span-6 flex flex-col justify-center lg:h-full py-8 lg:py-0 order-2 lg:order-1"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
         >
-          <div className="bg-[url('/mercedies.png')] bg-contain bg-center bg-no-repeat w-full h-full animate-pulse-scale drop-shadow-2xl" />
+          {/* Tagline */}
+          <motion.div variants={itemVariants}>
+            <Text className="text-xs sm:text-sm font-medium tracking-wider uppercase text-primary mb-3 sm:mb-4">
+              {t('tagline')}
+            </Text>
+          </motion.div>
+
+          {/* Main Headline - Responsive Typography */}
+          <motion.h1 
+            variants={itemVariants}
+            className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-light leading-tight text-text-primary mb-4 sm:mb-6"
+          >
+            <span className="font-extralight block sm:inline">{t('heading1')}</span>
+            <br className="hidden sm:block" />
+            <span className="font-semibold bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
+              {t('heading2')}
+            </span>
+          </motion.h1>
+
+          {/* Subtext - Responsive */}
+          <motion.p 
+            variants={itemVariants}
+            className="text-base sm:text-lg text-text-secondary mb-8 sm:mb-10 lg:mb-12 max-w-2xl leading-relaxed"
+          >
+            Experience premium airport transfers with transparent pricing, 
+            professional drivers, and guaranteed punctuality across Frankfurt and beyond.
+          </motion.p>
+
+          {/* Action Cards Grid - Mobile Stack */}
+          <motion.div 
+            variants={itemVariants}
+            className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-8 sm:mb-10"
+          >
+            {/* Calculate Price Card - Mobile Optimized */}
+            <motion.div
+              whileHover={{ scale: 1.02, y: -2 }}
+              whileTap={{ scale: 0.98 }}
+              className="group cursor-pointer"
+              onClick={() => setCalculatePriceOpen(true)}
+            >
+              <div className="bg-surface border border-border-light rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-sm hover:shadow-lg hover:border-primary/20 transition-all duration-300">
+                <div className="flex items-center mb-2 sm:mb-3">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-primary flex items-center justify-center mr-3 sm:mr-4 flex-shrink-0">
+                    <Calculator className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-sm sm:text-base font-semibold text-text-primary">Calculate Fare</h3>
+                    <p className="text-xs sm:text-sm text-text-secondary">Instant pricing</p>
+                  </div>
+                </div>
+                <p className="text-xs sm:text-sm text-text-secondary mb-3 sm:mb-4">
+                  Get accurate pricing for your journey with our transparent fare calculator.
+                </p>
+                <div className="flex items-center text-primary text-xs sm:text-sm font-medium">
+                  Calculate now →
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Fixed Prices Card - Mobile Optimized */}
+            <motion.div
+              whileHover={{ scale: 1.02, y: -2 }}
+              whileTap={{ scale: 0.98 }}
+              className="group cursor-pointer"
+              onClick={() => setFixedPricesOpen(true)}
+            >
+              <div className="bg-white/70 dark:bg-slate-800/70 backdrop-blur-sm border border-border-light rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-sm hover:shadow-lg transition-all duration-300">
+                <div className="flex items-center mb-2 sm:mb-3">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-gradient-to-br from-secondary to-secondary/80 flex items-center justify-center mr-3 sm:mr-4 flex-shrink-0">
+                    <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-sm sm:text-base font-semibold text-text-primary">Fixed Routes</h3>
+                    <p className="text-xs sm:text-sm text-text-secondary">Popular destinations</p>
+                  </div>
+                </div>
+                <p className="text-xs sm:text-sm text-text-secondary mb-3 sm:mb-4">
+                  Pre-defined routes with guaranteed fixed prices and no hidden fees.
+                </p>
+                <div className="flex items-center text-secondary text-xs sm:text-sm font-medium">
+                  View routes →
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+
+          {/* Quick Actions - Mobile Full Width */}
+          <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => router.push('/booking')}
+              className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-primary to-primary/90 text-white rounded-lg sm:rounded-xl font-medium hover:from-primary/90 hover:to-primary transition-all duration-300 shadow-lg hover:shadow-xl text-sm sm:text-base"
+            >
+              Book Now
+            </motion.button>
+            
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => router.push('#services')}
+              className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 border border-border-light text-text-primary rounded-lg sm:rounded-xl font-medium hover:bg-surface transition-all duration-300 text-sm sm:text-base"
+            >
+              Learn More
+            </motion.button>
+          </motion.div>
+        </motion.div>
+
+        {/* Right Visual Section - Mobile First */}
+        <motion.div 
+          className="lg:col-span-5 xl:col-span-6 flex items-center justify-center h-64 sm:h-80 lg:h-full min-h-[300px] sm:min-h-[400px] lg:min-h-0 order-1 lg:order-2"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          <div className="relative w-full h-full max-w-xs sm:max-w-sm lg:max-w-2xl flex items-center justify-center">
+            {/* Background Visual - Subtle gradient */}
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 rounded-2xl sm:rounded-3xl" />
+            
+            {/* Car Image - Mobile Responsive Sizing */}
+            <div className="relative flex items-center justify-center w-full h-full p-2 sm:p-4 lg:p-8 z-10">
+              <motion.div
+                animate={{ y: [0, -8, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                className="relative flex items-center justify-center"
+              >
+                <img 
+                  src="/mercedies.png" 
+                  alt="Premium Mercedes taxi service" 
+                  className="w-auto h-auto max-w-full max-h-[200px] sm:max-h-[250px] lg:max-h-[350px] xl:max-h-[450px] object-contain object-center drop-shadow-2xl select-none pointer-events-none"
+                  style={{ filter: 'drop-shadow(0 15px 30px rgba(0, 0, 0, 0.25))' }}
+                  draggable={false}
+                  onError={(e) => {
+                    console.error('Car image failed to load:', e);
+                    e.currentTarget.style.display = 'none';
+                    // Create a visible placeholder
+                    const placeholder = document.createElement('div');
+                    placeholder.className = 'w-48 h-24 sm:w-56 sm:h-28 bg-gradient-to-r from-primary to-secondary rounded-lg flex items-center justify-center text-white font-semibold text-sm sm:text-base';
+                    placeholder.textContent = 'Mercedes E-Class';
+                    e.currentTarget.parentNode?.appendChild(placeholder);
+                  }}
+                  onLoad={(e) => {
+                    console.log('Car image loaded successfully');
+                  }}
+                />
+              </motion.div>
+            </div>
+
+            {/* Floating Stats */}
+            <motion.div 
+              className="absolute top-8 right-8 bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm rounded-2xl p-4 shadow-lg"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1, duration: 0.6 }}
+            >
+              <div className="flex items-center space-x-2">
+                <Clock className="w-5 h-5 text-amber-500" />
+                <div>
+                  <p className="text-sm font-semibold text-slate-900 dark:text-white">24/7</p>
+                  <p className="text-xs text-slate-600 dark:text-slate-400">Available</p>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div 
+              className="absolute bottom-8 left-8 bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm rounded-2xl p-4 shadow-lg"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.2, duration: 0.6 }}
+            >
+              <div className="flex items-center space-x-2">
+                <Shield className="w-5 h-5 text-blue-500" />
+                <div>
+                  <p className="text-sm font-semibold text-slate-900 dark:text-white">100%</p>
+                  <p className="text-xs text-slate-600 dark:text-slate-400">Secure</p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
         </motion.div>
       </div>
+
+      {/* Modals - Maintaining existing functionality */}
+      <Modal
+        opened={calculatePriceOpen}
+        onClose={() => setCalculatePriceOpen(false)}
+        title={t('modalTitle')}
+        centered
+        size="xl"
+        className="bg-primary"
+        styles={{
+          content: { height: '45rem' },
+          title: { color: '#1d87da', fontSize: '1.5rem', fontWeight: 'bold' },
+        }}
+      >
+        <CalculatePrice />
+      </Modal>
+
+      <Modal
+        opened={fixedPricesOpen}
+        onClose={() => setFixedPricesOpen(false)}
+        title={t('modalTitle2')}
+        centered
+        size="xl"
+        className="bg-primary"
+        styles={{
+          content: { height: '30rem' },
+          title: { color: 'blue', fontSize: '1.5rem', fontWeight: 'bold' },
+        }}
+      >
+        <FixedPrices />
+      </Modal>
     </div>
   );
 };

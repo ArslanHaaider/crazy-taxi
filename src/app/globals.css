@@ -1,6 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Custom Typography System */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+/* Base styles */
 .nav-link {
     @apply transition-all duration-300;
   }
@@ -28,64 +33,134 @@
     background-color: transparent;
     transform: skew(10deg);
   }
-  
-  
-  
-  @layer base {
-  :root {
-        --background: 0 0% 100%;
-        --foreground: 240 10% 3.9%;
-        --card: 0 0% 100%;
-        --card-foreground: 240 10% 3.9%;
-        --popover: 0 0% 100%;
-        --popover-foreground: 240 10% 3.9%;
-        --primary: 48 100% 50%; /* Taxi Yellow */
-        --primary-foreground: 240 10% 3.9%;
-        --secondary: 240 3.7% 15.9%; /* Rich Black */
-        --secondary-foreground: 0 0% 98%;
-        --muted: 240 4.8% 95.9%;
-        --muted-foreground: 240 3.8% 46.1%;
-        --accent: 221 83% 53%; /* Electric Blue */
-        --accent-foreground: 0 0% 98%;
-        --destructive: 0 84.2% 60.2%;
-        --destructive-foreground: 0 0% 98%;
-        --border: 240 5.9% 90%;
-        --input: 240 5.9% 90%;
-        --ring: 48 100% 50%;
-        --chart-1: 48 100% 50%;
-        --chart-2: 221 83% 53%;
-        --chart-3: 240 10% 3.9%;
-        --chart-4: 240 3.7% 15.9%;
-        --chart-5: 240 4.8% 95.9%;
-        --radius: 0.75rem;
-    }
-  .dark {
-        --background: 240 10% 3.9%;
-        --foreground: 0 0% 98%;
-        --card: 240 10% 3.9%;
-        --card-foreground: 0 0% 98%;
-        --popover: 240 10% 3.9%;
-        --popover-foreground: 0 0% 98%;
-        --primary: 48 100% 50%; /* Taxi Yellow */
-        --primary-foreground: 240 10% 3.9%;
-        --secondary: 0 0% 98%;
-        --secondary-foreground: 240 10% 3.9%;
-        --muted: 240 3.7% 15.9%;
-        --muted-foreground: 240 5% 64.9%;
-        --accent: 221 83% 53%; /* Electric Blue */
-        --accent-foreground: 0 0% 98%;
-        --destructive: 0 62.8% 30.6%;
-        --destructive-foreground: 0 0% 98%;
-        --border: 240 3.7% 15.9%;
-        --input: 240 3.7% 15.9%;
-        --ring: 48 100% 50%;
-        --chart-1: 48 100% 50%;
-        --chart-2: 221 83% 53%;
-        --chart-3: 0 0% 98%;
-        --chart-4: 240 3.7% 15.9%;
-        --chart-5: 240 5% 64.9%;
-    }
+
+/* Typography system */
+.text-display {
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
 }
+
+.text-heading {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.text-body {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: 0;
+}
+
+.text-caption {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+}
+
+/* New cohesive color system based on colorwheels_color_matcher.png */
+@layer base {
+  :root {
+    /* Primary Palette - Professional Taxi */
+    --taxi-gold: 45 100% 50%; /* Primary brand color */
+    --taxi-gold-light: 45 100% 55%;
+    --taxi-gold-dark: 45 100% 45%;
+    
+    /* Secondary Palette - Professional */
+    --navy-dark: 220 40% 15%; /* Deep navy */
+    --navy: 220 35% 25%;
+    --navy-light: 220 30% 35%;
+    
+    /* Accent Colors */
+    --steel-blue: 210 25% 65%; /* Professional blue-gray */
+    --warm-gray: 210 15% 85%; /* Soft neutral */
+    --charcoal: 220 20% 20%; /* Dark neutral */
+    
+    /* Semantic Colors */
+    --success: 142 71% 45%;
+    --warning: 38 92% 50%;
+    --error: 0 84% 60%;
+    
+    /* Background & Surface */
+    --background: 0 0% 100%;
+    --background-secondary: 210 20% 98%;
+    --surface: 210 20% 96%;
+    --surface-hover: 210 20% 94%;
+    
+    /* Text Colors */
+    --text-primary: 220 40% 15%;
+    --text-secondary: 220 20% 45%;
+    --text-tertiary: 220 15% 65%;
+    --text-inverse: 0 0% 100%;
+    
+    /* Border & Divider */
+    --border: 210 15% 89%;
+    --border-light: 210 15% 93%;
+    --border-focus: 45 100% 50%;
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgb(220 40% 15% / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(220 40% 15% / 0.1), 0 2px 4px -2px rgb(220 40% 15% / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(220 40% 15% / 0.1), 0 4px 6px -4px rgb(220 40% 15% / 0.1);
+    
+    /* System mappings */
+    --primary: var(--taxi-gold);
+    --primary-foreground: var(--text-inverse);
+    --secondary: var(--navy);
+    --secondary-foreground: var(--text-inverse);
+    --accent: var(--steel-blue);
+    --accent-foreground: var(--text-primary);
+    --muted: var(--surface);
+    --muted-foreground: var(--text-secondary);
+    --card: var(--background);
+    --card-foreground: var(--text-primary);
+    --popover: var(--background-secondary);
+    --popover-foreground: var(--text-primary);
+    --border: var(--border);
+    --input: var(--surface);
+    --ring: var(--border-focus);
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 220 40% 15%;
+    --background-secondary: 220 35% 20%;
+    --surface: 220 30% 25%;
+    --surface-hover: 220 25% 30%;
+    
+    --text-primary: 0 0% 100%;
+    --text-secondary: 210 15% 85%;
+    --text-tertiary: 210 15% 65%;
+    --text-inverse: 220 40% 15%;
+    
+    --border: 220 25% 30%;
+    --border-light: 220 25% 35%;
+    
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.3);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.3), 0 4px 6px -4px rgb(0 0 0 / 0.3);
+    
+    --primary: var(--taxi-gold);
+    --primary-foreground: var(--text-inverse);
+    --secondary: var(--navy-light);
+    --secondary-foreground: var(--text-primary);
+    --accent: var(--steel-blue);
+    --accent-foreground: var(--text-primary);
+    --muted: var(--surface);
+    --muted-foreground: var(--text-secondary);
+    --card: var(--background);
+    --card-foreground: var(--text-primary);
+    --popover: var(--background-secondary);
+    --popover-foreground: var(--text-primary);
+    --border: var(--border);
+    --input: var(--surface);
+    --ring: var(--border-focus);
+  }
   
   
   
@@ -99,3 +174,4 @@
 }
   
 
+}
