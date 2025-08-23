@@ -205,33 +205,33 @@ const Hero = () => {
               </motion.div>
             </div>
 
-            {/* Floating Stats */}
+            {/* Floating Stats - Responsive */}
             <motion.div 
-              className="absolute top-8 right-8 bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm rounded-2xl p-4 shadow-lg"
+              className="absolute top-2 right-2 sm:top-4 sm:right-4 lg:top-8 lg:right-8 bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm rounded-lg sm:rounded-xl lg:rounded-2xl p-2 sm:p-3 lg:p-4 shadow-md sm:shadow-lg transition-all duration-300"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1, duration: 0.6 }}
             >
-              <div className="flex items-center space-x-2">
-                <Clock className="w-5 h-5 text-amber-500" />
+              <div className="flex items-center space-x-1 sm:space-x-2">
+                <Clock className="w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5 text-amber-500" />
                 <div>
-                  <p className="text-sm font-semibold text-slate-900 dark:text-white">24/7</p>
-                  <p className="text-xs text-slate-600 dark:text-slate-400">Available</p>
+                  <p className="text-xs sm:text-sm font-semibold text-slate-900 dark:text-white">24/7</p>
+                  <p className="text-[10px] sm:text-xs text-slate-600 dark:text-slate-400">Available</p>
                 </div>
               </div>
             </motion.div>
 
             <motion.div 
-              className="absolute bottom-8 left-8 bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm rounded-2xl p-4 shadow-lg"
+              className="absolute bottom-2 left-2 sm:bottom-4 sm:left-4 lg:bottom-8 lg:left-8 bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm rounded-lg sm:rounded-xl lg:rounded-2xl p-2 sm:p-3 lg:p-4 shadow-md sm:shadow-lg transition-all duration-300"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.2, duration: 0.6 }}
             >
-              <div className="flex items-center space-x-2">
-                <Shield className="w-5 h-5 text-blue-500" />
+              <div className="flex items-center space-x-1 sm:space-x-2">
+                <Shield className="w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5 text-blue-500" />
                 <div>
-                  <p className="text-sm font-semibold text-slate-900 dark:text-white">100%</p>
-                  <p className="text-xs text-slate-600 dark:text-slate-400">Secure</p>
+                  <p className="text-xs sm:text-sm font-semibold text-slate-900 dark:text-white">100%</p>
+                  <p className="text-[10px] sm:text-xs text-slate-600 dark:text-slate-400">Secure</p>
                 </div>
               </div>
             </motion.div>
