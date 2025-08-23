@@ -31,9 +31,31 @@ export default async function RootLayout({
   return (
     <html lang={locale}>
       <head>
+        {/* Initialize theme before hydration to avoid flashes */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+(function() {
+  try {
+    var ls = typeof window !== 'undefined' ? window.localStorage : null;
+    var stored = ls ? ls.getItem('theme') : null;
+    var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var theme = stored || (prefersDark ? 'dark' : 'light');
+    var root = document.documentElement;
+    if (theme === 'dark') {
+      root.classList.add('dark');
+      root.setAttribute('data-mantine-color-scheme', 'dark');
+    } else {
+      root.classList.remove('dark');
+      root.setAttribute('data-mantine-color-scheme', 'light');
+    }
+  } catch (e) {}
+})();
+`}}
+        />
         <ColorSchemeScript />
       </head>
-      <body className='font-sans'>
+      <body className='font-sans transition-colors duration-300'>
       <NextIntlClientProvider messages={messages}>
         <DatesProvider settings={{
             locale: 'de',            // German locale
@@ -41,7 +63,7 @@ export default async function RootLayout({
             weekendDays: [6, 0],     // Saturday and Sunday are weekend days
             timezone: 'Europe/Berlin' // German timezone
           }}>
-        <MantineProvider theme={theme} defaultColorScheme={'light'}>{children}</MantineProvider>
+        <MantineProvider theme={theme} defaultColorScheme={'auto'}>{children}</MantineProvider>
         </DatesProvider>
         </NextIntlClientProvider>
       </body>

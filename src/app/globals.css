@@ -125,6 +125,7 @@
     --input: var(--surface);
     --ring: var(--border-focus);
     --radius: 0.75rem;
+   --foreground: var(--text-primary);
   }
 
   .dark {
@@ -160,6 +161,7 @@
     --border: var(--border);
     --input: var(--surface);
     --ring: var(--border-focus);
+    --foreground: var(--text-primary)
   }
   
   
