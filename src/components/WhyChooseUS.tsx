@@ -3,6 +3,7 @@ import { IconStar } from "@tabler/icons-react";
 import React from "react";
 import { motion } from "motion/react";
 import {useTranslations} from 'next-intl';
+import SpotlightCard from "../blocks/Components/SpotlightCard/SpotlightCard";
 
 const WhyChooseUS = () => {
   const t  = useTranslations("whyChooseUs");
@@ -42,13 +43,18 @@ const WhyChooseUS = () => {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 2, delay: 0.001 * index }}
-            className="border border-solid border-gray-300 m-2 shadow-md bg-section-bg rounded-md md:w-4/5"
+            className="m-2 md:w-4/5"
             viewport={{ once: true }} // ensures animation happens only once
           >
-            <h3 className="text-primary flex justify-center items-center">
-              <IconStar className="mr-2" /> {t(`${key}.title`)}
-            </h3>
-            <p className="text-center p-2">{t(`${key}.description`)}</p>
+            <SpotlightCard 
+              className="!bg-gray-800 !border-gray-600 !rounded-md !p-4 shadow-lg !text-white"
+              spotlightColor="rgba(255, 193, 7, 0.15)"
+            >
+              <h3 className="text-primary flex justify-center items-center">
+                <IconStar className="mr-2" /> {t(`${key}.title`)}
+              </h3>
+              <p className="text-center p-2 text-gray-200">{t(`${key}.description`)}</p>
+            </SpotlightCard>
           </motion.div>
         ))}
       </div>
