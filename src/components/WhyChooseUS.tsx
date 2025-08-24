@@ -47,13 +47,13 @@ const WhyChooseUS = () => {
             viewport={{ once: true }} // ensures animation happens only once
           >
             <SpotlightCard 
-              className="!bg-gray-800 !border-gray-600 !rounded-md !p-4 shadow-lg !text-white"
+              className="!bg-card !border-border !rounded-md !p-4 shadow-lg !text-card-foreground"
               spotlightColor="rgba(255, 193, 7, 0.15)"
             >
               <h3 className="text-primary flex justify-center items-center">
                 <IconStar className="mr-2" /> {t(`${key}.title`)}
               </h3>
-              <p className="text-center p-2 text-gray-200">{t(`${key}.description`)}</p>
+              <p className="text-center p-2 text-muted-foreground">{t(`${key}.description`)}</p>
             </SpotlightCard>
           </motion.div>
         ))}
