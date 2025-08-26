@@ -24,7 +24,7 @@ const StepThree = ({ form }: { form: UseFormReturnType<FormValues> }) => {
 
   const t = useTranslations();
   return(
-    <div className="w-full h-82 border-solid border-primary bg-section-bg p-2">
+    <div className="w-full h-82 border-solid border-primary border-primary p-2">
       <div className="flex">
         <TextInput
           withAsterisk

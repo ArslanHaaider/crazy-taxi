@@ -85,7 +85,7 @@ const StepFour = ({ form }: { form: UseFormReturnType<FormValues> }) => {
 
   return (
     <div className="w-full md:flex gap-5">
-      <div className="w-full p-5 border border-solid border-primary bg-section-bg font-sans rounded-md shadow-lg">
+      <div className="w-full p-5 border border-solid border-primary bg-primary font-sans rounded-md shadow-lg">
         <h2>{t('stepFour.rideInfo.title')}</h2>
         <div className="w-full">
           <h3>{t('stepFour.rideInfo.rideType.label')}</h3>
