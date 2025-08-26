@@ -3,10 +3,16 @@
     "tagline": "Reisen Sie sicher mit uns",
     "heading1": "Buchen Sie Ihr Fahrt",
     "heading2": "von Ihrer Haustür aus",
-    "calculateFare": "Preis berechnen",
+    "calculateFareH1": "Preis berechnen",
+    "calculateFareH2" :"Sofortige Preisgestaltung",
+    "calculateCardText":"Erhalten Sie mit unserem transparenten Tarifrechner genaue Preise für Ihre Reise.",
+    "calculateCardButton":"Jetzt berechnen",
     "modalTitle": "Fahrpreis berechnen",
     "modalTitle2": "Feste Preisrouten anzeigen",
-    "fixedPrice": "Günstige Pauschalpreise zum Frankfurter Flughafen"
+    "fixedPrice": "Günstige Pauschalpreise zum Frankfurter Flughafen",
+    "subtitle": "Beliebte Ziele",
+    "description": "Vordefinierte Strecken mit garantiert festen Preisen und ohne versteckte Gebühren.",
+    "cta": "Routen anzeigen"
   },
   "whyChooseUs": {
     "title": "Warum uns wählen?",

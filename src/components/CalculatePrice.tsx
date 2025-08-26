@@ -20,9 +20,11 @@ const CalculatePrice = () => {
   const [price, setPrice] = useState(0);
   
   const ref = useRef<HTMLInputElement | null>(null);
-  const { isLoaded } = useJsApiLoader({
+  const { isLoaded, loadError } = useJsApiLoader({
     googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY!,
     libraries: ['places'],
+    region: 'DE',
+    language: 'de',
   });
 
   const form = useForm({
@@ -65,7 +67,8 @@ const CalculatePrice = () => {
     }
   };
 
-  if (!isLoaded) return <span>Loading...</span>;
+  if (loadError) return <span>Error loading Google Maps. Please check your API key and try again.</span>;
+  if (!isLoaded) return <span>Loading Google Maps...</span>;
 
   return (
     <div className="w-full border-solid border-blue-800 bg-yellow-50">
@@ -90,7 +93,14 @@ const CalculatePrice = () => {
         </div>
 
         <Autocomplete
-          onLoad={(ref) => setOriginRef(ref)}
+          onLoad={(ref) => {
+            setOriginRef(ref);
+            // Restrict to Germany
+            if (ref) {
+              ref.setComponentRestrictions({ country: 'de' });
+              ref.setFields(['formatted_address', 'geometry', 'place_id']);
+            }
+          }}
           onPlaceChanged={() => {
             const place = originRef!.getPlace();
             form.setFieldValue("PickUpLocation", place.formatted_address!);
@@ -107,7 +117,14 @@ const CalculatePrice = () => {
         </Autocomplete>
 
         <Autocomplete
-          onLoad={(ref) => setDestinationRef(ref)}
+          onLoad={(ref) => {
+            setDestinationRef(ref);
+            // Restrict to Germany
+            if (ref) {
+              ref.setComponentRestrictions({ country: 'de' });
+              ref.setFields(['formatted_address', 'geometry', 'place_id']);
+            }
+          }}
           onPlaceChanged={() => {
             const place = destinationRef!.getPlace();
             form.setFieldValue("DropOffLocation", place.formatted_address!);

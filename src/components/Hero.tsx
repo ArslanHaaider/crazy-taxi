@@ -103,15 +103,15 @@ const Hero = () => {
                     <Calculator className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-sm sm:text-base font-semibold text-text-primary">Calculate Fare</h3>
-                    <p className="text-xs sm:text-sm text-text-secondary">Instant pricing</p>
+                    <h3 className="text-sm sm:text-base font-semibold text-text-primary">{t('calculateFareH1')}</h3>
+                    <p className="text-xs sm:text-sm text-text-secondary">{t('calculateFareH2')}</p>
                   </div>
-                </div>
+                </div>  
                 <p className="text-xs sm:text-sm text-text-secondary mb-3 sm:mb-4">
-                  Get accurate pricing for your journey with our transparent fare calculator.
+                  {t('calculateCardText')}
                 </p>
                 <div className="flex items-center text-primary text-xs sm:text-sm font-medium">
-                  Calculate now →
+                  {t('calculateCardButton')} →
                 </div>
               </div>
             </motion.div>
@@ -129,15 +129,15 @@ const Hero = () => {
                     <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-sm sm:text-base font-semibold text-text-primary">Fixed Routes</h3>
-                    <p className="text-xs sm:text-sm text-text-secondary">Popular destinations</p>
+                    <h3 className="text-sm sm:text-base font-semibold text-text-primary"></h3>
+                    <p className="text-xs sm:text-sm text-text-secondary">{t('subtitle')}</p>
                   </div>
                 </div>
                 <p className="text-xs sm:text-sm text-text-secondary mb-3 sm:mb-4">
-                  Pre-defined routes with guaranteed fixed prices and no hidden fees.
+                  {t('description')}
                 </p>
                 <div className="flex items-center text-secondary text-xs sm:text-sm font-medium">
-                  View routes →
+                  {t('cta')} →
                 </div>
               </div>
             </motion.div>

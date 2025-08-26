@@ -69,9 +69,11 @@ const StepFour = ({ form }: { form: UseFormReturnType<FormValues> }) => {
   }, [form.values.pickUpLocation, form.values.dropOffLocation]);
 
   const selectedCar = carsArray.find(car => car.id === form.values.selectedCar);
-  const { isLoaded } = useJsApiLoader({
+  const { isLoaded, loadError } = useJsApiLoader({
     googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY!,
     libraries: ['places'],
+    region: 'DE',
+    language: 'de',
   });
 
   const containerStyle = {
@@ -81,7 +83,8 @@ const StepFour = ({ form }: { form: UseFormReturnType<FormValues> }) => {
 
   const defaultCenter = { lat: 50.110924, lng: 8.682127 };
 
-  if (!isLoaded) return <span>Loading...</span>;
+  if (loadError) return <span>Error loading Google Maps. Please check your API key and try again.</span>;
+  if (!isLoaded) return <span>Loading Google Maps...</span>;
 
   return (
     <div className="w-full md:flex gap-5">

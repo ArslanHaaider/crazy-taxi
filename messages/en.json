@@ -4,9 +4,16 @@
     "heading1": "Book your ride from",
     "heading2": "your doorstep",
     "calculateFare": "Calculate Fare",
+    "calculateFareH1": "Calculate Price",
+    "calculateFareH2": "Instant Pricing",
+    "calculateCardText": "Get accurate prices for your trip with our transparent fare calculator.",
+    "calculateCardButton": "Calculate now",
     "modalTitle": "Calculate Fare",
     "modalTitle2":"Fixed Price Routes",
-    "fixedPrice":"Fixed Price Routes"
+    "fixedPrice":"Fixed Price Routes",
+    "subtitle": "Popular destinations",
+    "description": "Pre-defined routes with guaranteed fixed prices and no hidden fees.",
+    "cta": "View routes"
   },
   "whyChooseUs": {
     "title": "Why choose us?",

@@ -32,9 +32,11 @@ const StepOne = ({ form }: { form: UseFormReturnType<FormValues> }) => {
   const [originRef, setOriginRef] = useState<google.maps.places.Autocomplete | null>(null);
   const [destinationRef, setDestinationRef] = useState<google.maps.places.Autocomplete | null>(null);
 
-  const { isLoaded } = useJsApiLoader({
+  const { isLoaded, loadError } = useJsApiLoader({
     googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY!,
     libraries: ['places'],
+    region: 'DE',
+    language: 'de',
   });
 
   const FIXED_ROUTES = new Map([
@@ -114,12 +116,21 @@ const StepOne = ({ form }: { form: UseFormReturnType<FormValues> }) => {
       console.error('Invalid addresses');
       return;
     }
+    
+    // Only calculate if both locations are set
+    if (!form.values.pickUpLocation || !form.values.dropOffLocation) {
+      return;
+    }
+    
     try {
       const service = new google.maps.DistanceMatrixService();
       const result = await service.getDistanceMatrix({
         origins: [originPlace.formatted_address],
         destinations: [destinationPlace.formatted_address],
         travelMode: google.maps.TravelMode.DRIVING,
+        unitSystem: google.maps.UnitSystem.METRIC,
+        avoidHighways: false,
+        avoidTolls: false,
       });
   
       if (result.rows[0].elements[0].status === "OK") {
@@ -130,16 +141,23 @@ const StepOne = ({ form }: { form: UseFormReturnType<FormValues> }) => {
           destinationPlace.formatted_address,
           distance
         );
-        console.log(distance)
+        console.log('Route calculated:', { distance, duration, price });
         form.setFieldValue('distance', distance);
         form.setFieldValue('duration', duration);
         form.setFieldValue('estimatedPrice', price);
       } else {
         console.error('Route calculation failed:', result.rows[0].elements[0].status);
+        // Reset values if calculation fails
+        form.setFieldValue('distance', undefined);
+        form.setFieldValue('duration', undefined);
+        form.setFieldValue('estimatedPrice', undefined);
       }
     } catch (error) {
-
       console.error('Error calculating route:', error);
+      // Reset values if calculation fails
+      form.setFieldValue('distance', undefined);
+      form.setFieldValue('duration', undefined);
+      form.setFieldValue('estimatedPrice', undefined);
     }
   };
 
@@ -149,13 +167,24 @@ const StepOne = ({ form }: { form: UseFormReturnType<FormValues> }) => {
     </ActionIcon>
   );
 
+  if (loadError) {
+    return <div>Error loading Google Maps. Please check your API key and try again.</div>;
+  }
+
   if (!isLoaded) {
-    return <div>Loading...</div>;
+    return <div>Loading Google Maps...</div>;
   }
   return (
     <div className="w-full border-solid border-primary bg-background">
       <Autocomplete
-        onLoad={(ref) => setOriginRef(ref)}
+        onLoad={(ref) => {
+          setOriginRef(ref);
+          // Restrict to Germany
+          if (ref) {
+            ref.setComponentRestrictions({ country: 'de' });
+            ref.setFields(['formatted_address', 'geometry', 'place_id']);
+          }
+        }}
         onPlaceChanged={() => {
           const place = originRef?.getPlace();
           if (place?.formatted_address) {
@@ -176,7 +205,14 @@ const StepOne = ({ form }: { form: UseFormReturnType<FormValues> }) => {
       </Autocomplete>
 
       <Autocomplete
-        onLoad={(ref) => setDestinationRef(ref)}
+        onLoad={(ref) => {
+          setDestinationRef(ref);
+          // Restrict to Germany
+          if (ref) {
+            ref.setComponentRestrictions({ country: 'de' });
+            ref.setFields(['formatted_address', 'geometry', 'place_id']);
+          }
+        }}
         onPlaceChanged={() => {
           const place = destinationRef?.getPlace();
           if (place?.formatted_address) {
