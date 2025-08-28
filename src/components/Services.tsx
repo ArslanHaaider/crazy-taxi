@@ -3,6 +3,7 @@ import { List, rem, ThemeIcon } from "@mantine/core";
 import { IconCircleCheck } from "@tabler/icons-react";
 import { motion } from "motion/react";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 const Services = () => {
   const t = useTranslations("services");
   const list1 = [
@@ -35,13 +36,19 @@ const Services = () => {
       <div className="max-w-6xl mx-auto">
         <h4 className="text-body text-center text-text-secondary mb-8">{t("description")}</h4>
         <div className="md:flex md:flex-row md:items-center flex flex-col items-center justify-center">
-          <motion.img
+          <motion.div
             initial={{ opacity: 0, x: -100 }}
             whileInView={{ opacity: 1, x: 0, transition: { duration: 1 } }}
-            src={"/services1.jpg"}
-            alt="taxi"
-            className="md:w-2/5 w-3/5 rounded-md"
-          />
+            className="md:w-2/5 w-3/5"
+          >
+            <Image
+              src="/services1.jpg"
+              alt="taxi"
+              width={400}
+              height={300}
+              className="rounded-md w-full h-auto"
+            />
+          </motion.div>
           <List
             spacing="md"
             size="md"

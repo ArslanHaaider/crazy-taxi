@@ -90,6 +90,7 @@ const Loader: FC<{ placeholderSrc?: string }> = ({ placeholderSrc }) => {
           width={128}
           height={128}
           className="blur-lg rounded-lg"
+          alt="Loading placeholder"
         />
       ) : (
         `${Math.round(progress)} %`
@@ -104,6 +105,7 @@ const DesktopControls: FC<{
   max: number;
   zoomEnabled: boolean;
 }> = ({ pivot, min, max, zoomEnabled }) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const ref = useRef<any>(null);
   useFrame(() => ref.current?.target.copy(pivot));
   return (
@@ -169,13 +171,19 @@ const ModelInner: FC<ModelInnerProps> = ({
   const cHov = useRef({ x: 0, y: 0 });
 
   const ext = useMemo(() => url.split(".").pop()!.toLowerCase(), [url]);
+  
+  // Always call hooks unconditionally, but only use the result for the matching format
+  const gltfResult = useGLTF(url);
+  const fbxResult = useFBX(url);
+  const objResult = useLoader(OBJLoader, url);
+  
   const content = useMemo<THREE.Object3D | null>(() => {
-    if (ext === "glb" || ext === "gltf") return useGLTF(url).scene.clone();
-    if (ext === "fbx") return useFBX(url).clone();
-    if (ext === "obj") return useLoader(OBJLoader, url).clone();
+    if (ext === "glb" || ext === "gltf") return gltfResult.scene.clone();
+    if (ext === "fbx") return fbxResult.clone();
+    if (ext === "obj") return objResult.clone();
     console.error("Unsupported format:", ext);
     return null;
-  }, [url, ext]);
+  }, [ext, gltfResult, fbxResult, objResult]);
 
   const pivotW = useRef(new THREE.Vector3());
   useLayoutEffect(() => {
@@ -190,13 +198,21 @@ const ModelInner: FC<ModelInnerProps> = ({
     g.position.set(-sphere.center.x, -sphere.center.y, -sphere.center.z);
     g.scale.setScalar(s);
 
-    g.traverse((o: any) => {
-      if (o.isMesh) {
-        o.castShadow = true;
-        o.receiveShadow = true;
-        if (fadeIn) {
-          o.material.transparent = true;
-          o.material.opacity = 0;
+    g.traverse((o: THREE.Object3D) => {
+      if ((o as THREE.Mesh).isMesh) {
+        const mesh = o as THREE.Mesh;
+        mesh.castShadow = true;
+        mesh.receiveShadow = true;
+        if (fadeIn && mesh.material) {
+          if (Array.isArray(mesh.material)) {
+            mesh.material.forEach((mat) => {
+              mat.transparent = true;
+              mat.opacity = 0;
+            });
+          } else {
+            mesh.material.transparent = true;
+            mesh.material.opacity = 0;
+          }
         }
       }
     });
@@ -225,8 +241,19 @@ const ModelInner: FC<ModelInnerProps> = ({
       const id = setInterval(() => {
         t += 0.05;
         const v = Math.min(t, 1);
-        g.traverse((o: any) => {
-          if (o.isMesh) o.material.opacity = v;
+        g.traverse((o: THREE.Object3D) => {
+          if ((o as THREE.Mesh).isMesh) {
+            const mesh = o as THREE.Mesh;
+            if (mesh.material) {
+              if (Array.isArray(mesh.material)) {
+                mesh.material.forEach((mat) => {
+                  mat.opacity = v;
+                });
+              } else {
+                mesh.material.opacity = v;
+              }
+            }
+          }
         });
         invalidate();
         if (v === 1) {
@@ -236,7 +263,7 @@ const ModelInner: FC<ModelInnerProps> = ({
       }, 16);
       return () => clearInterval(id);
     } else onLoaded?.();
-  }, [content]);
+  }, [content, autoFrame, camera, fadeIn, initPitch, initYaw, onLoaded, pivot]);
 
   useEffect(() => {
     if (!enableManualRotation || isTouch) return;
@@ -294,7 +321,7 @@ const ModelInner: FC<ModelInnerProps> = ({
         sy = ly = e.clientY;
       } else if (pts.size === 2 && enableManualZoom) {
         mode = "pinch";
-        const [p1, p2] = [...pts.values()];
+        const [p1, p2] = Array.from(pts.values());
         startDist = Math.hypot(p1.x - p2.x, p1.y - p2.y);
         startZ = camera.position.z;
         e.preventDefault();
@@ -334,7 +361,7 @@ const ModelInner: FC<ModelInnerProps> = ({
         invalidate();
       } else if (mode === "pinch" && pts.size === 2) {
         e.preventDefault();
-        const [p1, p2] = [...pts.values()];
+        const [p1, p2] = Array.from(pts.values());
         const d = Math.hypot(p1.x - p2.x, p1.y - p2.y);
         const ratio = startDist / d;
         camera.position.z = THREE.MathUtils.clamp(
@@ -362,7 +389,7 @@ const ModelInner: FC<ModelInnerProps> = ({
       window.removeEventListener("pointerup", up);
       window.removeEventListener("pointercancel", up);
     };
-  }, [gl, enableManualRotation, enableManualZoom, minZoom, maxZoom]);
+  }, [gl, enableManualRotation, enableManualZoom, minZoom, maxZoom, camera]);
 
   useEffect(() => {
     if (isTouch) return;
@@ -460,10 +487,10 @@ const ModelViewer: FC<ViewerProps> = ({
 }) => {
   useEffect(() => void useGLTF.preload(url), [url]);
   const pivot = useRef(new THREE.Vector3()).current;
-  const contactRef = useRef<THREE.Mesh>(null);
-  const rendererRef = useRef<THREE.WebGLRenderer>(null);
-  const sceneRef = useRef<THREE.Scene>(null);
-  const cameraRef = useRef<THREE.Camera>(null);
+  const contactRef = useRef<THREE.Group>(null);
+  const rendererRef = useRef<THREE.WebGLRenderer | null>(null);
+  const sceneRef = useRef<THREE.Scene | null>(null);
+  const cameraRef = useRef<THREE.Camera | null>(null);
 
   const initYaw = deg2rad(defaultRotationX);
   const initPitch = deg2rad(defaultRotationY);
@@ -479,10 +506,11 @@ const ModelViewer: FC<ViewerProps> = ({
     if (!g || !s || !c) return;
     g.shadowMap.enabled = false;
     const tmp: { l: THREE.Light; cast: boolean }[] = [];
-    s.traverse((o: any) => {
-      if (o.isLight && "castShadow" in o) {
-        tmp.push({ l: o, cast: o.castShadow });
-        o.castShadow = false;
+    s.traverse((o: THREE.Object3D) => {
+        if ((o as THREE.Light).isLight && "castShadow" in o) {
+        const light = o as THREE.Light;
+        tmp.push({ l: light, cast: light.castShadow });
+        light.castShadow = false;
       }
     });
     if (contactRef.current) contactRef.current.visible = false;
@@ -531,7 +559,7 @@ const ModelViewer: FC<ViewerProps> = ({
         style={{ touchAction: "pan-y pinch-zoom" }}
       >
         {environmentPreset !== "none" && (
-          <Environment preset={environmentPreset as any} background={false} />
+          <Environment preset={environmentPreset} background={false} />
         )}
 
         <ambientLight intensity={ambientIntensity} />
@@ -547,7 +575,7 @@ const ModelViewer: FC<ViewerProps> = ({
         <directionalLight position={[0, 4, -5]} intensity={rimLightIntensity} />
 
         <ContactShadows
-          ref={contactRef as any}
+          ref={contactRef}
           position={[0, -0.5, 0]}
           opacity={0.35}
           scale={10}

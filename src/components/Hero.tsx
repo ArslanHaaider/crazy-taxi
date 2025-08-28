@@ -8,13 +8,13 @@ import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
 import { Modal, Text } from '@mantine/core';
 import { FloatingPaths } from './Background';
+import Image from 'next/image';
 
 const Hero = () => {
   const [calculatePriceOpen, setCalculatePriceOpen] = useState(false);
   const [fixedPricesOpen, setFixedPricesOpen] = useState(false);
   const router = useRouter();
   const t = useTranslations('hero');
-  const ts = useTranslations('Navbar');
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -183,9 +183,11 @@ const Hero = () => {
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                 className="relative flex items-center justify-center"
               >
-                <img 
+                <Image 
                   src="/mercedies.png" 
                   alt="Premium Mercedes taxi service" 
+                  width={450}
+                  height={350}
                   className="w-auto h-auto max-w-full max-h-[200px] sm:max-h-[250px] lg:max-h-[350px] xl:max-h-[450px] object-contain object-center drop-shadow-2xl select-none pointer-events-none"
                   style={{ filter: 'drop-shadow(0 15px 30px rgba(0, 0, 0, 0.25))' }}
                   draggable={false}
@@ -198,7 +200,7 @@ const Hero = () => {
                     placeholder.textContent = 'Mercedes E-Class';
                     e.currentTarget.parentNode?.appendChild(placeholder);
                   }}
-                  onLoad={(e) => {
+                  onLoad={() => {
                     console.log('Car image loaded successfully');
                   }}
                 />

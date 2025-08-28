@@ -14,6 +14,7 @@ import {
   Menu,
   Sun,
   Moon,
+  type LucideIcon,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -32,7 +33,7 @@ import {
 import { RainbowButton } from "@/components/ui/rainbowButton";
 
 interface NavItem {
-  icon: React.ElementType;
+  icon: LucideIcon;
   label: string;
   tag: string;
 }

@@ -5,6 +5,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { gsap } from "gsap";
+import Image from "next/image";
 
 export type PillNavItem = {
   label: string;
@@ -286,11 +287,12 @@ const PillNav: React.FC<PillNavProps> = ({
               background: "var(--base, #000)",
             }}
           >
-            <img
+            <Image
               src={logo}
               alt={logoAlt}
               ref={logoImgRef}
-              className="w-full h-full object-cover block"
+              fill
+              className="object-cover block"
             />
           </Link>
         ) : (
@@ -308,11 +310,12 @@ const PillNav: React.FC<PillNavProps> = ({
               background: "var(--base, #000)",
             }}
           >
-            <img
+            <Image
               src={logo}
               alt={logoAlt}
               ref={logoImgRef}
-              className="w-full h-full object-cover block"
+              fill
+              className="object-cover block"
             />
           </a>
         )}

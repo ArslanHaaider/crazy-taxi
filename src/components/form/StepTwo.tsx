@@ -46,7 +46,7 @@ interface CarCardProps {
 
 const CarCard = ({ name, image, id, isSelected, onSelect }: CarCardProps) => {
   return (
-    <div className="border border-solid border-primary w-10/12 h-[500px] md:h-52 flex items-center justify-evenly rounded-md mt-2 flex-col md:flex-row border-primary">
+    <div className="border border-solid border-primary w-10/12 h-[500px] md:h-52 flex items-center justify-evenly rounded-md mt-2 flex-col md:flex-row ">
       <Image src={image} width={200} height={100} alt="" className="w-52 h-36 md:w-72" />
       <div className="flex flex-col items-center justify-center">
         <h1 className="text-xl font-bold text-wrap w-30">{name}</h1>

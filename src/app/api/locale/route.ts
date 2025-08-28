@@ -10,7 +10,7 @@ export async function POST(request: Request) {
     }
     await setUserLocale(locale as Locale);
     return NextResponse.json({ ok: true });
-  } catch (e) {
+  } catch {
     return NextResponse.json({ ok: false, error: 'Malformed request' }, { status: 400 });
   }
 }

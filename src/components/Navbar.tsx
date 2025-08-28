@@ -3,7 +3,6 @@
 import {
   Briefcase,
   Car,
-  ChevronRight,
   Home,
   Info,
   Phone,
@@ -31,7 +30,6 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { RainbowButton } from "@/components/ui/rainbowButton";
-import Link from "next/link";
 
 const Navbar = () => {
   const router = useRouter();
