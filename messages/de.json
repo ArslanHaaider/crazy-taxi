@@ -190,6 +190,48 @@
     "bookingHeading":{
       "partOne":"Buche deine",
       "partTwo":"Fahrt"
+    },
+    "testimonials": {
+      "title": "Was unsere Kunden sagen",
+      "description": "Vertraut von Tausenden von Passagieren für zuverlässige und komfortable Flughafentransfers in Frankfurt",
+      "testimonial1": {
+        "author": {
+          "name": "Emma Thompson",
+          "handle": "@emma_travels"
+        },
+        "text": "Ausgezeichneter Service! Der Fahrer war pünktlich, professionell und die Fahrt war sehr komfortabel. Werde FH Airport Transfer definitiv wieder für meine nächste Reise nach Frankfurt nutzen."
+      },
+      "testimonial2": {
+        "author": {
+          "name": "Michael Schmidt",
+          "handle": "@mike_business"
+        },
+        "text": "Festpreise ohne versteckte Gebühren sind genau das, was ich brauchte. Der Buchungsprozess war reibungslos und der Transfer pünktlich. Sehr empfehlenswert für Geschäftsreisende."
+      },
+      "testimonial3": {
+        "author": {
+          "name": "Sarah Johnson",
+          "handle": "@sarah_explorer"
+        },
+        "text": "Der Tür-zu-Tür-Service machte meinen Flughafentransfer so bequem. Der Fahrer half mit meinem Gepäck und war während der gesamten Fahrt sehr höflich."
+      },
+      "testimonial4": {
+        "author": {
+          "name": "David Mueller",
+          "handle": "@david_frequent"
+        },
+        "text": "Als Vielreisender schätze ich die Zuverlässigkeit und Beständigkeit dieses Services. Hatte nie Probleme mit der Pünktlichkeit oder Fahrzeugqualität."
+      },
+      "testimonial5": {
+        "author": {
+          "name": "Lisa Chen",
+          "handle": "@lisa_family"
+        },
+        "text": "Perfekt für Familienreisen! Das Fahrzeug war geräumig genug für unser ganzes Gepäck, und der Fahrer war geduldig mit unseren Kindern. Tolles Preis-Leistungs-Verhältnis."
+      }
+    },
+    "Navbar": {
+      "testimonials": "Kundenbewertungen"
     }
   }
   

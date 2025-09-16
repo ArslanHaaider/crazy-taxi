@@ -56,6 +56,9 @@ const config: Config = {
         "color-4": "hsl(var(--color-4))",
         "color-5": "hsl(var(--color-5))",
       },
+      maxWidth: {
+        container: "1280px",
+      },
       backgroundColor: {
         primary: "#344CB7",
         "primary-hover": "#000957",
@@ -82,6 +85,10 @@ const config: Config = {
           "0%": { "background-position": "0%" },
           "100%": { "background-position": "200%" },
         },
+        marquee: {
+          from: { transform: 'translateX(0)' },
+          to: { transform: 'translateX(calc(-100% - var(--gap)))' }
+        }
       },
       animation: {
         "pulse-scale": "pulse-scale 2s ease-in-out infinite",
@@ -89,6 +96,7 @@ const config: Config = {
           "star-movement-bottom linear infinite alternate",
         "star-movement-top": "star-movement-top linear infinite alternate",
         "rainbow": "rainbow var(--speed, 2s) infinite linear",
+        marquee: 'marquee var(--duration) linear infinite',
       },
       borderRadius: {
         lg: "var(--radius)",

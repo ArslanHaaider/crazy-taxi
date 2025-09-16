@@ -8,6 +8,7 @@ import {
   Phone,
   Mail,
   Menu,
+  MessageSquare,
 } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -46,6 +47,7 @@ const Navbar = () => {
     { icon: Home, label: t("home"), tag: "home" },
     { icon: Briefcase, label: t("services"), tag: "services" },
     { icon: Info, label: t("about"), tag: "about" },
+    { icon: MessageSquare, label: t("testimonials"), tag: "testimonials" },
   ];
 
   const [active, setActive] = useState(0);

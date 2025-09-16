@@ -190,5 +190,47 @@
   "bookingHeading":{
     "partOne":"BOOK YOUR",
     "partTwo":"RIDE!"
+  },
+  "testimonials": {
+    "title": "What Our Customers Say",
+    "description": "Trusted by thousands of passengers for reliable and comfortable airport transfers in Frankfurt",
+    "testimonial1": {
+      "author": {
+        "name": "Emma Thompson",
+        "handle": "@emma_travels"
+      },
+      "text": "Excellent service! The driver was punctual, professional, and the ride was very comfortable. Will definitely use FH Airport Transfer again for my next trip to Frankfurt."
+    },
+    "testimonial2": {
+      "author": {
+        "name": "Michael Schmidt",
+        "handle": "@mike_business"
+      },
+      "text": "Fixed pricing with no hidden fees is exactly what I needed. The booking process was smooth and the transfer was on time. Highly recommended for business travelers."
+    },
+    "testimonial3": {
+      "author": {
+        "name": "Sarah Johnson",
+        "handle": "@sarah_explorer"
+      },
+      "text": "Door-to-door service made my airport transfer so convenient. The driver helped with my luggage and was very courteous throughout the journey."
+    },
+    "testimonial4": {
+      "author": {
+        "name": "David Mueller",
+        "handle": "@david_frequent"
+      },
+      "text": "As a frequent traveler, I appreciate the reliability and consistency of this service. Never had any issues with timing or vehicle quality."
+    },
+    "testimonial5": {
+      "author": {
+        "name": "Lisa Chen",
+        "handle": "@lisa_family"
+      },
+      "text": "Perfect for family trips! The vehicle was spacious enough for all our luggage, and the driver was patient with our children. Great value for money."
+    }
+  },
+  "Navbar": {
+    "testimonials": "Testimonials"
   }
 }
