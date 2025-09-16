@@ -17,31 +17,37 @@
     "cta": "View routes"
   },
   "whyChooseUs": {
-    "title": "Why choose us?",
+    "title": "Why Choose Us?",
     "fixedPrice": {
-      "title": "FIXED PRICE GUARANTEE",
-      "description": "Begin your trip, whether for leisure or business, with peace of mind. With our fixed rates, there’s no need to worry about extra fees or hidden costs. Both our airport transfers and our pricing are clear and dependable."
+      "title": "GUARANTEED FIXED PRICE",
+      "description": "Begin your trip, whether for leisure or business, with peace of mind. With our fixed rates, there's no need to worry about extra fees or hidden costs. Both our airport transfers and our pricing are clear and dependable."
     },
     "cancelFree": {
-      "title": "CANCEL FOR FREE",
-      "description": "Plans changed? No problem! At FH Airport Transfer, we offer a flexible cancellation policy with no booking or credit card fees, as long as you cancel at least 4 hours before your scheduled journey."
+      "title": "FREE CANCELLATION",
+      "description": "Cancel up to 4 hours before your ride. No booking fees or hidden charges. Plans changed? No problem!"
     },
     "ourServices": {
-      "title": "OUR SERVICES",
-      "description": "Alongside our airport transfer and shuttle services in Frankfurt, we offer a variety of other options to enhance your travel experience. Sit back and enjoy the ride while we handle all the details. Explore our range of services to ensure a smooth and enjoyable journey."
+      "title": "WIDE RANGE OF SERVICES",
+      "description": "Airport transfers, shuttles, city tours, and event transportation tailored to your needs. We handle all the details for a smooth journey."
     },
     "reliableTransfers": {
       "title": "RELIABLE TRANSFERS",
-      "description": "Our airport transfer service in Frankfurt is something you can trust! We offer stress-free, timely, and secure transportation to Frankfurt Airport or any other destination. Our long-standing experience reflects our commitment to quality."
+      "description": "On-time, stress-free rides backed by 10+ years of experience. Professional drivers and real-time tracking ensure you reach your destination safely."
     },
     "doorToDoor": {
       "title": "DOOR-TO-DOOR SERVICE",
-      "description": "Our drivers provide punctual pickup at Frankfurt Airport and take you straight to your destination’s doorstep. We’re also available to pick you up from your home and drive you to the airport on time—more convenient, efficient, and cost-effective than a taxi."
+      "description": "Our drivers provide punctual pickup at Frankfurt Airport and take you straight to your destination's doorstep. We're also available to pick you up from your home and drive you to the airport on time—more convenient, efficient, and cost-effective than a taxi."
     },
-"reliableService": {
-  "title": "RELIABLE & TIMELY SERVICE",
-  "description": "No matter the time or weather conditions, our dedicated team ensures your ride is always on time. With real-time tracking and proactive updates, you can trust us to get you to your destination safely and efficiently."
-}
+    "reliableService": {
+      "title": "RELIABLE & TIMELY SERVICE",
+      "description": "No matter the time or weather conditions, our dedicated team ensures your ride is always on time. With real-time tracking and proactive updates, you can trust us to get you to your destination safely and efficiently."
+    },
+    "cta": {
+      "title": "Ready to Book Your Transfer?",
+      "subtitle": "Experience premium airport transportation with guaranteed fixed prices",
+      "primaryButton": "Book Now",
+      "secondaryButton": "Learn More"
+    }
   },
   "services": {
     "heading": "Our Services",

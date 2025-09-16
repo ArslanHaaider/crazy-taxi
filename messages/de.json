@@ -23,24 +23,30 @@
     },
     "cancelFree": {
       "title": "KOSTENLOSE STORNIERUNG",
-      "description": "Pläne geändert? Kein Problem! Bei FH Airport Transfer bieten wir eine flexible Stornierungsrichtlinie ohne Buchungs- oder Kreditkartengebühren, solange Sie mindestens 4 Stunden vor der geplanten Fahrt stornieren."
+      "description": "Stornieren Sie bis zu 4 Stunden vor Ihrer Fahrt. Keine Buchungsgebühren oder versteckte Kosten. Pläne geändert? Kein Problem!"
     },
     "ourServices": {
-      "title": "UNSERE DIENSTLEISTUNGEN",
-      "description": "Neben unseren Flughafentransfer- und Shuttleservices in Frankfurt bieten wir eine Vielzahl anderer Optionen, um Ihr Reiseerlebnis zu verbessern. Lehnen Sie sich zurück und genießen Sie die Fahrt, während wir uns um alle Details kümmern. Entdecken Sie unser Angebot für eine reibungslose und angenehme Reise."
+      "title": "BREITES SERVICEANGEBOT",
+      "description": "Flughafentransfers, Shuttles, Stadtrundfahrten und Eventtransporte nach Ihren Bedürfnissen. Wir kümmern uns um alle Details für eine reibungslose Reise."
     },
     "reliableTransfers": {
       "title": "ZUVERLÄSSIGE TRANSFERS",
-      "description": "Unser Flughafentransfer-Service in Frankfurt ist zuverlässig! Wir bieten stressfreie, pünktliche und sichere Transporte zum Flughafen Frankfurt oder zu anderen Zielen. Unsere langjährige Erfahrung zeigt unser Engagement für Qualität."
+      "description": "Pünktliche, stressfreie Fahrten mit über 10 Jahren Erfahrung. Professionelle Fahrer und Echtzeit-Tracking sorgen für sichere Ankunft."
     },
     "doorToDoor": {
       "title": "HAUSTÜR-SERVICE",
       "description": "Unsere Fahrer holen Sie pünktlich am Flughafen Frankfurt ab und bringen Sie direkt bis vor Ihre Haustür. Wir können Sie auch von Ihrem Zuhause abholen und rechtzeitig zum Flughafen bringen – bequemer, effizienter und kostengünstiger als ein Taxi."
     },
-"reliableService": {
-  "title": "ZUVERLÄSSIGER & PÜNKTLICHER SERVICE",
-  "description": "Egal zu welcher Uhrzeit oder bei welchem Wetter – unser engagiertes Team sorgt dafür, dass Ihre Fahrt immer pünktlich ist. Mit Echtzeit-Verfolgung und proaktiven Updates können Sie sich darauf verlassen, dass wir Sie sicher und effizient an Ihr Ziel bringen."
-}
+    "reliableService": {
+      "title": "ZUVERLÄSSIGER & PÜNKTLICHER SERVICE",
+      "description": "Egal zu welcher Uhrzeit oder bei welchem Wetter – unser engagiertes Team sorgt dafür, dass Ihre Fahrt immer pünktlich ist. Mit Echtzeit-Verfolgung und proaktiven Updates können Sie sich darauf verlassen, dass wir Sie sicher und effizient an Ihr Ziel bringen."
+    },
+    "cta": {
+      "title": "Bereit, Ihren Transfer zu buchen?",
+      "subtitle": "Erleben Sie Premium-Flughafentransport mit garantierten Festpreisen",
+      "primaryButton": "Jetzt buchen",
+      "secondaryButton": "Mehr erfahren"
+    }
   },
   "services": {
     "heading": "Unsere Dienstleistungen",
