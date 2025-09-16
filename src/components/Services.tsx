@@ -1,103 +1,145 @@
 "use client";
-import { List, rem, ThemeIcon } from "@mantine/core";
-import { IconCircleCheck } from "@tabler/icons-react";
 import { motion } from "motion/react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
+import { Clock, MapPin, Globe, Shield } from "lucide-react";
+
 const Services = () => {
   const t = useTranslations("services");
-  const list1 = [
-    t("list1_item1"),
-    t("list1_item2"),
-    t("list1_item3"),
-    t("list1_item4"),
-    t("list1_item5")
+
+  const features = [
+    {
+      icon: Clock,
+      title: "On-Time Transfers",
+      description: "Timely, door-to-door service with flight tracking."
+    },
+    {
+      icon: Shield,
+      title: "Stress-Free Pickups", 
+      description: "Driver waits with a name sign at arrivals."
+    },
+    {
+      icon: Globe,
+      title: "Travel Across Europe",
+      description: "Available for nearby cities & airports."
+    },
+    {
+      icon: MapPin,
+      title: "24/7 Flexibility",
+      description: "For last-minute changes & events."
+    }
   ];
-  
-  const list2 = [
-    t("list2_item1"),
-    t("list2_item2"),
-    t("list2_item3"),
-    t("list2_item4"),
-    t("list2_item5")
-  ];
+
   return (
-    <div className="relative z-10 w-full bg-background py-16 px-4" id="services">
-      <motion.h1
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1, transition: { duration: 1 } }}
-        className="text-display-lg text-primary text-center mb-4"
-      >
-        {t("heading")}
-      </motion.h1>
-      <div className="w-full flex justify-center flex-col items-center">
-        <h4 className="text-heading-md text-text-secondary text-center mb-8">{t("subtitle")}</h4>
-      </div>
-      <div className="max-w-6xl mx-auto">
-        <h4 className="text-body text-center text-text-secondary mb-8">{t("description")}</h4>
-        <div className="md:flex md:flex-row md:items-center flex flex-col items-center justify-center">
+    <section className="relative z-10 w-full bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 py-20 px-4" id="services">
+      <div className="max-w-7xl mx-auto">
+        {/* Two Column Layout */}
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          
+          {/* Left Column - Text Content */}
           <motion.div
-            initial={{ opacity: 0, x: -100 }}
-            whileInView={{ opacity: 1, x: 0, transition: { duration: 1 } }}
-            className="md:w-2/5 w-3/5"
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="space-y-8"
           >
-            <Image
-              src="/services1.jpg"
-              alt="taxi"
-              width={400}
-              height={300}
-              className="rounded-md w-full h-auto"
-            />
+            {/* Headline */}
+            <div className="space-y-4">
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="text-4xl lg:text-5xl font-bold text-white leading-tight"
+              >
+                Reliable Airport Transfers in{" "}
+                <span className="text-yellow-400">Frankfurt</span>
+              </motion.h2>
+              
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="text-xl text-gray-300 font-medium"
+              >
+                24/7 Door-to-Door, Stress-Free Rides
+              </motion.p>
+            </div>
+
+            {/* Feature Cards Grid */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="grid grid-cols-1 sm:grid-cols-2 gap-4"
+            >
+              {features.map((feature, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
+                  whileHover={{ y: -5, transition: { duration: 0.2 } }}
+                  className="bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-6 hover:bg-slate-700/50 transition-all duration-300 hover:shadow-xl hover:shadow-yellow-400/10"
+                >
+                  <div className="flex items-start space-x-4">
+                    <div className="flex-shrink-0">
+                      <div className="w-12 h-12 bg-yellow-400 rounded-xl flex items-center justify-center">
+                        <feature.icon className="w-6 h-6 text-slate-900" />
+                      </div>
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="text-lg font-semibold text-white mb-2">
+                        {feature.title}
+                      </h3>
+                      <p className="text-gray-400 text-sm leading-relaxed">
+                        {feature.description}
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+
+
           </motion.div>
-          <List
-            spacing="md"
-            size="md"
-            center
-            className="p-4"
-            icon={
-              <ThemeIcon color="yellow" size={24} radius="xl" className="ml-3 bg-primary">
-                <IconCircleCheck style={{ width: rem(16), height: rem(16) }} className="text-white" />
-              </ThemeIcon>
-            }
+
+          {/* Right Column - Visual Content */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="relative order-first lg:order-last"
           >
-            {list1.map((item: string, index: number) => (
-              <List.Item key={index} className="text-body text-text-primary">
-                {item}
-              </List.Item>
-            ))}
-          </List>
+            <div className="relative">
+              {/* Background Glow Effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/20 to-orange-400/20 rounded-3xl blur-3xl"></div>
+              
+              {/* Main Image */}
+              <div className="relative bg-gradient-to-br from-slate-800 to-slate-700 rounded-3xl p-8 border border-slate-600/50">
+                <Image
+                  src="/services1.jpg"
+                  alt="Professional airport transfer service with luxury vehicle"
+                  width={600}
+                  height={400}
+                  className="rounded-2xl w-full h-auto object-cover shadow-2xl"
+                  priority
+                />
+                
+                {/* Floating Badge */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.6, delay: 1 }}
+                  className="absolute -top-4 -right-4 bg-yellow-400 text-slate-900 font-bold px-6 py-3 rounded-2xl shadow-lg"
+                >
+                  24/7 Available
+                </motion.div>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </div>
-      <h4 className="text-display-md text-primary text-center m-0 mt-12 mb-8">
-        {t("section1Title")}
-      </h4>
-      <div className="md:flex md:flex-row md:items-center md:justify-center flex flex-col items-center justify-center">
-        <motion.img
-          initial={{opacity: 0, x: -100}}
-          whileInView={{ opacity: 1, x: 0, transition: { duration: 1 } }}
-          src={"/taxiVector2.jpg"}
-          alt="taxi"
-          className="md:w-2/5 w-3/5 rounded-md"
-        />
-        <List
-          spacing="md"
-          size="md"
-          center
-          className="p-4 mt-5"
-          icon={
-            <ThemeIcon color="green" size={24} radius="xl" className="ml-3 bg-secondary">
-              <IconCircleCheck style={{ width: rem(16), height: rem(16) }} className="text-white" />
-            </ThemeIcon>
-          }
-        >
-          {list2.map((item: string, index: number) => (
-            <List.Item key={index} className="text-body text-text-primary">
-              {item}
-            </List.Item>
-          ))}
-        </List>
-      </div>
-    </div>
+    </section>
   );
 };
 
