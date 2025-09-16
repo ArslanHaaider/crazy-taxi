@@ -82,7 +82,8 @@
     "book": "BUCHEN",
     "toggleNav": "Navigation umschalten",
     "logoAlt": "Taxi-Service-Logo",
-    "navigation": "Navigation"
+    "navigation": "Navigation",
+    "testimonials": "Kundenbewertungen"
   },
   "LocaleSwitcher": {
     "en": "English",
@@ -229,9 +230,6 @@
         },
         "text": "Perfekt für Familienreisen! Das Fahrzeug war geräumig genug für unser ganzes Gepäck, und der Fahrer war geduldig mit unseren Kindern. Tolles Preis-Leistungs-Verhältnis."
       }
-    },
-    "Navbar": {
-      "testimonials": "Kundenbewertungen"
     }
   }
   

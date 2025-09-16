@@ -82,7 +82,8 @@
     "book": "BOOK",
     "toggleNav": "Toggle navigation",
     "logoAlt": "Taxi Service Logo",
-    "navigation": "Navigation"
+    "navigation": "Navigation",
+    "testimonials": "Testimonials"
   },
   "LocaleSwitcher": {
     "en": "English",
@@ -229,8 +230,5 @@
       },
       "text": "Perfect for family trips! The vehicle was spacious enough for all our luggage, and the driver was patient with our children. Great value for money."
     }
-  },
-  "Navbar": {
-    "testimonials": "Testimonials"
   }
 }
