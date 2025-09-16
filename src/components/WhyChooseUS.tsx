@@ -59,7 +59,7 @@ const WhyChooseUS = () => {
     <div className="absolute inset-0 bg-black bg-opacity-70 z-10"></div>
   
     <div className="relative flex items-center justify-center flex-col inset-0 h-full z-20">
-      <h1 className="text-center text-[#F2EFE7] text-5xl mb-10">{t("title")}</h1>
+      <h1 className="text-display-lg text-center text-[#F2EFE7] mb-10">{t("title")}</h1>
       <div className="w-full max-w-6xl mx-auto px-4">
         <Carousel setApi={setApi} className="w-full">
           <CarouselContent>

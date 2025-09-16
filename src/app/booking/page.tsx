@@ -9,7 +9,7 @@ const Booking = () => {
     <div className='w-full h-screen'>
         <EnhancedNavbar/>
         <div className='w-full h-2/4 bg-[url(/heroBg.jpg)] bg-center bg-cover flex items-center'>
-        <h1 className='inline-block bg-white text-black w-1/3 ml-2 sm:w-2/3 rounded-md text-5xl p-2'>{t('bookingHeading.partOne')} <span className='text-primary  font-bold text-5xl'> {t('bookingHeading.partTwo')}</span> </h1>
+        <h1 className='inline-block bg-white text-black w-1/3 ml-2 sm:w-2/3 rounded-md text-display-lg p-2'>{t('bookingHeading.partOne')} <span className='text-primary font-bold text-display-lg'> {t('bookingHeading.partTwo')}</span> </h1>
         </div>
       <BookingForm/>
       <Footer/>

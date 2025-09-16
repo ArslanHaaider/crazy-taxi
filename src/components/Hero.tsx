@@ -59,7 +59,7 @@ const Hero = () => {
         >
           {/* Tagline */}
           <motion.div variants={itemVariants}>
-            <Text className="text-xs sm:text-sm font-medium tracking-wider uppercase text-primary mb-3 sm:mb-4">
+            <Text className="text-label-md text-primary mb-3 sm:mb-4">
               {t('tagline')}
             </Text>
           </motion.div>
@@ -67,11 +67,11 @@ const Hero = () => {
           {/* Main Headline - Responsive Typography */}
           <motion.h1 
             variants={itemVariants}
-            className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-light leading-tight text-text-primary mb-4 sm:mb-6"
+            className="text-display-xl text-text-primary mb-4 sm:mb-6"
           >
-            <span className="font-extralight block sm:inline">{t('heading1')}</span>
+            <span className="font-light block sm:inline">{t('heading1')}</span>
             <br className="hidden sm:block" />
-            <span className="font-semibold bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
+            <span className="text-gradient-primary">
               {t('heading2')}
             </span>
           </motion.h1>
@@ -79,7 +79,7 @@ const Hero = () => {
           {/* Subtext - Responsive */}
           <motion.p 
             variants={itemVariants}
-            className="text-base sm:text-lg text-text-secondary mb-8 sm:mb-10 lg:mb-12 max-w-2xl leading-relaxed"
+            className="text-body-lg text-text-secondary mb-8 sm:mb-10 lg:mb-12 max-w-2xl"
           >
             Experience premium airport transfers with transparent pricing, 
             professional drivers, and guaranteed punctuality across Frankfurt and beyond.
@@ -103,15 +103,17 @@ const Hero = () => {
                     <Calculator className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-sm sm:text-base font-semibold text-text-primary">{t('calculateFareH1')}</h3>
-                    <p className="text-xs sm:text-sm text-text-secondary">{t('calculateFareH2')}</p>
+                    <h3 className="text-heading-xs text-text-primary">{t('calculateFareH1')}</h3>
+                    <p className="text-caption-md text-text-secondary">{t('calculateFareH2')}</p>
                   </div>
-                </div>  
-                <p className="text-xs sm:text-sm text-text-secondary mb-3 sm:mb-4">
-                  {t('calculateCardText')}
-                </p>
-                <div className="flex items-center text-primary text-xs sm:text-sm font-medium">
-                  {t('calculateCardButton')} →
+                </div>
+                <div className="space-y-2">
+                  <p className="text-caption-md text-text-secondary mb-3 sm:mb-4">
+                    {t('calculateFareH3')}
+                  </p>
+                  <div className="flex items-center text-primary text-caption-md font-medium">
+                    {t('calculateCardButton')} →
+                  </div>
                 </div>
               </div>
             </motion.div>
@@ -129,15 +131,17 @@ const Hero = () => {
                     <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-sm sm:text-base font-semibold text-text-primary"></h3>
-                    <p className="text-xs sm:text-sm text-text-secondary">{t('subtitle')}</p>
+                    <h3 className="text-heading-xs text-text-primary"></h3>
+                    <p className="text-caption-md text-text-secondary">{t('subtitle')}</p>
                   </div>
                 </div>
-                <p className="text-xs sm:text-sm text-text-secondary mb-3 sm:mb-4">
-                  {t('description')}
-                </p>
-                <div className="flex items-center text-secondary text-xs sm:text-sm font-medium">
-                  {t('cta')} →
+                <div className="space-y-2">
+                  <p className="text-caption-md text-text-secondary mb-3 sm:mb-4">
+                    {t('description')}
+                  </p>
+                  <div className="flex items-center text-secondary text-caption-md font-medium">
+                    {t('cta')} →
+                  </div>
                 </div>
               </div>
             </motion.div>
@@ -149,7 +153,7 @@ const Hero = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => router.push('/booking')}
-              className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-primary to-primary/90 text-white rounded-lg sm:rounded-xl font-medium hover:from-primary/90 hover:to-primary transition-all duration-300 shadow-lg hover:shadow-xl text-sm sm:text-base"
+              className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-primary to-primary/90 text-white rounded-lg sm:rounded-xl font-medium hover:from-primary/90 hover:to-primary transition-all duration-300 shadow-lg hover:shadow-xl text-body-sm"
             >
               Book Now
             </motion.button>
@@ -158,7 +162,7 @@ const Hero = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => router.push('#services')}
-              className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 border border-border-light text-text-primary rounded-lg sm:rounded-xl font-medium hover:bg-surface transition-all duration-300 text-sm sm:text-base"
+              className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 border border-border-light text-text-primary rounded-lg sm:rounded-xl font-medium hover:bg-surface transition-all duration-300 text-body-sm"
             >
               Learn More
             </motion.button>
@@ -217,8 +221,8 @@ const Hero = () => {
               <div className="flex items-center space-x-1 sm:space-x-2">
                 <Clock className="w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5 text-amber-500" />
                 <div>
-                  <p className="text-xs sm:text-sm font-semibold text-slate-900 dark:text-white">24/7</p>
-                  <p className="text-[10px] sm:text-xs text-slate-600 dark:text-slate-400">Available</p>
+                  <p className="text-caption-md font-semibold text-slate-900 dark:text-white">24/7</p>
+                <p className="text-caption-sm text-slate-600 dark:text-slate-400">Available</p>
                 </div>
               </div>
             </motion.div>
@@ -232,8 +236,8 @@ const Hero = () => {
               <div className="flex items-center space-x-1 sm:space-x-2">
                 <Shield className="w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5 text-blue-500" />
                 <div>
-                  <p className="text-xs sm:text-sm font-semibold text-slate-900 dark:text-white">100%</p>
-                  <p className="text-[10px] sm:text-xs text-slate-600 dark:text-slate-400">Secure</p>
+                  <p className="text-caption-md font-semibold text-slate-900 dark:text-white">100%</p>
+                <p className="text-caption-sm text-slate-600 dark:text-slate-400">Secure</p>
                 </div>
               </div>
             </motion.div>
