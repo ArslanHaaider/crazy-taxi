@@ -21,10 +21,10 @@ const Footer = () => {
               </Button>
               <Button asChild variant="outline" className="w-full sm:w-auto">
                 <a
-                  href="tel:+4961424996011"
+                  href="tel:+496142499601"
                   aria-label="Call Crazy Taxi at plus forty nine six one four two four nine nine six zero one"
                 >
-                  Call now: +49 6142 499601
+                  Call now: +49 6142499601
                 </a>
               </Button>
             </div>
@@ -94,11 +94,11 @@ const Footer = () => {
                 <div className="min-w-0">
                   <p className="text-xs text-muted-foreground">Call for Ride</p>
                   <a
-                    href="tel:+4961424996011"
+                    href="tel:+496142499601"
                     className="text-sm font-semibold text-foreground hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded"
                     aria-label="Call Crazy Taxi at plus forty nine six one four two four nine nine six zero one"
                   >
-                    +49 6142 499601
+                    +49 6142499601
                   </a>
                 </div>
               </li>
