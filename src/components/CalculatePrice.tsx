@@ -71,21 +71,24 @@ const CalculatePrice = () => {
   if (!isLoaded) return <span>Loading Google Maps...</span>;
 
   return (
-    <div className="w-full border-solid border-blue-800 bg-yellow-50">
+    <div className="w-full rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100">
       <form onSubmit={(e) => {
         e.preventDefault();
         calculateRoute();
       }}>
         <div className="flex justify-center gap-3 mt-3">
           <Button
+            type="button"
             color="blue"
+            variant={!isReturn ? 'filled' : 'outline'}
             onClick={() => setIsReturn(false)}
-            className={`${!isReturn ? "bg-blue-400 text-white" : "bg-white text-blue-400"} border-blue-500`}
           >
             {t("calculate_price_oneway")}
           </Button>
           <Button
-            className={`${isReturn ? "bg-blue-400 text-white" : "bg-white text-blue-400 border-blue-400"}`}
+            type="button"
+            color="blue"
+            variant={isReturn ? 'filled' : 'outline'}
             onClick={() => setIsReturn(true)}
           >
             {t("calculate_price_return")}
@@ -202,7 +205,7 @@ const CalculatePrice = () => {
         </div>
 
         {distance >= 0 && (
-          <div className="p-4 bg-white rounded-lg shadow mx-2">
+          <div className="p-4 bg-white dark:bg-slate-800 rounded-lg shadow mx-2 border border-slate-200 dark:border-slate-700">
             <Text size="lg" className="font-bold text-center mb-2">Trip Details</Text>
             <div className="space-y-2">
               <Text>Distance: {(distance / 1000).toFixed(1)} km</Text>

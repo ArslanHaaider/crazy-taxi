@@ -252,10 +252,13 @@ const Hero = () => {
         title={t('modalTitle')}
         centered
         size="xl"
-        className="bg-primary"
+        classNames={{
+          content: 'bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-800',
+          title: 'text-slate-900 dark:text-slate-100 font-bold',
+          overlay: 'bg-black/60 backdrop-blur-sm'
+        }}
         styles={{
           content: { height: '45rem' },
-          title: { color: '#1d87da', fontSize: '1.5rem', fontWeight: 'bold' },
         }}
       >
         <CalculatePrice />
@@ -267,10 +270,13 @@ const Hero = () => {
         title={t('modalTitle2')}
         centered
         size="xl"
-        className="bg-primary"
+        classNames={{
+          content: 'bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-800',
+          title: 'text-slate-900 dark:text-slate-100 font-bold',
+          overlay: 'bg-black/60 backdrop-blur-sm'
+        }}
         styles={{
           content: { height: '30rem' },
-          title: { color: 'blue', fontSize: '1.5rem', fontWeight: 'bold' },
         }}
       >
         <FixedPrices />
