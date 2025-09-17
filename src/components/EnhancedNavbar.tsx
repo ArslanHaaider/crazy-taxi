@@ -215,6 +215,12 @@ const EnhancedNavbar: React.FC = () => {
             >
               {isDark ? <Sun size={16} /> : <Moon size={16} />}
             </button>
+            <button
+              onClick={toggleLanguage}
+              className="px-2 py-1.5 text-xs font-medium rounded-full border bg-muted text-foreground hover:bg-muted/80 transition-colors"
+            >
+              {locale === "en" ? "DE" : "EN"}
+            </button>
             <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
               <SheetTrigger asChild>
                 <Button variant="ghost" size="icon" className="hover:bg-muted p-2">
