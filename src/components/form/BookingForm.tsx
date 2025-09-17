@@ -10,7 +10,7 @@ import {
 } from '@tabler/icons-react';
 import { useState } from 'react';
 import styles from "./form.module.css";
-import StepFour from './StepFour';
+// Removed StepFour to convert to a 3-step flow
 import StepOne from './StepOne';
 import StepThree from './StepThree';
 import StepTwo from './StepTwo';
@@ -38,7 +38,7 @@ interface FormValues {
   duration?: string;
   estimatedPrice?: number;
   
-  // Step Four Values
+  // Step Four Values (kept in type for compatibility)
   paymentMethod: string;
 }
 
@@ -84,7 +84,7 @@ const BookingForm = () => {
         if (!/^\d{10,}$/.test(value)) return 'Invalid contact number';
         return null;
       },
-      paymentMethod: (value) => (!value ? 'Please select a payment method' : null),
+      // paymentMethod validation removed from active flow
     }
   });
 
@@ -102,15 +102,13 @@ const BookingForm = () => {
                !form.validateField('lastName').hasError &&
                !form.validateField('email').hasError &&
                !form.validateField('contactNo').hasError;
-      case 3:
-        return !form.validateField('paymentMethod').hasError;
       default:
         return true;
     }
   };
 
   const handleStepChange = (nextStep: number) => {
-    const isOutOfBounds = nextStep > 4 || nextStep < 0;
+    const isOutOfBounds = nextStep > 3 || nextStep < 0;
     if (isOutOfBounds) {
       return;
     }
@@ -128,7 +126,7 @@ const BookingForm = () => {
   const shouldAllowSelectStep = (step: number) => highestStepVisited >= step && active !== step;
 
   const handleSubmit = async () => {
-    if (validateStep(3)) {
+    if (validateStep(2)) {
       // Handle form submission
       try{
         handleStepChange(active + 1)
@@ -145,90 +143,121 @@ const BookingForm = () => {
       }
   };
   const t = useTranslations();
+
+  // Summary UI component (inline) showing live price/ETA
+  const SummaryAside = () => (
+    <aside className="sticky top-24 bg-card/70 backdrop-blur rounded-lg border border-border p-4 shadow-lg text-sm">
+      <h3 className="text-base font-semibold mb-3">Trip summary</h3>
+      <div className="space-y-2">
+        <div>
+          <p className="text-muted-foreground">From</p>
+          <p className="font-medium">{form.values.pickUpLocation || '—'}</p>
+        </div>
+        <div>
+          <p className="text-muted-foreground">To</p>
+          <p className="font-medium">{form.values.dropOffLocation || '—'}</p>
+        </div>
+        <div className="grid grid-cols-3 gap-2 pt-2">
+          <div>
+            <p className="text-muted-foreground">Distance</p>
+            <p className="font-medium">{form.values.distance ? `${(form.values.distance/1000).toFixed(1)} km` : '—'}</p>
+          </div>
+          <div>
+            <p className="text-muted-foreground">ETA</p>
+            <p className="font-medium">{form.values.duration || '—'}</p>
+          </div>
+          <div>
+            <p className="text-muted-foreground">Passengers</p>
+            <p className="font-medium">{form.values.passengers}</p>
+          </div>
+        </div>
+        <div className="border-t border-border pt-3 mt-2">
+          <p className="text-muted-foreground">Estimated price</p>
+          <p className="text-2xl font-bold">{form.values.estimatedPrice ? `€${form.values.estimatedPrice}` : '—'}</p>
+        </div>
+      </div>
+    </aside>
+  );
+
   return (
-    <div className="w-full flex flex-col items-center font-serif">
-      <Stepper
-        active={active}
-        color="blue"
-        className="w-full md:w-3/4 h-1/6 text-xs mt-4"
-        onStepClick={setActive}
-        size="xs"
-        orientation="horizontal"
-        wrap={false}
-        completedIcon={<IconCircleCheck style={{ width: rem(18), height: rem(18) }} />}
-      >
-        <Stepper.Step
-          icon={<IconUserCheck style={{ width: rem(18), height: rem(18) }} />}
-          label={t('step1.label')}
-          description={t('step1.description')}
-          allowStepSelect={shouldAllowSelectStep(0)}
-          classNames={{ step: styles.step, stepIcon: styles.stepIcon, verticalSeparator: styles.verticalSeparator }}
+    <div className="w-full flex flex-col md:flex-row gap-6 px-2 md:px-6 font-serif">
+      <div className="flex-1">
+        <Stepper
+          active={active}
+          color="blue"
+          className="w-full md:w-full text-xs mt-4 mb-6"
+          onStepClick={setActive}
+          size="xs"
+          orientation="horizontal"
+          wrap={false}
+          completedIcon={<IconCircleCheck style={{ width: rem(18), height: rem(18) }} />}
         >
-          <div className="p-3">
-            <StepOne form={form} />
-          </div>
-        </Stepper.Step>
+          <Stepper.Step
+            icon={<IconUserCheck style={{ width: rem(18), height: rem(18) }} />}
+            label={t('step1.label')}
+            description={t('step1.description')}
+            allowStepSelect={shouldAllowSelectStep(0)}
+            classNames={{ step: styles.step, stepIcon: styles.stepIcon, verticalSeparator: styles.verticalSeparator }}
+          >
+            <div className="p-3">
+              <StepOne form={form} />
+            </div>
+          </Stepper.Step>
 
-        <Stepper.Step
-          icon={<IconMailOpened style={{ width: rem(18), height: rem(18) }} />}
-          label={t('step2.label')}
-          description={t('step2.description')}
-          allowStepSelect={shouldAllowSelectStep(1)}
-          classNames={{ step: styles.step, stepIcon: styles.stepIcon }}
-        >
-          <StepTwo form={form} />
-        </Stepper.Step>
+          <Stepper.Step
+            icon={<IconMailOpened style={{ width: rem(18), height: rem(18) }} />}
+            label={t('step2.label')}
+            description={t('step2.description')}
+            allowStepSelect={shouldAllowSelectStep(1)}
+            classNames={{ step: styles.step, stepIcon: styles.stepIcon }}
+          >
+            <StepTwo form={form} />
+          </Stepper.Step>
 
-        <Stepper.Step
-          icon={<IconShieldCheck style={{ width: rem(18), height: rem(18) }} />}
-          label={t('step3.label')}
-          description={t('step3.description')}
-          allowStepSelect={shouldAllowSelectStep(2)}
-          classNames={{ step: styles.step, stepIcon: styles.stepIcon }}
-        >
-          <div className="p-3">
-            <StepThree form={form} />
-          </div>
-        </Stepper.Step>
+          <Stepper.Step
+            icon={<IconShieldCheck style={{ width: rem(18), height: rem(18) }} />}
+            label={t('step3.label')}
+            description={t('step3.description')}
+            allowStepSelect={shouldAllowSelectStep(2)}
+            classNames={{ step: styles.step, stepIcon: styles.stepIcon }}
+          >
+            <div className="p-3">
+              <StepThree form={form} />
+            </div>
+          </Stepper.Step>
 
-        <Stepper.Step
-          icon={<IconShieldCheck style={{ width: rem(18), height: rem(18) }} />}
-          label={t('step4.label')}
-          description={t('step4.description')}
-          allowStepSelect={shouldAllowSelectStep(3)}
-          classNames={{ step: styles.step, stepIcon: styles.stepIcon }}
-        >
-          <div className="p-3">
-            <StepFour form={form} />
-          </div>
-        </Stepper.Step>
+          <Stepper.Completed>
+            <div className="flex items-center justify-center w-full border border-red- bg-orange-200 p-5 rounded-md">
+              <p className="text-lg text-center md:text-md sm:text-sm">
+                {t('completed.message')} <IconCircleCheckFilled className="w-[20rem] text-green-500" />
+              </p>
+            </div>
+          </Stepper.Completed>
+        </Stepper>
 
-        <Stepper.Completed>
-          <div className="flex items-center justify-center w-full border border-red- bg-orange-200 p-5">
-            <p className="text-lg text-center md:text-md sm:text-sm">
-              {t('completed.message')} <IconCircleCheckFilled className="w-[20rem] text-green-500" />
-            </p>
-          </div>
-        </Stepper.Completed>
-      </Stepper>
-
-      <Group justify="center" mt="xl" mb="xl">
-        <Button variant="default" onClick={() => handleStepChange(active - 1)}>
-          {t('buttons.back')}
-        </Button>
-        {active < 3 ? (
-          <Button color="blue" onClick={() => handleStepChange(active + 1)}>
-            {t('buttons.nextStep')}
+        <Group justify="center" mt="xl" mb="xl">
+          <Button variant="default" onClick={() => handleStepChange(active - 1)}>
+            {t('buttons.back')}
           </Button>
-        ) : active < 4 ? (
-          <Button color="green" onClick={handleSubmit}>
-            {t('buttons.confirmRide')}
-          </Button>
-        ) : (
-          <></>
-        )}
-      </Group>
+          {active < 2 ? (
+            <Button color="blue" onClick={() => handleStepChange(active + 1)}>
+              {t('buttons.nextStep')}
+            </Button>
+          ) : active < 3 ? (
+            <Button color="green" onClick={handleSubmit}>
+              {t('buttons.confirmRide')}
+            </Button>
+          ) : (
+            <></>
+          )}
+        </Group>
+      </div>
+
+      <div className="w-full md:max-w-sm md:w-80 lg:w-96 md:block">
+        <SummaryAside />
+      </div>
     </div>
   );
 };
+
 export default BookingForm;

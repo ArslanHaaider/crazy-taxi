@@ -1,11 +1,11 @@
 'use client'
-import { ActionIcon, NativeSelect, rem, TextInput } from '@mantine/core';
+import { ActionIcon, NativeSelect, NumberInput, SegmentedControl, rem, TextInput } from '@mantine/core';
 import { DatePickerInput, TimeInput } from '@mantine/dates';
 import { UseFormReturnType } from '@mantine/form';
 import { Autocomplete, useJsApiLoader } from '@react-google-maps/api';
 import { IconClock, IconLocation } from '@tabler/icons-react';
 import { useTranslations } from 'next-intl';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 interface FormValues {
   pickUpLocation: string;
@@ -31,6 +31,7 @@ const StepOne = ({ form }: { form: UseFormReturnType<FormValues> }) => {
   const ref = useRef<HTMLInputElement>(null);
   const [originRef, setOriginRef] = useState<google.maps.places.Autocomplete | null>(null);
   const [destinationRef, setDestinationRef] = useState<google.maps.places.Autocomplete | null>(null);
+  const [timeMode, setTimeMode] = useState<'ASAP' | 'SCHEDULE'>('ASAP');
 
   const { isLoaded, loadError } = useJsApiLoader({
     googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY!,
@@ -73,7 +74,7 @@ const StepOne = ({ form }: { form: UseFormReturnType<FormValues> }) => {
       const match = address.match(pattern);
       if (match) {
         // If we matched a postal code pattern, return the city part
-        return match[2] || match[1];
+        return (match as any)[2] || (match as any)[1];
       }
     }
     return null;
@@ -167,6 +168,18 @@ const StepOne = ({ form }: { form: UseFormReturnType<FormValues> }) => {
     </ActionIcon>
   );
 
+  // Prefill date/time for ASAP and keep valid
+  useEffect(() => {
+    if (timeMode === 'ASAP') {
+      const now = new Date();
+      form.setFieldValue('pickupDate', now);
+      // format HH:mm for TimeInput text value
+      const hh = String(now.getHours()).padStart(2, '0');
+      const mm = String(now.getMinutes()).padStart(2, '0');
+      form.setFieldValue('pickupTime', `${hh}:${mm}`);
+    }
+  }, [timeMode]);
+
   if (loadError) {
     return <div>Error loading Google Maps. Please check your API key and try again.</div>;
   }
@@ -175,92 +188,112 @@ const StepOne = ({ form }: { form: UseFormReturnType<FormValues> }) => {
     return <div>Loading Google Maps...</div>;
   }
   return (
-    <div className="w-full border-solid border-primary bg-background">
-      <Autocomplete
-        onLoad={(ref) => {
-          setOriginRef(ref);
-          // Restrict to Germany
-          if (ref) {
-            ref.setComponentRestrictions({ country: 'de' });
-            ref.setFields(['formatted_address', 'geometry', 'place_id']);
-          }
-        }}
-        onPlaceChanged={() => {
-          const place = originRef?.getPlace();
-          if (place?.formatted_address) {
-            form.setFieldValue('pickUpLocation', place.formatted_address);
-            calculateRoute();
-          }
-        }}
-      >
-        <TextInput
-          withAsterisk
-          color="orange"
-          className="p-2"
-          label={t('pickupLocation.label')}
-          leftSection={<IconLocation style={{ width: rem(16), height: rem(16) }} />}
-          placeholder={t('pickupLocation.placeholder')}
-          {...form.getInputProps('pickUpLocation')}
-        />
-      </Autocomplete>
+    <div className="w-full rounded-xl border border-border bg-card/60 p-3 md:p-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+        <Autocomplete
+          onLoad={(ref) => {
+            setOriginRef(ref);
+            // Restrict to Germany
+            if (ref) {
+              ref.setComponentRestrictions({ country: 'de' });
+              ref.setFields(['formatted_address', 'geometry', 'place_id']);
+            }
+          }}
+          onPlaceChanged={() => {
+            const place = originRef?.getPlace();
+            if (place?.formatted_address) {
+              form.setFieldValue('pickUpLocation', place.formatted_address);
+              calculateRoute();
+            }
+          }}
+        >
+          <TextInput
+            withAsterisk
+            color="orange"
+            className="p-2"
+            label={t('pickupLocation.label')}
+            leftSection={<IconLocation style={{ width: rem(16), height: rem(16) }} />}
+            placeholder={t('pickupLocation.placeholder')}
+            {...form.getInputProps('pickUpLocation')}
+          />
+        </Autocomplete>
 
-      <Autocomplete
-        onLoad={(ref) => {
-          setDestinationRef(ref);
-          // Restrict to Germany
-          if (ref) {
-            ref.setComponentRestrictions({ country: 'de' });
-            ref.setFields(['formatted_address', 'geometry', 'place_id']);
-          }
-        }}
-        onPlaceChanged={() => {
-          const place = destinationRef?.getPlace();
-          if (place?.formatted_address) {
-            form.setFieldValue('dropOffLocation', place.formatted_address);
-            calculateRoute();
-          }
-        }}
-      > 
-        <TextInput
-          withAsterisk
-          className="p-2"
-          label={t('dropOffLocation.label')}
-          leftSection={<IconLocation style={{ width: rem(16), height: rem(16) }} />}
-          placeholder={t('dropOffLocation.placeholder')}
-          {...form.getInputProps('dropOffLocation')}
-        />
-      </Autocomplete>
+        <Autocomplete
+          onLoad={(ref) => {
+            setDestinationRef(ref);
+            // Restrict to Germany
+            if (ref) {
+              ref.setComponentRestrictions({ country: 'de' });
+              ref.setFields(['formatted_address', 'geometry', 'place_id']);
+            }
+          }}
+          onPlaceChanged={() => {
+            const place = destinationRef?.getPlace();
+            if (place?.formatted_address) {
+              form.setFieldValue('dropOffLocation', place.formatted_address);
+              calculateRoute();
+            }
+          }}
+        > 
+          <TextInput
+            withAsterisk
+            className="p-2"
+            label={t('dropOffLocation.label')}
+            leftSection={<IconLocation style={{ width: rem(16), height: rem(16) }} />}
+            placeholder={t('dropOffLocation.placeholder')}
+            {...form.getInputProps('dropOffLocation')}
+          />
+        </Autocomplete>
+      </div>
 
-      <div className="w-full flex justify-evenly items-center">
+      <div className="w-full flex flex-col md:flex-row gap-3 items-start md:items-center mt-3">
+        <div className="md:w-1/3">
+          <label className="block text-sm mb-1">Time</label>
+          <SegmentedControl
+            fullWidth
+            value={timeMode}
+            onChange={(v) => setTimeMode(v as 'ASAP' | 'SCHEDULE')}
+            data={[{ label: 'ASAP', value: 'ASAP' }, { label: 'Schedule', value: 'SCHEDULE' }]}
+          />
+        </div>
         <DatePickerInput
           label={t('pickupDate.label')}
           placeholder={t('pickupDate.placeholder')}
-          className="w-2/6"
+          className="md:w-1/3 w-full"
           withAsterisk
+          disabled={timeMode === 'ASAP'}
           {...form.getInputProps('pickupDate')}
         />
         <TimeInput
           label={t('pickupTime.label')}
-          className="w-3/6"
+          className="md:w-1/3 w-full"
           color="orange"
           ref={ref}
           rightSection={pickerControl}
           withAsterisk
+          disabled={timeMode === 'ASAP'}
           {...form.getInputProps('pickupTime')}
         />
       </div>
-      <div className="w-full flex justify-evenly items-center m-3">
-        <NativeSelect
+
+      <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-3 mt-3">
+        <NumberInput
           label={t('passengers.label')}
-          className="w-2/6"
-          data={['1', '2', '3', '4', '5']}
-          {...form.getInputProps('passengers')}
+          className="w-full"
+          min={1}
+          max={8}
+          step={1}
+          value={parseInt(form.values.passengers || '1')}
+          onChange={(v) => form.setFieldValue('passengers', String(v || 1))}
         />
-        <NativeSelect
+        <NumberInput
           label={t('suitcases.label')}
-          className="w-3/6"
-          data={['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '15']}
-          {...form.getInputProps('suitcases')}
+          className="w-full"
+          min={0}
+          max={12}
+          step={1}
+          value={parseInt(form.values.suitcases || '1')}
+          onChange={(v) => form.setFieldValue('suitcases', String(v || 0))}
         />
       </div>
     </div>
