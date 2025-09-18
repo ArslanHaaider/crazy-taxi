@@ -89,9 +89,19 @@ const EnhancedNavbar: React.FC = () => {
   const toggleTheme = () => applyTheme(isDark ? "light" : "dark");
 
   const scrollToSection = (id: string, index: number) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
-    setActiveIndex(index);
-    setIsMobileMenuOpen(false);
+    const targetElement = document.getElementById(id);
+    
+    if (targetElement) {
+      // If the section exists on current page, scroll to it
+      targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
+      setActiveIndex(index);
+      setIsMobileMenuOpen(false);
+    } else {
+      // If section doesn't exist, navigate to homepage first, then scroll
+      router.push(`/#${id}`);
+      setActiveIndex(index);
+      setIsMobileMenuOpen(false);
+    }
   };
 
   const toggleLanguage = async () => {
