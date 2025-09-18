@@ -161,10 +161,10 @@ const Hero = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => router.push('#services')}
+              onClick={() => setCalculatePriceOpen(true)}
               className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 border border-border-light text-text-primary rounded-lg sm:rounded-xl font-medium hover:bg-surface transition-all duration-300 text-body-sm"
             >
-              Learn More
+              Calculate Fare
             </motion.button>
           </motion.div>
         </motion.div>
