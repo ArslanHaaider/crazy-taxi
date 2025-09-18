@@ -102,15 +102,6 @@ const WhyChooseUS = () => {
             >
               Book Now
             </motion.button>
-            
-            {/* Secondary CTA */}
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="border-2 border-yellow-500 text-yellow-500 hover:bg-yellow-500 hover:text-white font-semibold px-8 py-3 rounded-lg transition-all duration-300 transform hover:-translate-y-1"
-            >
-              Learn More
-            </motion.button>
           </div>
         </motion.div>
       </div>

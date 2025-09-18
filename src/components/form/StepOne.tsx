@@ -178,7 +178,7 @@ const StepOne = ({ form }: { form: UseFormReturnType<FormValues> }) => {
       const mm = String(now.getMinutes()).padStart(2, '0');
       form.setFieldValue('pickupTime', `${hh}:${mm}`);
     }
-  }, [timeMode, form]);
+  }, [timeMode]);
 
   if (loadError) {
     return <div>Error loading Google Maps. Please check your API key and try again.</div>;
