@@ -2,29 +2,31 @@
 import { motion } from "motion/react";
 import Image from "next/image";
 import { Clock, MapPin, Globe, Shield } from "lucide-react";
+import { useTranslations } from 'next-intl';
 
 const Services = () => {
+  const t = useTranslations('services');
 
   const features = [
     {
       icon: Clock,
-      title: "On-Time Transfers",
-      description: "Timely, door-to-door service with flight tracking."
+      title: t('feature1_title'),
+      description: t('feature1_description')
     },
     {
       icon: Shield,
-      title: "Stress-Free Pickups", 
-      description: "Driver waits with a name sign at arrivals."
+      title: t('feature2_title'), 
+      description: t('feature2_description')
     },
     {
       icon: Globe,
-      title: "Travel Across Europe",
-      description: "Available for nearby cities & airports."
+      title: t('feature3_title'),
+      description: t('feature3_description')
     },
     {
       icon: MapPin,
-      title: "24/7 Flexibility",
-      description: "For last-minute changes & events."
+      title: t('feature4_title'),
+      description: t('feature4_description')
     }
   ];
 
@@ -49,8 +51,9 @@ const Services = () => {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="text-4xl lg:text-5xl font-bold text-white leading-tight"
               >
-                Reliable Airport Transfers in{" "}
+                {t('heading').split('Frankfurt')[0]}
                 <span className="text-yellow-400">Frankfurt</span>
+                {t('heading').split('Frankfurt')[1] || ''}
               </motion.h2>
               
               <motion.p
@@ -59,7 +62,7 @@ const Services = () => {
                 transition={{ duration: 0.6, delay: 0.3 }}
                 className="text-xl text-gray-300 font-medium"
               >
-                24/7 Door-to-Door, Stress-Free Rides
+                {t('subtitle')}
               </motion.p>
             </div>
 
@@ -116,7 +119,7 @@ const Services = () => {
               <div className="relative bg-gradient-to-br from-slate-800 to-slate-700 rounded-3xl p-8 border border-slate-600/50">
                 <Image
                   src="/services1.jpg"
-                  alt="Professional airport transfer service with luxury vehicle"
+                  alt={t('image_alt')}
                   width={600}
                   height={400}
                   className="rounded-2xl w-full h-auto object-cover shadow-2xl"
@@ -130,7 +133,7 @@ const Services = () => {
                   transition={{ duration: 0.6, delay: 1 }}
                   className="absolute -top-4 -right-4 bg-yellow-400 text-slate-900 font-bold px-6 py-3 rounded-2xl shadow-lg"
                 >
-                  24/7 Available
+                  {t('badge_text')}
                 </motion.div>
               </div>
             </div>

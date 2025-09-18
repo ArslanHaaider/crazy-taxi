@@ -243,7 +243,7 @@ const EnhancedNavbar: React.FC = () => {
                     </button>
                     <button 
                       onClick={toggleLanguage} 
-                      className="px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-lg font-medium rounded-full border bg-muted text-foreground hover:bg-muted/80 transition-colors text-xs sm:text-base"
+                      className="px-3 sm:px-4 py-2 sm:py-3 text-xs sm:text-base font-medium rounded-full border bg-muted text-foreground hover:bg-muted/80 transition-colors"
                     >
                       {locale === "en" ? "Deutsch" : "English"}
                     </button>
