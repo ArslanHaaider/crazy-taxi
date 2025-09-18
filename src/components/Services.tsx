@@ -1,11 +1,9 @@
 "use client";
 import { motion } from "motion/react";
-import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { Clock, MapPin, Globe, Shield } from "lucide-react";
 
 const Services = () => {
-  const t = useTranslations("services");
 
   const features = [
     {

@@ -1,7 +1,7 @@
 "use client"
 
 import { cn } from "@/lib/utils"
-import { TestimonialCard, TestimonialAuthor } from "@/components/ui/testimonial-card"
+import { TestimonialCard } from "@/components/ui/testimonial-card"
 import { useTranslations } from "next-intl"
 
 interface TestimonialsSectionProps {

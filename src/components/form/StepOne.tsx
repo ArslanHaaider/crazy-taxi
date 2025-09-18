@@ -1,5 +1,5 @@
 'use client'
-import { ActionIcon, NativeSelect, NumberInput, SegmentedControl, rem, TextInput } from '@mantine/core';
+import { ActionIcon, NumberInput, SegmentedControl, rem, TextInput } from '@mantine/core';
 import { DatePickerInput, TimeInput } from '@mantine/dates';
 import { UseFormReturnType } from '@mantine/form';
 import { Autocomplete, useJsApiLoader } from '@react-google-maps/api';
@@ -74,7 +74,7 @@ const StepOne = ({ form }: { form: UseFormReturnType<FormValues> }) => {
       const match = address.match(pattern);
       if (match) {
         // If we matched a postal code pattern, return the city part
-        return (match as any)[2] || (match as any)[1];
+        return (match as string[])[2] || (match as string[])[1];
       }
     }
     return null;
@@ -178,7 +178,7 @@ const StepOne = ({ form }: { form: UseFormReturnType<FormValues> }) => {
       const mm = String(now.getMinutes()).padStart(2, '0');
       form.setFieldValue('pickupTime', `${hh}:${mm}`);
     }
-  }, [timeMode]);
+  }, [timeMode, form]);
 
   if (loadError) {
     return <div>Error loading Google Maps. Please check your API key and try again.</div>;
