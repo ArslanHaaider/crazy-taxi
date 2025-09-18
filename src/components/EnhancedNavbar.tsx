@@ -40,7 +40,7 @@ interface NavItem {
 
 const EnhancedNavbar: React.FC = () => {
   const router = useRouter();
-  const t = useTranslations("Navbar");
+  const t = useTranslations("navigation");
   const locale = useLocale();
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);

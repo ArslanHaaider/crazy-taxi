@@ -27,7 +27,7 @@ interface FormValues {
 }
 
 const StepOne = ({ form }: { form: UseFormReturnType<FormValues> }) => {
-  const t = useTranslations();
+  const t = useTranslations("forms.rideDetails");
   const ref = useRef<HTMLInputElement>(null);
   const [originRef, setOriginRef] = useState<google.maps.places.Autocomplete | null>(null);
   const [destinationRef, setDestinationRef] = useState<google.maps.places.Autocomplete | null>(null);
@@ -209,7 +209,6 @@ const StepOne = ({ form }: { form: UseFormReturnType<FormValues> }) => {
         >
           <TextInput
             withAsterisk
-            color="orange"
             className="p-2"
             label={t('pickupLocation.label')}
             leftSection={<IconLocation style={{ width: rem(16), height: rem(16) }} />}
@@ -238,9 +237,9 @@ const StepOne = ({ form }: { form: UseFormReturnType<FormValues> }) => {
           <TextInput
             withAsterisk
             className="p-2"
-            label={t('dropOffLocation.label')}
+            label={t('dropoffLocation.label')}
             leftSection={<IconLocation style={{ width: rem(16), height: rem(16) }} />}
-            placeholder={t('dropOffLocation.placeholder')}
+            placeholder={t('dropoffLocation.placeholder')}
             {...form.getInputProps('dropOffLocation')}
           />
         </Autocomplete>

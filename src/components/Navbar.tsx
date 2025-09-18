@@ -34,7 +34,7 @@ import { RainbowButton } from "@/components/ui/rainbowButton";
 
 const Navbar = () => {
   const router = useRouter();
-  const t = useTranslations("Navbar");
+  const t = useTranslations("navigation");
   const [menuIsOpen, setMenuIsOpen] = useState(false);
   
   const scrollToSection = (id: string, index: number) => {
@@ -75,7 +75,7 @@ const Navbar = () => {
           <div className="flex items-center">
             <Image
               src="/navbarLogo.png"
-              alt={t("logoAlt")}
+              alt="Logo"
               width={160}
               height={90}
               className="lg:w-[10rem] bg-primary cursor-pointer"
@@ -128,7 +128,7 @@ const Navbar = () => {
               </SheetTrigger>
               <SheetContent side="bottom" className="h-[400px]">
                 <SheetHeader>
-                  <SheetTitle>{t("navigation")}</SheetTitle>
+                  <SheetTitle>{t("menu")}</SheetTitle>
                 </SheetHeader>
                 <div className="flex flex-col gap-4 mt-6">
                   {data.map((item, index) => (

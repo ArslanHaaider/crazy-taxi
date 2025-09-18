@@ -14,7 +14,7 @@ const WhyChooseUS = () => {
       icon: Clock,
     },
     {
-      key: "ourServices", 
+      key: "wideServices", 
       icon: Car,
     },
     {
@@ -72,12 +72,12 @@ const WhyChooseUS = () => {
                   
                   {/* Title */}
                   <h3 className="text-lg font-semibold text-white text-center mb-3 uppercase tracking-wide">
-                    {t(`${service.key}.title`)}
+                    {t(`features.${service.key}.title`)}
                   </h3>
                   
                   {/* Description */}
                   <p className="text-gray-400 text-sm leading-relaxed text-center">
-                    {t(`${service.key}.description`)}
+                    {t(`features.${service.key}.description`)}
                   </p>
                 </div>
               </motion.div>

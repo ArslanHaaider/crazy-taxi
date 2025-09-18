@@ -10,23 +10,23 @@ const Services = () => {
   const features = [
     {
       icon: Clock,
-      title: t('feature1_title'),
-      description: t('feature1_description')
+      title: t('features.onTimeTransfers.title'),
+      description: t('features.onTimeTransfers.description')
     },
     {
       icon: Shield,
-      title: t('feature2_title'), 
-      description: t('feature2_description')
+      title: t('features.stressFreePickups.title'), 
+      description: t('features.stressFreePickups.description')
     },
     {
       icon: Globe,
-      title: t('feature3_title'),
-      description: t('feature3_description')
+      title: t('features.travelAcrossEurope.title'),
+      description: t('features.travelAcrossEurope.description')
     },
     {
       icon: MapPin,
-      title: t('feature4_title'),
-      description: t('feature4_description')
+      title: t('features.flexibility.title'),
+      description: t('features.flexibility.description')
     }
   ];
 
@@ -119,7 +119,7 @@ const Services = () => {
               <div className="relative bg-gradient-to-br from-slate-800 to-slate-700 rounded-3xl p-8 border border-slate-600/50">
                 <Image
                   src="/services1.jpg"
-                  alt={t('image_alt')}
+                  alt={t('imageAlt')}
                   width={600}
                   height={400}
                   className="rounded-2xl w-full h-auto object-cover shadow-2xl"
@@ -133,7 +133,7 @@ const Services = () => {
                   transition={{ duration: 0.6, delay: 1 }}
                   className="absolute -top-4 -right-4 bg-yellow-400 text-slate-900 font-bold px-6 py-3 rounded-2xl shadow-lg"
                 >
-                  {t('badge_text')}
+                  {t('badge')}
                 </motion.div>
               </div>
             </div>

@@ -16,43 +16,43 @@ export function TestimonialsSection({
   const testimonials = [
     {
       author: {
-        name: t("testimonial1.author.name"),
-        handle: t("testimonial1.author.handle"),
+        name: t("reviews.emma.author.name"),
+        handle: t("reviews.emma.author.handle"),
         avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=face"
       },
-      text: t("testimonial1.text")
+      text: t("reviews.emma.text")
     },
     {
       author: {
-        name: t("testimonial2.author.name"),
-        handle: t("testimonial2.author.handle"),
+        name: t("reviews.michael.author.name"),
+        handle: t("reviews.michael.author.handle"),
         avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face"
       },
-      text: t("testimonial2.text")
+      text: t("reviews.michael.text")
     },
     {
       author: {
-        name: t("testimonial3.author.name"),
-        handle: t("testimonial3.author.handle"),
+        name: t("reviews.sarah.author.name"),
+        handle: t("reviews.sarah.author.handle"),
         avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&h=150&fit=crop&crop=face"
       },
-      text: t("testimonial3.text")
+      text: t("reviews.sarah.text")
     },
     {
       author: {
-        name: t("testimonial4.author.name"),
-        handle: t("testimonial4.author.handle"),
+        name: t("reviews.david.author.name"),
+        handle: t("reviews.david.author.handle"),
         avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face"
       },
-      text: t("testimonial4.text")
+      text: t("reviews.david.text")
     },
     {
       author: {
-        name: t("testimonial5.author.name"),
-        handle: t("testimonial5.author.handle"),
+        name: t("reviews.lisa.author.name"),
+        handle: t("reviews.lisa.author.handle"),
         avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face"
       },
-      text: t("testimonial5.text")
+      text: t("reviews.lisa.text")
     }
   ]
 

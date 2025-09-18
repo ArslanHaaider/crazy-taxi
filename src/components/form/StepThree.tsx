@@ -22,7 +22,7 @@ interface FormValues {
 
 const StepThree = ({ form }: { form: UseFormReturnType<FormValues> }) => {
 
-  const t = useTranslations();
+  const t = useTranslations("forms.contactDetails");
   return(
     <div className="w-full h-82 border-solid border-primary p-2">
       <div className="flex">
@@ -30,17 +30,17 @@ const StepThree = ({ form }: { form: UseFormReturnType<FormValues> }) => {
           withAsterisk
           color="orange"
           className="p-2"
-          label={t('stepThree.firstName.label')}
+          label={t('firstName.label')}
           leftSection={<IconUser style={{ width: rem(16), height: rem(16) }} />}
-          placeholder={t('stepThree.firstName.placeholder')}
+          placeholder={t('firstName.placeholder')}
           {...form.getInputProps('firstName')}
         />
         <TextInput
           color="orange"
           className="p-2"
-          label={t('stepThree.lastName.label')}
+          label={t('lastName.label')}
           leftSection={<IconUser style={{ width: rem(16), height: rem(16) }} />}
-          placeholder={t('stepThree.lastName.placeholder')}
+          placeholder={t('lastName.placeholder')}
           {...form.getInputProps('lastName')}
         />
       </div>
@@ -48,23 +48,23 @@ const StepThree = ({ form }: { form: UseFormReturnType<FormValues> }) => {
         withAsterisk
         color="orange"
         className="p-2"
-        label={t('stepThree.email.label')}
+        label={t('email.label')}
         leftSection={<IconMail style={{ width: rem(16), height: rem(16) }} />}
-        placeholder={t('stepThree.email.placeholder')}
+        placeholder={t('email.placeholder')}
         {...form.getInputProps('email')}
       />
       <TextInput
         withAsterisk
         className="p-2"
-        label={t('stepThree.contactNo.label')}
+        label={t('contactNumber.label')}
         leftSection={<IconPhone style={{ width: rem(16), height: rem(16) }} />}
-        placeholder={t('stepThree.contactNo.placeholder')}
+        placeholder={t('contactNumber.placeholder')}
         {...form.getInputProps('contactNo')}
       />
       <Textarea
-        label={t('stepThree.remarks.label')}
+        label={t('remarks.label')}
         className="p-2"
-        placeholder={t('stepThree.remarks.placeholder')}
+        placeholder={t('remarks.placeholder')}
         {...form.getInputProps('remarks')}
       />
     </div>

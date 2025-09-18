@@ -142,7 +142,7 @@ const BookingForm = () => {
       }
       }
   };
-  const t = useTranslations();
+  const t = useTranslations("booking");
 
   // Summary UI component (inline) showing live price/ETA
   const SummaryAside = () => (
@@ -194,8 +194,8 @@ const BookingForm = () => {
         >
           <Stepper.Step
             icon={<IconUserCheck style={{ width: rem(18), height: rem(18) }} />}
-            label={t('step1.label')}
-            description={t('step1.description')}
+            label={t('steps.step1.label')}
+            description={t('steps.step1.description')}
             allowStepSelect={shouldAllowSelectStep(0)}
             classNames={{ step: styles.step, stepIcon: styles.stepIcon, verticalSeparator: styles.verticalSeparator }}
           >
@@ -206,8 +206,8 @@ const BookingForm = () => {
 
           <Stepper.Step
             icon={<IconMailOpened style={{ width: rem(18), height: rem(18) }} />}
-            label={t('step2.label')}
-            description={t('step2.description')}
+            label={t('steps.step2.label')}
+            description={t('steps.step2.description')}
             allowStepSelect={shouldAllowSelectStep(1)}
             classNames={{ step: styles.step, stepIcon: styles.stepIcon }}
           >
@@ -216,8 +216,8 @@ const BookingForm = () => {
 
           <Stepper.Step
             icon={<IconShieldCheck style={{ width: rem(18), height: rem(18) }} />}
-            label={t('step3.label')}
-            description={t('step3.description')}
+            label={t('steps.step3.label')}
+            description={t('steps.step3.description')}
             allowStepSelect={shouldAllowSelectStep(2)}
             classNames={{ step: styles.step, stepIcon: styles.stepIcon }}
           >
@@ -229,7 +229,7 @@ const BookingForm = () => {
           <Stepper.Completed>
             <div className="flex items-center justify-center w-full border border-red- bg-orange-200 p-5 rounded-md">
               <p className="text-lg text-center md:text-md sm:text-sm">
-                {t('completed.message')} <IconCircleCheckFilled className="w-[20rem] text-green-500" />
+                {t('completion.message')} <IconCircleCheckFilled className="w-[20rem] text-green-500" />
               </p>
             </div>
           </Stepper.Completed>

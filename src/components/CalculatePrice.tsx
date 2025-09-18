@@ -10,7 +10,7 @@ import { useTranslations } from 'next-intl';
 import { Autocomplete, useJsApiLoader } from '@react-google-maps/api';
 
 const CalculatePrice = () => {
-  const t = useTranslations();
+  const t = useTranslations("hero");
   const [passenger, setPassenger] = useState("");
   const [isReturn, setIsReturn] = useState(false);
   const [originRef, setOriginRef] = useState<google.maps.places.Autocomplete | null>(null);
@@ -83,7 +83,7 @@ const CalculatePrice = () => {
             variant={!isReturn ? 'filled' : 'outline'}
             onClick={() => setIsReturn(false)}
           >
-            {t("calculate_price_oneway")}
+            {t("oneWay")}
           </Button>
           <Button
             type="button"
@@ -91,7 +91,7 @@ const CalculatePrice = () => {
             variant={isReturn ? 'filled' : 'outline'}
             onClick={() => setIsReturn(true)}
           >
-            {t("calculate_price_return")}
+            {t("return")}
           </Button>
         </div>
 
@@ -112,9 +112,9 @@ const CalculatePrice = () => {
           <TextInput
             withAsterisk
             className="p-2"
-            label={t("calculate_price_pickup_location_label")}
+            label={t("pickupLocation.label")}
             leftSection={<IconLocation style={{ width: rem(16), height: rem(16) }} />}
-            placeholder={t("calculate_price_pickup_location_placeholder")}
+            placeholder={t("pickupLocation.placeholder")}
             {...form.getInputProps("PickUpLocation")}
           />
         </Autocomplete>
@@ -136,21 +136,21 @@ const CalculatePrice = () => {
           <TextInput
             withAsterisk
             className="p-2"
-            label={t("calculate_price_dropoff_location_label")}
+            label={t("dropoffLocation.label")}
             leftSection={<IconLocation style={{ width: rem(16), height: rem(16) }} />}
-            placeholder={t("calculate_price_dropoff_location_placeholder")}
+            placeholder={t("dropoffLocation.placeholder")}
             {...form.getInputProps("DropOffLocation")}
           />
         </Autocomplete>
 
         <div className="w-full flex justify-evenly items-center">
           <DatePickerInput
-            label={t("calculate_price_pickup_date_label")}
-            placeholder={t("calculate_price_pickup_date_placeholder")}
+            label={t("pickupDate.label")}
+            placeholder={t("pickupDate.placeholder")}
             className="w-2/6"
           />
           <TimeInput
-            label={t("calculate_price_pick_time_label")}
+            label={t("pickupTime.label")}
             className="w-3/6"
             color="blue"
             ref={ref}
@@ -165,12 +165,12 @@ const CalculatePrice = () => {
         {isReturn && (
           <div className="w-full flex justify-evenly items-center">
             <DatePickerInput
-              label={t("calculate_price_return_date_label")}
-              placeholder={t("calculate_price_return_date_placeholder")}
+              label={t("returnDate.label")}
+              placeholder={t("returnDate.placeholder")}
               className="w-2/6"
             />
             <TimeInput
-              label={t("calculate_price_return_time_label")}
+              label={t("returnTime.label")}
               className="w-3/6"
               color="blue"
               ref={ref}
@@ -186,14 +186,14 @@ const CalculatePrice = () => {
         <div className="w-full flex justify-evenly items-center">
           <NativeSelect
             value={passenger}
-            label={t("calculate_price_passenger_label")}
+            label={t("passengers.label")}
             className="w-2/6"
             onChange={(event) => setPassenger(event.currentTarget.value)}
             data={["1", "2", "3", "4", "5", "6", "7", "8"]}
           />
           <NativeSelect
             value={passenger}
-            label={t("calculate_price_suitcase_label")}
+            label={t("suitcases.label")}
             className="w-3/6"
             onChange={(event) => setPassenger(event.currentTarget.value)}
             data={["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "15"]}
@@ -201,7 +201,7 @@ const CalculatePrice = () => {
         </div>
 
         <div className="flex justify-center items-center mt-7 mb-5">
-          <Button type="submit" color="blue">{t("calculate_price_calculate_fare_button")}</Button>
+          <Button type="submit" color="blue">{t("calculateButton")}</Button>
         </div>
 
         {distance >= 0 && (

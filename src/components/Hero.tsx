@@ -69,10 +69,10 @@ const Hero = () => {
             variants={itemVariants}
             className="text-display-xl text-text-primary mb-4 sm:mb-6"
           >
-            <span className="font-light block sm:inline">{t('heading1')}</span>
+            <span className="font-light block sm:inline">{t('heading.part1')}</span>
             <br className="hidden sm:block" />
             <span className="text-gradient-primary">
-              {t('heading2')}
+              {t('heading.part2')}
             </span>
           </motion.h1>
 
@@ -103,16 +103,16 @@ const Hero = () => {
                     <Calculator className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-heading-xs text-text-primary">{t('calculateFareH1')}</h3>
-                    <p className="text-caption-md text-text-secondary">{t('calculateFareH2')}</p>
+                    <h3 className="text-heading-xs text-text-primary">{t('calculateFare.title')}</h3>
+                    <p className="text-caption-md text-text-secondary">{t('calculateFare.subtitle')}</p>
                   </div>
                 </div>
                 <div className="space-y-2">
                   <p className="text-caption-md text-text-secondary mb-3 sm:mb-4">
-                    {t('calculateFareH3')}
+                    {t('calculateFare.description')}
                   </p>
                   <div className="flex items-center text-primary text-caption-md font-medium">
-                    {t('calculateCardButton')} →
+                    {t('calculateFare.button')} →
                   </div>
                 </div>
               </div>
@@ -131,16 +131,16 @@ const Hero = () => {
                     <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-heading-xs text-text-primary"></h3>
-                    <p className="text-caption-md text-text-secondary">{t('subtitle')}</p>
+                    <h3 className="text-heading-xs text-text-primary">{t('fixedRoutes.title')}</h3>
+                    <p className="text-caption-md text-text-secondary">{t('fixedRoutes.subtitle')}</p>
                   </div>
                 </div>
                 <div className="space-y-2">
                   <p className="text-caption-md text-text-secondary mb-3 sm:mb-4">
-                    {t('description')}
+                    {t('fixedRoutes.description')}
                   </p>
                   <div className="flex items-center text-secondary text-caption-md font-medium">
-                    {t('cta')} →
+                    {t('fixedRoutes.button')} →
                   </div>
                 </div>
               </div>
@@ -249,7 +249,7 @@ const Hero = () => {
       <Modal
         opened={calculatePriceOpen}
         onClose={() => setCalculatePriceOpen(false)}
-        title={t('modalTitle')}
+        title={t('modals.calculateFare')}
         centered
         size="xl"
         classNames={{
@@ -267,7 +267,7 @@ const Hero = () => {
       <Modal
         opened={fixedPricesOpen}
         onClose={() => setFixedPricesOpen(false)}
-        title={t('modalTitle2')}
+        title={t('modals.fixedRoutes')}
         centered
         size="xl"
         classNames={{

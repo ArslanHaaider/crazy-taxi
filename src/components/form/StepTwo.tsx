@@ -66,7 +66,7 @@ const StepTwo = ({ form }: { form: UseFormReturnType<FormValues> }) => {
   const handleSelectCar = (carId: string) => {
     form.setFieldValue('selectedCar', carId);
   };
-  const t = useTranslations();
+  const t = useTranslations("forms.vehicleSelection");
   return <div className="w-full h-full flex flex-col items-center justify-center">
   {carsArray.map((car) => (
     <CarCard
@@ -80,7 +80,7 @@ const StepTwo = ({ form }: { form: UseFormReturnType<FormValues> }) => {
     />
   ))}
   {form.errors.selectedCar && (
-    <div className="text-red-500 mt-2">{ t('carSelection.error')}</div>
+    <div className="text-red-500 mt-2">{t('error')}</div>
   )}
 </div>
 };

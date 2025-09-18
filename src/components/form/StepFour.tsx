@@ -46,7 +46,7 @@ const carsArray = [
 
 const StepFour = ({ form }: { form: UseFormReturnType<FormValues> }) => {
   const [directionResult, setDirectionResult] = useState<google.maps.DirectionsResult | undefined>(undefined);
-  const  t  = useTranslations();
+  const  t  = useTranslations("forms.bookingSummary");
 
   useEffect(() => {
     const fetchDirections = async () => {
@@ -89,72 +89,72 @@ const StepFour = ({ form }: { form: UseFormReturnType<FormValues> }) => {
   return (
     <div className="w-full md:flex gap-5">
       <div className="w-full p-5 border border-solid border-primary bg-primary font-sans rounded-md shadow-lg">
-        <h2>{t('stepFour.rideInfo.title')}</h2>
+        <h2>{t('rideInfo.title')}</h2>
         <div className="w-full">
-          <h3>{t('stepFour.rideInfo.rideType.label')}</h3>
-          <p>{t('stepFour.rideInfo.rideType.value')}</p>
+          <h3>{t('rideInfo.rideType.label')}</h3>
+          <p>{t('rideInfo.rideType.value')}</p>
         </div>
         <Divider color="blue" />
         <div className="w-full">
-          <h3>{t('stepFour.rideInfo.carModel.label')}</h3>
-          <p>{selectedCar?.name || t('stepFour.rideInfo.carModel.placeholder')}</p>
+          <h3>{t('rideInfo.carModel.label')}</h3>
+          <p>{selectedCar?.name || t('rideInfo.carModel.placeholder')}</p>
         </div>
         <Divider color="blue" />
         <div className="w-full">
-          <h3>{t('stepFour.rideInfo.from')}</h3>
+          <h3>{t('rideInfo.from')}</h3>
           <p>{form.values.pickUpLocation}</p>
         </div>
         <Divider color="blue" />
         <div className="w-full">
-          <h3>{t('stepFour.rideInfo.to')}</h3>
+          <h3>{t('rideInfo.to')}</h3>
           <p>{form.values.dropOffLocation}</p>
         </div>
         <Divider color="blue" />
         <div className="w-full">
-          <h3>{t('stepFour.rideInfo.departureDate')}</h3>
+          <h3>{t('rideInfo.departureDate')}</h3>
           <p>{form.values.pickupDate?.toLocaleDateString()}</p>
         </div>
         <Divider color="blue" />
         <div className="w-full">
-          <h3>{t('stepFour.rideInfo.departureTime')}</h3>
+          <h3>{t('rideInfo.departureTime')}</h3>
           <p>{form.values.pickupTime}</p>
         </div>
         <Divider color="blue" />
         <div className="w-full">
-          <h3>{t('stepFour.rideInfo.numberOfPassengers')}</h3>
+          <h3>{t('rideInfo.numberOfPassengers')}</h3>
           <p>{form.values.passengers}</p>
         </div>
         <Divider color="blue" />
         <div className="w-full">
-          <h3>{t('stepFour.rideInfo.luggage')}</h3>
+          <h3>{t('rideInfo.luggage')}</h3>
           <p>{form.values.suitcases}</p>
         </div>
       </div>
 
       <div className="w-full p-5 border border-solid border-primary bg-section-bg font-sans rounded-md shadow-lg mt-5 md:mt-0">
-        <h2>{t('stepFour.contactBillingInfo.title')}</h2>
+        <h2>{t('contactBillingInfo.title')}</h2>
         <div className="w-full">
-          <h3>{t('stepFour.contactBillingInfo.name')}</h3>
+          <h3>{t('contactBillingInfo.name')}</h3>
           <p>{`${form.values.firstName} ${form.values.lastName}`}</p>
           <Divider size="xs" color="blue" />
         </div>
         <div className="w-full">
-          <h3>{t('stepFour.contactBillingInfo.email')}</h3>
+          <h3>{t('contactBillingInfo.email')}</h3>
           <p>{form.values.email}</p>
           <Divider size="xs" color="blue" />
         </div>
         <div className="w-full">
-          <h3>{t('stepFour.contactBillingInfo.phoneNo')}</h3>
+          <h3>{t('contactBillingInfo.phoneNumber')}</h3>
           <p>{form.values.contactNo}</p>
           <Divider size="xs" color="blue" />
         </div>
         <div className="w-full">
-          <h3>{t('stepFour.contactBillingInfo.rideCharges')}</h3>
+          <h3>{t('contactBillingInfo.rideCharges')}</h3>
           <p>€{form.values.estimatedPrice}</p>
           <Divider size="xs" color="blue" />
         </div>
         <div className="w-full">
-          <h3>{t('stepFour.contactBillingInfo.paymentMethod')}</h3>
+          <h3>{t('contactBillingInfo.paymentMethod')}</h3>
           <SegmentedControl
             size="md"
             color="blue"

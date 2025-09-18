@@ -1,11 +1,11 @@
 import BookingForm from '@/components/form/BookingForm'
 import Footer from '@/components/Footer'
 import React from 'react'
-import { useTranslations } from 'next-intl'
+import { getTranslations } from 'next-intl/server'
 import EnhancedNavbar from '@/components/EnhancedNavbar'
 
-const Booking = () => {
-  const t = useTranslations();
+const Booking = async () => {
+  const t = await getTranslations("services");
 
   return (
     <div className='w-full min-h-screen bg-background scroll-smooth'>
@@ -23,20 +23,20 @@ const Booking = () => {
           <div className='max-w-3xl text-white drop-shadow-lg'>
             {/* Small badge */}
             <span className='inline-flex items-center rounded-full bg-white/10 backdrop-blur px-3 py-1 text-xs md:text-sm font-medium ring-1 ring-white/20 mb-4'>
-              {t('services.badge_text')}
+              {t('badge')}
             </span>
 
             {/* Heading */}
             <h1 className='text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight'>
-              {t('bookingHeading.partOne')}{' '}
+              Book your{' '}
               <span className='bg-gradient-to-r from-amber-300 via-yellow-400 to-orange-400 bg-clip-text text-transparent'>
-                {t('bookingHeading.partTwo')}
+                ride now
               </span>
             </h1>
 
             {/* Subtitle */}
             <p className='mt-3 text-base md:text-lg text-white/90 max-w-2xl'>
-              {t('services.subtitle')}
+              {t('subtitle')}
             </p>
 
           </div>

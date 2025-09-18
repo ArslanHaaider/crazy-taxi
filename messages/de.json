@@ -1,45 +1,110 @@
 {
+  "common": {
+    "loading": "Laden...",
+    "error": "Fehler",
+    "success": "Erfolg",
+    "cancel": "Abbrechen",
+    "confirm": "Bestätigen",
+    "back": "Zurück",
+    "next": "Weiter",
+    "submit": "Senden",
+    "close": "Schließen"
+  },
+  "navigation": {
+    "home": "Startseite",
+    "services": "Dienstleistungen",
+    "about": "Über uns",
+    "testimonials": "Kundenbewertungen",
+    "book": "BUCHEN",
+    "callNow": "JETZT ANRUFEN",
+    "emailNow": "JETZT EMAIL SCHICKEN",
+    "toggleNav": "Navigation umschalten",
+    "logoAlt": "Taxi-Service-Logo",
+    "navigation": "Navigation"
+  },
+  "language": {
+    "en": "English",
+    "de": "Deutsch",
+    "label": "Sprache"
+  },
   "hero": {
     "tagline": "Reisen Sie sicher mit uns",
-    "heading1": "Buchen Sie Ihr Fahrt",
-    "heading2": "von Ihrer Haustür aus",
-    "calculateFareH1": "Preis berechnen",
-    "calculateFareH2" :"Sofortige Preisgestaltung",
-    "calculateFareH3": "Erhalten Sie mit unserem transparenten Tarifrechner genaue Preise für Ihre Reise.",
-    "calculateCardText":"Erhalten Sie mit unserem transparenten Tarifrechner genaue Preise für Ihre Reise.",
-    "calculateCardButton":"Jetzt berechnen",
-    "modalTitle": "Fahrpreis berechnen",
-    "modalTitle2": "Feste Preisrouten anzeigen",
-    "fixedPrice": "Günstige Pauschalpreise zum Frankfurter Flughafen",
-    "subtitle": "Beliebte Ziele",
-    "description": "Vordefinierte Strecken mit garantiert festen Preisen und ohne versteckte Gebühren.",
-    "cta": "Routen anzeigen"
+    "heading": {
+      "part1": "Buchen Sie Ihr Fahrt",
+      "part2": "von Ihrer Haustür aus"
+    },
+    "calculateFare": {
+      "title": "Preis berechnen",
+      "subtitle": "Sofortige Preisgestaltung",
+      "description": "Erhalten Sie mit unserem transparenten Tarifrechner genaue Preise für Ihre Reise.",
+      "button": "Jetzt berechnen"
+    },
+    "fixedRoutes": {
+      "title": "Günstige Pauschalpreise zum Frankfurter Flughafen",
+      "subtitle": "Beliebte Ziele",
+      "description": "Vordefinierte Strecken mit garantiert festen Preisen und ohne versteckte Gebühren.",
+      "button": "Routen anzeigen"
+    },
+    "modals": {
+      "calculateFare": "Fahrpreis berechnen",
+      "fixedRoutes": "Feste Preisrouten anzeigen"
+    }
+  },
+  "services": {
+    "heading": "Zuverlässige Flughafentransfers in Frankfurt",
+    "subtitle": "24/7 Tür-zu-Tür, Stressfreie Fahrten",
+    "badge": "24/7 Verfügbar",
+    "imageAlt": "Professioneller Flughafentransfer-Service mit Luxusfahrzeug",
+    "features": {
+      "onTimeTransfers": {
+        "title": "Pünktliche Transfers",
+        "description": "Pünktlicher Tür-zu-Tür-Service mit Flugverfolgung."
+      },
+      "stressFreePickups": {
+        "title": "Stressfreie Abholungen",
+        "description": "Fahrer wartet mit Namensschild bei der Ankunft."
+      },
+      "travelAcrossEurope": {
+        "title": "Reisen durch Europa",
+        "description": "Verfügbar für nahegelegene Städte & Flughäfen."
+      },
+      "flexibility": {
+        "title": "24/7 Flexibilität",
+        "description": "Für Last-Minute-Änderungen & Veranstaltungen."
+      }
+    },
+    "cta": {
+      "primary": "Fahrt Buchen",
+      "secondary": "Kostenloses Angebot Erhalten"
+    }
   },
   "whyChooseUs": {
     "title": "Warum uns wählen?",
-    "fixedPrice": {
-      "title": "GARANTIERTER FESTPREIS",
-      "description": "Beginnen Sie Ihre Reise, ob privat oder geschäftlich, mit einem guten Gefühl. Dank unserer Festpreise müssen Sie sich keine Sorgen über zusätzliche Gebühren oder versteckte Kosten machen. Unsere Flughafentransfers und Preise sind klar und zuverlässig."
-    },
-    "cancelFree": {
-      "title": "KOSTENLOSE STORNIERUNG",
-      "description": "Stornieren Sie bis zu 4 Stunden vor Ihrer Fahrt. Keine Buchungsgebühren oder versteckte Kosten. Pläne geändert? Kein Problem!"
-    },
-    "ourServices": {
-      "title": "BREITES SERVICEANGEBOT",
-      "description": "Flughafentransfers, Shuttles, Stadtrundfahrten und Eventtransporte nach Ihren Bedürfnissen. Wir kümmern uns um alle Details für eine reibungslose Reise."
-    },
-    "reliableTransfers": {
-      "title": "ZUVERLÄSSIGE TRANSFERS",
-      "description": "Pünktliche, stressfreie Fahrten mit über 10 Jahren Erfahrung. Professionelle Fahrer und Echtzeit-Tracking sorgen für sichere Ankunft."
-    },
-    "doorToDoor": {
-      "title": "HAUSTÜR-SERVICE",
-      "description": "Unsere Fahrer holen Sie pünktlich am Flughafen Frankfurt ab und bringen Sie direkt bis vor Ihre Haustür. Wir können Sie auch von Ihrem Zuhause abholen und rechtzeitig zum Flughafen bringen – bequemer, effizienter und kostengünstiger als ein Taxi."
-    },
-    "reliableService": {
-      "title": "ZUVERLÄSSIGER & PÜNKTLICHER SERVICE",
-      "description": "Egal zu welcher Uhrzeit oder bei welchem Wetter – unser engagiertes Team sorgt dafür, dass Ihre Fahrt immer pünktlich ist. Mit Echtzeit-Verfolgung und proaktiven Updates können Sie sich darauf verlassen, dass wir Sie sicher und effizient an Ihr Ziel bringen."
+    "features": {
+      "fixedPrice": {
+        "title": "GARANTIERTER FESTPREIS",
+        "description": "Beginnen Sie Ihre Reise, ob privat oder geschäftlich, mit einem guten Gefühl. Dank unserer Festpreise müssen Sie sich keine Sorgen über zusätzliche Gebühren oder versteckte Kosten machen. Unsere Flughafentransfers und Preise sind klar und zuverlässig."
+      },
+      "cancelFree": {
+        "title": "KOSTENLOSE STORNIERUNG",
+        "description": "Stornieren Sie bis zu 4 Stunden vor Ihrer Fahrt. Keine Buchungsgebühren oder versteckte Kosten. Pläne geändert? Kein Problem!"
+      },
+      "wideServices": {
+        "title": "BREITES SERVICEANGEBOT",
+        "description": "Flughafentransfers, Shuttles, Stadtrundfahrten und Eventtransporte nach Ihren Bedürfnissen. Wir kümmern uns um alle Details für eine reibungslose Reise."
+      },
+      "reliableTransfers": {
+        "title": "ZUVERLÄSSIGE TRANSFERS",
+        "description": "Pünktliche, stressfreie Fahrten mit über 10 Jahren Erfahrung. Professionelle Fahrer und Echtzeit-Tracking sorgen für sichere Ankunft."
+      },
+      "doorToDoor": {
+        "title": "HAUSTÜR-SERVICE",
+        "description": "Unsere Fahrer holen Sie pünktlich am Flughafen Frankfurt ab und bringen Sie direkt bis vor Ihre Haustür. Wir können Sie auch von Ihrem Zuhause abholen und rechtzeitig zum Flughafen bringen – bequemer, effizienter und kostengünstiger als ein Taxi."
+      },
+      "reliableService": {
+        "title": "ZUVERLÄSSIGER & PÜNKTLICHER SERVICE",
+        "description": "Egal zu welcher Uhrzeit oder bei welchem Wetter – unser engagiertes Team sorgt dafür, dass Ihre Fahrt immer pünktlich ist. Mit Echtzeit-Verfolgung und proaktiven Updates können Sie sich darauf verlassen, dass wir Sie sicher und effizient an Ihr Ziel bringen."
+      }
     },
     "cta": {
       "title": "Bereit, Ihren Transfer zu buchen?",
@@ -48,83 +113,90 @@
       "secondaryButton": "Mehr erfahren"
     }
   },
-  "services": {
-    "heading": "Zuverlässige Flughafentransfers in Frankfurt",
-    "subtitle": "24/7 Tür-zu-Tür, Stressfreie Fahrten",
-    "feature1_title": "Pünktliche Transfers",
-    "feature1_description": "Pünktlicher Tür-zu-Tür-Service mit Flugverfolgung.",
-    "feature2_title": "Stressfreie Abholungen",
-    "feature2_description": "Fahrer wartet mit Namensschild bei der Ankunft.",
-    "feature3_title": "Reisen durch Europa",
-    "feature3_description": "Verfügbar für nahegelegene Städte & Flughäfen.",
-    "feature4_title": "24/7 Flexibilität",
-    "feature4_description": "Für Last-Minute-Änderungen & Veranstaltungen.",
-    "cta_primary": "Fahrt Buchen",
-    "cta_secondary": "Kostenloses Angebot Erhalten",
-    "badge_text": "24/7 Verfügbar",
-    "image_alt": "Professioneller Flughafentransfer-Service mit Luxusfahrzeug"
+  "testimonials": {
+    "title": "Was unsere Kunden sagen",
+    "description": "Vertraut von Tausenden von Passagieren für zuverlässige und komfortable Flughafentransfers in Frankfurt",
+    "reviews": {
+      "emma": {
+        "author": {
+          "name": "Emma Thompson",
+          "handle": "@emma_travels"
+        },
+        "text": "Ausgezeichneter Service! Der Fahrer war pünktlich, professionell und die Fahrt war sehr komfortabel. Werde FH Airport Transfer definitiv wieder für meine nächste Reise nach Frankfurt nutzen."
+      },
+      "michael": {
+        "author": {
+          "name": "Michael Schmidt",
+          "handle": "@mike_business"
+        },
+        "text": "Festpreise ohne versteckte Gebühren sind genau das, was ich brauchte. Der Buchungsprozess war reibungslos und der Transfer pünktlich. Sehr empfehlenswert für Geschäftsreisende."
+      },
+      "sarah": {
+        "author": {
+          "name": "Sarah Johnson",
+          "handle": "@sarah_explorer"
+        },
+        "text": "Der Tür-zu-Tür-Service machte meinen Flughafentransfer so bequem. Der Fahrer half mit meinem Gepäck und war während der gesamten Fahrt sehr höflich."
+      },
+      "david": {
+        "author": {
+          "name": "David Mueller",
+          "handle": "@david_frequent"
+        },
+        "text": "Als Vielreisender schätze ich die Zuverlässigkeit und Beständigkeit dieses Services. Hatte nie Probleme mit der Pünktlichkeit oder Fahrzeugqualität."
+      },
+      "lisa": {
+        "author": {
+          "name": "Lisa Chen",
+          "handle": "@lisa_family"
+        },
+        "text": "Perfekt für Familienreisen! Das Fahrzeug war geräumig genug für unser ganzes Gepäck, und der Fahrer war geduldig mit unseren Kindern. Tolles Preis-Leistungs-Verhältnis."
+      }
+    }
   },
-  "calculate_price_oneway": "(Einfach) Hinfahrt ",
-  "calculate_price_return": "(Rückkehr) Hin - und Rückfahrt",
-  "calculate_price_pickup_location_label": "Abholort",
-  "calculate_price_pickup_location_placeholder": "Geben Sie Ihren Abholort ein",
-  "calculate_price_dropoff_location_label": "Zielort",
-  "calculate_price_dropoff_location_placeholder": "Geben Sie Ihren Abgabeort ein",
-  "calculate_price_pickup_date_label": "Abholdatum",
-  "calculate_price_pickup_date_placeholder": "Datum auswählen",
-  "calculate_price_pick_time_label": "Abholzeit",
-  "calculate_price_return_date_label": "Rückgabedatum",
-  "calculate_price_return_date_placeholder": "Datum auswählen",
-  "calculate_price_return_time_label": "Rückgabezeit",
-  "calculate_price_passenger_label": "Passagier(e)",
-  "calculate_price_suitcase_label": "Koffer(23 kg)",
-  "calculate_price_calculate_fare_button": "Fahrpreis berechnen",
-  "Navbar": {
-    "home": "Startseite",
-    "services": "Dienstleistungen",
-    "about": "Über uns",
-    "callNow": "JETZT ANRUFEN",
-    "emailNow": "JETZT EMAIL SCHICKEN",
-    "book": "BUCHEN",
-    "toggleNav": "Navigation umschalten",
-    "logoAlt": "Taxi-Service-Logo",
-    "navigation": "Navigation",
-    "testimonials": "Kundenbewertungen"
-  },
-  "LocaleSwitcher": {
-    "en": "English",
-    "de": "Deutsch",
-    "label": "Sprache"
-  },
-    "step1": {
-      "label": "Schritt 1",
-      "description": "Fahrdetails eingeben"
+  "booking": {
+    "heading": {
+      "part1": "Buche deine",
+      "part2": "Fahrt"
     },
-    "step2": {
-      "label": "Schritt 2",
-      "description": "Fahrzeug auswählen"
+    "steps": {
+      "step1": {
+        "label": "Schritt 1",
+        "description": "Fahrdetails eingeben"
+      },
+      "step2": {
+        "label": "Schritt 2",
+        "description": "Fahrzeug auswählen"
+      },
+      "step3": {
+        "label": "Schritt 3",
+        "description": "Kontaktdaten"
+      },
+      "step4": {
+        "label": "Schritt 4",
+        "description": "Buchungsübersicht"
+      }
     },
-    "step3": {
-      "label": "Schritt 3",
-      "description": "Kontaktdaten"
-    },
-    "step4": {
-      "label": "Schritt 4",
-      "description": "Buchungsübersicht"
-    },
-    "completed": {
+    "completion": {
       "message": "Herzlichen Glückwunsch! Ihre Fahrt wird gebucht. Sie erhalten in Kürze einen Bestätigungsanruf!"
     },
     "buttons": {
       "back": "Zurück",
       "nextStep": "Nächster Schritt",
       "confirmRide": "Fahrt bestätigen"
-    },
+    }
+  },
+  "forms": {
+    "rideDetails": {
+      "tripType": {
+        "oneWay": "(Einfach) Hinfahrt",
+        "return": "(Rückkehr) Hin - und Rückfahrt"
+      },
       "pickupLocation": {
         "label": "Abholort",
         "placeholder": "Geben Sie Ihren Abholort ein"
       },
-      "dropOffLocation": {
+      "dropoffLocation": {
         "label": "Zielort",
         "placeholder": "Geben Sie Ihren Abgabeort ein"
       },
@@ -135,16 +207,25 @@
       "pickupTime": {
         "label": "Abholzeit"
       },
+      "returnDate": {
+        "label": "Rückgabedatum",
+        "placeholder": "Datum auswählen"
+      },
+      "returnTime": {
+        "label": "Rückgabezeit"
+      },
       "passengers": {
         "label": "Passagiere"
       },
       "suitcases": {
         "label": "Koffer (23kg)"
       },
-      "carSelection": {
-    "error": "Please select a car"
-  },
-    "stepThree": {
+      "calculateFare": "Fahrpreis berechnen"
+    },
+    "vehicleSelection": {
+      "error": "Bitte wählen Sie ein Auto aus"
+    },
+    "contactDetails": {
       "firstName": {
         "label": "Vorname",
         "placeholder": "Ihr Vorname"
@@ -157,7 +238,7 @@
         "label": "E-Mail",
         "placeholder": "Geben Sie Ihre E-Mail ein"
       },
-      "contactNo": {
+      "contactNumber": {
         "label": "Telefonnummer",
         "placeholder": "Geben Sie Ihre Telefonnummer ein"
       },
@@ -166,7 +247,7 @@
         "placeholder": "Irgendwelche Bemerkungen"
       }
     },
-    "stepFour": {
+    "bookingSummary": {
       "rideInfo": {
         "title": "Fahrinformationen",
         "rideType": {
@@ -188,56 +269,14 @@
         "title": "Kontakt- und Abrechnungsinformationen",
         "name": "Name",
         "email": "E-Mail",
-        "phoneNo": "Telefonnummer",
+        "phoneNumber": "Telefonnummer",
         "rideCharges": "Fahrtkosten",
         "paymentMethod": "Zahlungsmethode",
         "paymentMethods": ["Paypal", "Barzahlung"]
       }
-    },
-    "bookingHeading":{
-      "partOne":"Buche deine",
-      "partTwo":"Fahrt"
-    },
-    "testimonials": {
-      "title": "Was unsere Kunden sagen",
-      "description": "Vertraut von Tausenden von Passagieren für zuverlässige und komfortable Flughafentransfers in Frankfurt",
-      "testimonial1": {
-        "author": {
-          "name": "Emma Thompson",
-          "handle": "@emma_travels"
-        },
-        "text": "Ausgezeichneter Service! Der Fahrer war pünktlich, professionell und die Fahrt war sehr komfortabel. Werde FH Airport Transfer definitiv wieder für meine nächste Reise nach Frankfurt nutzen."
-      },
-      "testimonial2": {
-        "author": {
-          "name": "Michael Schmidt",
-          "handle": "@mike_business"
-        },
-        "text": "Festpreise ohne versteckte Gebühren sind genau das, was ich brauchte. Der Buchungsprozess war reibungslos und der Transfer pünktlich. Sehr empfehlenswert für Geschäftsreisende."
-      },
-      "testimonial3": {
-        "author": {
-          "name": "Sarah Johnson",
-          "handle": "@sarah_explorer"
-        },
-        "text": "Der Tür-zu-Tür-Service machte meinen Flughafentransfer so bequem. Der Fahrer half mit meinem Gepäck und war während der gesamten Fahrt sehr höflich."
-      },
-      "testimonial4": {
-        "author": {
-          "name": "David Mueller",
-          "handle": "@david_frequent"
-        },
-        "text": "Als Vielreisender schätze ich die Zuverlässigkeit und Beständigkeit dieses Services. Hatte nie Probleme mit der Pünktlichkeit oder Fahrzeugqualität."
-      },
-      "testimonial5": {
-        "author": {
-          "name": "Lisa Chen",
-          "handle": "@lisa_family"
-        },
-        "text": "Perfekt für Familienreisen! Das Fahrzeug war geräumig genug für unser ganzes Gepäck, und der Fahrer war geduldig mit unseren Kindern. Tolles Preis-Leistungs-Verhältnis."
-      }
     }
   }
+}
   
   
   

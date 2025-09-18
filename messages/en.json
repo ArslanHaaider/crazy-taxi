@@ -1,46 +1,110 @@
 {
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "back": "Back",
+    "next": "Next",
+    "submit": "Submit",
+    "close": "Close"
+  },
+  "navigation": {
+    "home": "Home",
+    "services": "Services",
+    "about": "About",
+    "testimonials": "Testimonials",
+    "book": "BOOK",
+    "callNow": "Call NOW",
+    "emailNow": "Email NOW",
+    "toggleNav": "Toggle navigation",
+    "logoAlt": "Taxi Service Logo",
+    "navigation": "Navigation"
+  },
+  "language": {
+    "en": "English",
+    "de": "German",
+    "label": "Language"
+  },
   "hero": {
     "tagline": "Travel Securely with Us",
-    "heading1": "Book your ride from",
-    "heading2": "your doorstep",
-    "calculateFare": "Calculate Fare",
-    "calculateFareH1": "Calculate Price",
-    "calculateFareH2": "Instant Pricing",
-    "calculateFareH3": "Get accurate prices for your trip with our transparent fare calculator.",
-    "calculateCardText": "Get accurate prices for your trip with our transparent fare calculator.",
-    "calculateCardButton": "Calculate now",
-    "modalTitle": "Calculate Fare",
-    "modalTitle2":"Fixed Price Routes",
-    "fixedPrice":"Fixed Price Routes",
-    "subtitle": "Popular destinations",
-    "description": "Pre-defined routes with guaranteed fixed prices and no hidden fees.",
-    "cta": "View routes"
+    "heading": {
+      "part1": "Book your ride from",
+      "part2": "your doorstep"
+    },
+    "calculateFare": {
+      "title": "Calculate Price",
+      "subtitle": "Instant Pricing",
+      "description": "Get accurate prices for your trip with our transparent fare calculator.",
+      "button": "Calculate now"
+    },
+    "fixedRoutes": {
+      "title": "Fixed Price Routes",
+      "subtitle": "Popular destinations",
+      "description": "Pre-defined routes with guaranteed fixed prices and no hidden fees.",
+      "button": "View routes"
+    },
+    "modals": {
+      "calculateFare": "Calculate Fare",
+      "fixedRoutes": "Fixed Price Routes"
+    }
+  },
+  "services": {
+    "heading": "Reliable Airport Transfers in Frankfurt",
+    "subtitle": "24/7 Door-to-Door, Stress-Free Rides",
+    "badge": "24/7 Available",
+    "imageAlt": "Professional airport transfer service with luxury vehicle",
+    "features": {
+      "onTimeTransfers": {
+        "title": "On-Time Transfers",
+        "description": "Timely, door-to-door service with flight tracking."
+      },
+      "stressFreePickups": {
+        "title": "Stress-Free Pickups",
+        "description": "Driver waits with a name sign at arrivals."
+      },
+      "travelAcrossEurope": {
+        "title": "Travel Across Europe",
+        "description": "Available for nearby cities & airports."
+      },
+      "flexibility": {
+        "title": "24/7 Flexibility",
+        "description": "For last-minute changes & events."
+      }
+    },
+    "cta": {
+      "primary": "Book a Ride",
+      "secondary": "Get a Free Quote"
+    }
   },
   "whyChooseUs": {
     "title": "Why Choose Us?",
-    "fixedPrice": {
-      "title": "GUARANTEED FIXED PRICE",
-      "description": "Begin your trip, whether for leisure or business, with peace of mind. With our fixed rates, there's no need to worry about extra fees or hidden costs. Both our airport transfers and our pricing are clear and dependable."
-    },
-    "cancelFree": {
-      "title": "FREE CANCELLATION",
-      "description": "Cancel up to 4 hours before your ride. No booking fees or hidden charges. Plans changed? No problem!"
-    },
-    "ourServices": {
-      "title": "WIDE RANGE OF SERVICES",
-      "description": "Airport transfers, shuttles, city tours, and event transportation tailored to your needs. We handle all the details for a smooth journey."
-    },
-    "reliableTransfers": {
-      "title": "RELIABLE TRANSFERS",
-      "description": "On-time, stress-free rides backed by 10+ years of experience. Professional drivers and real-time tracking ensure you reach your destination safely."
-    },
-    "doorToDoor": {
-      "title": "DOOR-TO-DOOR SERVICE",
-      "description": "Our drivers provide punctual pickup at Frankfurt Airport and take you straight to your destination's doorstep. We're also available to pick you up from your home and drive you to the airport on time—more convenient, efficient, and cost-effective than a taxi."
-    },
-    "reliableService": {
-      "title": "RELIABLE & TIMELY SERVICE",
-      "description": "No matter the time or weather conditions, our dedicated team ensures your ride is always on time. With real-time tracking and proactive updates, you can trust us to get you to your destination safely and efficiently."
+    "features": {
+      "fixedPrice": {
+        "title": "GUARANTEED FIXED PRICE",
+        "description": "Begin your trip, whether for leisure or business, with peace of mind. With our fixed rates, there's no need to worry about extra fees or hidden costs. Both our airport transfers and our pricing are clear and dependable."
+      },
+      "cancelFree": {
+        "title": "FREE CANCELLATION",
+        "description": "Cancel up to 4 hours before your ride. No booking fees or hidden charges. Plans changed? No problem!"
+      },
+      "wideServices": {
+        "title": "WIDE RANGE OF SERVICES",
+        "description": "Airport transfers, shuttles, city tours, and event transportation tailored to your needs. We handle all the details for a smooth journey."
+      },
+      "reliableTransfers": {
+        "title": "RELIABLE TRANSFERS",
+        "description": "On-time, stress-free rides backed by 10+ years of experience. Professional drivers and real-time tracking ensure you reach your destination safely."
+      },
+      "doorToDoor": {
+        "title": "DOOR-TO-DOOR SERVICE",
+        "description": "Our drivers provide punctual pickup at Frankfurt Airport and take you straight to your destination's doorstep. We're also available to pick you up from your home and drive you to the airport on time—more convenient, efficient, and cost-effective than a taxi."
+      },
+      "reliableService": {
+        "title": "RELIABLE & TIMELY SERVICE",
+        "description": "No matter the time or weather conditions, our dedicated team ensures your ride is always on time. With real-time tracking and proactive updates, you can trust us to get you to your destination safely and efficiently."
+      }
     },
     "cta": {
       "title": "Ready to Book Your Transfer?",
@@ -49,59 +113,90 @@
       "secondaryButton": "Learn More"
     }
   },
-  "services": {
-    "heading": "Reliable Airport Transfers in Frankfurt",
-    "subtitle": "24/7 Door-to-Door, Stress-Free Rides",
-    "feature1_title": "On-Time Transfers",
-    "feature1_description": "Timely, door-to-door service with flight tracking.",
-    "feature2_title": "Stress-Free Pickups",
-    "feature2_description": "Driver waits with a name sign at arrivals.",
-    "feature3_title": "Travel Across Europe",
-    "feature3_description": "Available for nearby cities & airports.",
-    "feature4_title": "24/7 Flexibility",
-    "feature4_description": "For last-minute changes & events.",
-    "cta_primary": "Book a Ride",
-    "cta_secondary": "Get a Free Quote",
-    "badge_text": "24/7 Available",
-    "image_alt": "Professional airport transfer service with luxury vehicle"
+  "testimonials": {
+    "title": "What Our Customers Say",
+    "description": "Trusted by thousands of passengers for reliable and comfortable airport transfers in Frankfurt",
+    "reviews": {
+      "emma": {
+        "author": {
+          "name": "Emma Thompson",
+          "handle": "@emma_travels"
+        },
+        "text": "Excellent service! The driver was punctual, professional, and the ride was very comfortable. Will definitely use FH Airport Transfer again for my next trip to Frankfurt."
+      },
+      "michael": {
+        "author": {
+          "name": "Michael Schmidt",
+          "handle": "@mike_business"
+        },
+        "text": "Fixed pricing with no hidden fees is exactly what I needed. The booking process was smooth and the transfer was on time. Highly recommended for business travelers."
+      },
+      "sarah": {
+        "author": {
+          "name": "Sarah Johnson",
+          "handle": "@sarah_explorer"
+        },
+        "text": "Door-to-door service made my airport transfer so convenient. The driver helped with my luggage and was very courteous throughout the journey."
+      },
+      "david": {
+        "author": {
+          "name": "David Mueller",
+          "handle": "@david_frequent"
+        },
+        "text": "As a frequent traveler, I appreciate the reliability and consistency of this service. Never had any issues with timing or vehicle quality."
+      },
+      "lisa": {
+        "author": {
+          "name": "Lisa Chen",
+          "handle": "@lisa_family"
+        },
+        "text": "Perfect for family trips! The vehicle was spacious enough for all our luggage, and the driver was patient with our children. Great value for money."
+      }
+    }
   },
-  "calculate_price_oneway": "OneWay",
-  "calculate_price_return": "Return",
-  "calculate_price_pickup_location_label": "PickUp Location",
-  "calculate_price_pickup_location_placeholder": "Enter Your Pickup Location",
-  "calculate_price_dropoff_location_label": "DropOff Location",
-  "calculate_price_dropoff_location_placeholder": "Enter Your DropOff Location",
-  "calculate_price_pickup_date_label": "Pickup date",
-  "calculate_price_pickup_date_placeholder": "Pick date",
-  "calculate_price_pick_time_label": "Pick Time",
-  "calculate_price_return_date_label": "Return date",
-  "calculate_price_return_date_placeholder": "Pick date",
-  "calculate_price_return_time_label": "Return Time",
-  "calculate_price_passenger_label": "Passenger(s)",
-  "calculate_price_suitcase_label": "SuitCase(23kgs)",
-  "calculate_price_calculate_fare_button": "Calculate Fare",
-  "Navbar": {
-    "home": "Home",
-    "services": "Services",
-    "about": "About",
-    "callNow": "Call NOW",
-    "emailNow": "Email NOW",
-    "book": "BOOK",
-    "toggleNav": "Toggle navigation",
-    "logoAlt": "Taxi Service Logo",
-    "navigation": "Navigation",
-    "testimonials": "Testimonials"
+  "booking": {
+    "heading": {
+      "part1": "BOOK YOUR",
+      "part2": "RIDE!"
+    },
+    "steps": {
+      "step1": {
+        "label": "Step 1",
+        "description": "Enter ride details"
+      },
+      "step2": {
+        "label": "Step 2",
+        "description": "Choose a vehicle"
+      },
+      "step3": {
+        "label": "Step 3",
+        "description": "Contact details"
+      },
+      "step4": {
+        "label": "Step 4",
+        "description": "Booking summary"
+      }
+    },
+    "completion": {
+      "message": "Congratulations! Your ride is being booked. You will receive a confirmation call shortly!"
+    },
+    "buttons": {
+      "back": "Back",
+      "nextStep": "Next step",
+      "confirmRide": "Confirm ride"
+    }
   },
-  "LocaleSwitcher": {
-    "en": "English",
-    "de": "German",
-    "label": "Language"
-  },
+  "forms": {
+    "rideDetails": {
+      "tripType": {
+        "oneWay": "OneWay",
+        "return": "Return"
+      },
       "pickupLocation": {
         "label": "Pickup Location",
         "placeholder": "Enter your pickup location"
       },
-      "dropOffLocation": {
+      "dropoffLocation": {
         "label": "Drop-off Location",
         "placeholder": "Enter your drop-off location"
       },
@@ -112,130 +207,73 @@
       "pickupTime": {
         "label": "Pickup Time"
       },
+      "returnDate": {
+        "label": "Return Date",
+        "placeholder": "Select a date"
+      },
+      "returnTime": {
+        "label": "Return Time"
+      },
       "passengers": {
         "label": "Passengers"
       },
       "suitcases": {
         "label": "Suitcases (23kg)"
       },
-        "step1": {
-          "label": "Step 1",
-          "description": "Enter ride details"
+      "calculateFare": "Calculate Fare"
+    },
+    "vehicleSelection": {
+      "error": "Please select a car"
+    },
+    "contactDetails": {
+      "firstName": {
+        "label": "First Name",
+        "placeholder": "Your First Name"
+      },
+      "lastName": {
+        "label": "Last Name",
+        "placeholder": "Your Last Name"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "Enter Your Email"
+      },
+      "contactNumber": {
+        "label": "Contact No",
+        "placeholder": "Enter Your Contact No"
+      },
+      "remarks": {
+        "label": "Remarks",
+        "placeholder": "Any remarks"
+      }
+    },
+    "bookingSummary": {
+      "rideInfo": {
+        "title": "Ride Info",
+        "rideType": {
+          "label": "Ride Type",
+          "value": "One Way"
         },
-        "step2": {
-          "label": "Step 2",
-          "description": "Choose a vehicle"
+        "carModel": {
+          "label": "Car Model",
+          "placeholder": "Not selected"
         },
-        "step3": {
-          "label": "Step 3",
-          "description": "Contact details"
-        },
-        "step4": {
-          "label": "Step 4",
-          "description": "Booking summary"
-        },
-        "completed": {
-          "message": "Congratulations! Your ride is being booked. You will receive a confirmation call shortly!"
-        },
-        "buttons": {
-          "back": "Back",
-          "nextStep": "Next step",
-          "confirmRide": "Confirm ride"
-        },
-        "carSelection": {
-    "error": "Bitte wählen Sie ein Auto aus"
-  },
-  "stepThree": {
-    "firstName": {
-      "label": "First Name",
-      "placeholder": "Your First Name"
-    },
-    "lastName": {
-      "label": "Last Name",
-      "placeholder": "Your Last Name"
-    },
-    "email": {
-      "label": "Email",
-      "placeholder": "Enter Your Email"
-    },
-    "contactNo": {
-      "label": "Contact No",
-      "placeholder": "Enter Your Contact No"
-    },
-    "remarks": {
-      "label": "Remarks",
-      "placeholder": "Any remarks"
-    }
-  },
-  "stepFour": {
-    "rideInfo": {
-      "title": "Ride Info",
-      "rideType": {
-        "label": "Ride Type",
-        "value": "One Way"
+        "from": "From",
+        "to": "To",
+        "departureDate": "Departure Date",
+        "departureTime": "Departure Time",
+        "numberOfPassengers": "Number of Passengers",
+        "luggage": "Luggage"
       },
-      "carModel": {
-        "label": "Car Model",
-        "placeholder": "Not selected"
-      },
-      "from": "From",
-      "to": "To",
-      "departureDate": "Departure Date",
-      "departureTime": "Departure Time",
-      "numberOfPassengers": "Number of Passengers",
-      "luggage": "Luggage"
-    },
-    "contactBillingInfo": {
-      "title": "Contact and Billing Info",
-      "name": "Name",
-      "email": "Email",
-      "phoneNo": "Phone No",
-      "rideCharges": "Ride Charges",
-      "paymentMethod": "Payment Method",
-      "paymentMethods": ["Paypal", "Cash"]
-    }
-  },
-  "bookingHeading":{
-    "partOne":"BOOK YOUR",
-    "partTwo":"RIDE!"
-  },
-  "testimonials": {
-    "title": "What Our Customers Say",
-    "description": "Trusted by thousands of passengers for reliable and comfortable airport transfers in Frankfurt",
-    "testimonial1": {
-      "author": {
-        "name": "Emma Thompson",
-        "handle": "@emma_travels"
-      },
-      "text": "Excellent service! The driver was punctual, professional, and the ride was very comfortable. Will definitely use FH Airport Transfer again for my next trip to Frankfurt."
-    },
-    "testimonial2": {
-      "author": {
-        "name": "Michael Schmidt",
-        "handle": "@mike_business"
-      },
-      "text": "Fixed pricing with no hidden fees is exactly what I needed. The booking process was smooth and the transfer was on time. Highly recommended for business travelers."
-    },
-    "testimonial3": {
-      "author": {
-        "name": "Sarah Johnson",
-        "handle": "@sarah_explorer"
-      },
-      "text": "Door-to-door service made my airport transfer so convenient. The driver helped with my luggage and was very courteous throughout the journey."
-    },
-    "testimonial4": {
-      "author": {
-        "name": "David Mueller",
-        "handle": "@david_frequent"
-      },
-      "text": "As a frequent traveler, I appreciate the reliability and consistency of this service. Never had any issues with timing or vehicle quality."
-    },
-    "testimonial5": {
-      "author": {
-        "name": "Lisa Chen",
-        "handle": "@lisa_family"
-      },
-      "text": "Perfect for family trips! The vehicle was spacious enough for all our luggage, and the driver was patient with our children. Great value for money."
+      "contactBillingInfo": {
+        "title": "Contact and Billing Info",
+        "name": "Name",
+        "email": "Email",
+        "phoneNumber": "Phone No",
+        "rideCharges": "Ride Charges",
+        "paymentMethod": "Payment Method",
+        "paymentMethods": ["Paypal", "Cash"]
+      }
     }
   }
 }
