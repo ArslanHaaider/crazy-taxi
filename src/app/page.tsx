@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect } from 'react';
-import { useRouter } from 'next/navigation';
 import EnhancedNavbar from '@/components/EnhancedNavbar';
 import Footer from '@/components/Footer';
 import Hero from '@/components/Hero';
@@ -10,7 +9,6 @@ import WhyChooseUS from '@/components/WhyChooseUS';
 import { TestimonialsSection } from '@/components/TestimonialsSection';
 
 export default function Home() {
-  const router = useRouter();
 
   useEffect(() => {
     // Handle hash navigation when page loads
