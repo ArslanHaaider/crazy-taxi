@@ -38,10 +38,10 @@ const WhyChooseUS = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-            Why Choose Us?
+            {t('title')}
           </h2>
           <p className="text-lg text-gray-300 max-w-xl mx-auto leading-relaxed">
-            Trusted by travelers for reliable, stress-free airport rides.
+            {t('cta.subtitle')}
           </p>
         </motion.div>
 
@@ -96,11 +96,68 @@ const WhyChooseUS = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             {/* Primary CTA */}
             <motion.button
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ 
+                scale: 1.05,
+                boxShadow: "0 0 30px rgba(234, 179, 8, 0.6)",
+              }}
               whileTap={{ scale: 0.95 }}
-              className="bg-yellow-500 hover:bg-yellow-600 text-white font-semibold px-8 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+              animate={{
+                boxShadow: [
+                  "0 0 20px rgba(234, 179, 8, 0.3)",
+                  "0 0 30px rgba(234, 179, 8, 0.5)",
+                  "0 0 20px rgba(234, 179, 8, 0.3)"
+                ]
+              }}
+              transition={{
+                boxShadow: {
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }
+              }}
+              className="relative bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 hover:from-yellow-500 hover:via-yellow-600 hover:to-yellow-700 text-white font-bold px-10 py-4 rounded-xl shadow-2xl hover:shadow-yellow-500/50 transition-all duration-300 transform hover:-translate-y-2 border-2 border-yellow-300 hover:border-yellow-200 overflow-hidden group"
             >
-              Book Now
+              {/* Animated background overlay */}
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                initial={{ x: "-100%" }}
+                whileHover={{ x: "100%" }}
+                transition={{ duration: 0.6 }}
+              />
+              
+              {/* Pulsing border effect */}
+              <div className="absolute inset-0 rounded-xl border-2 border-yellow-300 animate-pulse opacity-75" />
+              
+              {/* Button text */}
+              <span className="relative z-10 text-lg tracking-wide">
+                {t('cta.primaryButton')}
+              </span>
+              
+              {/* Sparkle effects */}
+              <motion.div
+                className="absolute top-1 right-2 w-2 h-2 bg-white rounded-full opacity-0"
+                animate={{ 
+                  opacity: [0, 1, 0],
+                  scale: [0.5, 1, 0.5]
+                }}
+                transition={{
+                  duration: 1.5,
+                  repeat: Infinity,
+                  delay: 0.5
+                }}
+              />
+              <motion.div
+                className="absolute bottom-2 left-3 w-1.5 h-1.5 bg-white rounded-full opacity-0"
+                animate={{ 
+                  opacity: [0, 1, 0],
+                  scale: [0.5, 1, 0.5]
+                }}
+                transition={{
+                  duration: 1.5,
+                  repeat: Infinity,
+                  delay: 1
+                }}
+              />
             </motion.button>
           </div>
         </motion.div>

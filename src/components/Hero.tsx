@@ -15,6 +15,7 @@ const Hero = () => {
   const [fixedPricesOpen, setFixedPricesOpen] = useState(false);
   const router = useRouter();
   const t = useTranslations('hero');
+  const tCta = useTranslations('services');
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -155,7 +156,7 @@ const Hero = () => {
               onClick={() => router.push('/booking')}
               className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-primary to-primary/90 text-white rounded-lg sm:rounded-xl font-medium hover:from-primary/90 hover:to-primary transition-all duration-300 shadow-lg hover:shadow-xl text-body-sm"
             >
-              Book Now
+              {tCta('cta.primary')}
             </motion.button>
             
             <motion.button
@@ -164,7 +165,7 @@ const Hero = () => {
               onClick={() => setCalculatePriceOpen(true)}
               className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 border border-border-light text-text-primary rounded-lg sm:rounded-xl font-medium hover:bg-surface transition-all duration-300 text-body-sm"
             >
-              Calculate Fare
+              {t('calculateFare.button')}
             </motion.button>
           </motion.div>
         </motion.div>

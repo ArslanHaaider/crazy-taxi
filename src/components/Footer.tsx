@@ -2,8 +2,11 @@ import { IconPhone, IconMail } from "@tabler/icons-react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { useTranslations } from 'next-intl';
 
 const Footer = () => {
+  const t = useTranslations('footer');
+  
   return (
     <footer role="contentinfo" className="w-full bg-background border-t border-border ">
       {/* Primary Action Band */}
@@ -11,12 +14,12 @@ const Footer = () => {
         <div className="container mx-auto px-4 py-6">
           <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6 md:justify-between">
             <p className="text-center md:text-left text-sm md:text-base text-foreground font-medium">
-              Need a reliable airport transfer? Book in seconds or call us now.
+              {t('cta.title')}
             </p>
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full md:w-auto">
               <Button asChild className="w-full sm:w-auto">
                 <Link href="/booking" aria-label="Book a ride now">
-                  Book a ride
+                  {t('cta.bookButton')}
                 </Link>
               </Button>
               <Button asChild variant="outline" className="w-full sm:w-auto">
@@ -24,7 +27,7 @@ const Footer = () => {
                   href="tel:+4961424996011"
                   aria-label="Call Crazy Taxi at plus forty nine six one four two four nine nine six zero one"
                 >
-                  Call now: +49 6142 499601
+                  {t('cta.callButton')}
                 </a>
               </Button>
             </div>
@@ -47,37 +50,49 @@ const Footer = () => {
               />
             </div>
             <p className="text-muted-foreground mt-4 leading-6">
-              Travel Securely With US!
+              {t('brand.tagline')}
             </p>
             {/* Optional trust/context copy could go here (hours/area) */}
           </div>
 
           {/* Navigation */}
           <nav aria-label="Footer">
-            <h3 className="text-base md:text-lg font-semibold text-foreground mb-4">Quick Links</h3>
-            <ul className="space-y-2.5">
+            <h3 className="text-base md:text-lg font-semibold text-foreground mb-4 relative">
+              <span className="relative z-10">{t('quickLinks.title')}</span>
+              <div className="absolute -bottom-1 left-0 w-8 h-0.5 bg-gradient-to-r from-primary to-primary/60 rounded-full"></div>
+            </h3>
+            <ul className="space-y-3">
               <li>
                 <Link
                   href="#home"
-                  className="text-sm font-medium text-foreground hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded px-0.5"
+                  className="group inline-flex items-center text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded px-1 py-0.5"
                 >
-                  Home
+                  <span className="relative">
+                    {t('quickLinks.home')}
+                    <span className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-primary rounded-full transition-all duration-300 group-hover:w-full"></span>
+                  </span>
                 </Link>
               </li>
               <li>
                 <Link
                   href="#services"
-                  className="text-sm font-medium text-foreground hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded px-0.5"
+                  className="group inline-flex items-center text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded px-1 py-0.5"
                 >
-                  Services
+                  <span className="relative">
+                    {t('quickLinks.services')}
+                    <span className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-primary rounded-full transition-all duration-300 group-hover:w-full"></span>
+                  </span>
                 </Link>
               </li>
               <li>
                 <Link
                   href="#about"
-                  className="text-sm font-medium text-foreground hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded px-0.5"
+                  className="group inline-flex items-center text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded px-1 py-0.5"
                 >
-                  About
+                  <span className="relative">
+                    {t('quickLinks.about')}
+                    <span className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-primary rounded-full transition-all duration-300 group-hover:w-full"></span>
+                  </span>
                 </Link>
               </li>
             </ul>
@@ -85,35 +100,42 @@ const Footer = () => {
 
           {/* Contact */}
           <div>
-            <h3 className="text-base md:text-lg font-semibold text-foreground mb-4">Contact</h3>
-            <ul className="space-y-3">
-              <li className="flex items-start gap-3">
-                <span className="mt-0.5 inline-flex items-center justify-center rounded-md bg-primary/10 p-1.5">
-                  <IconPhone size={18} className="text-primary" stroke={1.6} />
-                </span>
-                <div className="min-w-0">
-                  <p className="text-xs text-muted-foreground">Call for Ride</p>
-                  <a
-                    href="tel:+4961424996011"
-                    className="text-sm font-semibold text-foreground hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded"
-                    aria-label="Call Crazy Taxi at plus forty nine six one four two four nine nine six zero one"
-                  >
-                    +49 6142 499601
-                  </a>
+            <h3 className="text-base md:text-lg font-semibold text-foreground mb-4 relative">
+              <span className="relative z-10">{t('contact.title')}</span>
+              <div className="absolute -bottom-1 left-0 w-8 h-0.5 bg-gradient-to-r from-primary to-primary/60 rounded-full"></div>
+            </h3>
+            <ul className="space-y-4">
+              <li className="group">
+                <div className="flex items-start gap-3 p-2 rounded-lg transition-all duration-300 hover:bg-primary/5">
+                  <span className="mt-0.5 inline-flex items-center justify-center rounded-md bg-primary/10 p-2 transition-all duration-300 group-hover:bg-primary/20 group-hover:scale-110">
+                    <IconPhone size={18} className="text-primary" stroke={1.6} />
+                  </span>
+                  <div className="min-w-0">
+                    <p className="text-xs text-muted-foreground mb-1">{t('contact.callLabel')}</p>
+                    <a
+                      href="tel:+4961424996011"
+                      className="text-sm font-semibold text-foreground hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded transition-all duration-300"
+                      aria-label="Call Crazy Taxi at plus forty nine six one four two four nine nine six zero one"
+                    >
+                      +49 6142 499601
+                    </a>
+                  </div>
                 </div>
               </li>
-              <li className="flex items-start gap-3">
-                <span className="mt-0.5 inline-flex items-center justify-center rounded-md bg-primary/10 p-1.5">
-                  <IconMail size={18} className="text-primary" stroke={1.6} />
-                </span>
-                <div className="min-w-0">
-                  <p className="text-xs text-muted-foreground">Email us</p>
-                  <a
-                    href="mailto:flughafentransfer123@hotmail.com"
-                    className="text-sm font-semibold text-foreground hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded break-words"
-                  >
-                    flughafentransfer123@hotmail.com
-                  </a>
+              <li className="group">
+                <div className="flex items-start gap-3 p-2 rounded-lg transition-all duration-300 hover:bg-primary/5">
+                  <span className="mt-0.5 inline-flex items-center justify-center rounded-md bg-primary/10 p-2 transition-all duration-300 group-hover:bg-primary/20 group-hover:scale-110">
+                    <IconMail size={18} className="text-primary" stroke={1.6} />
+                  </span>
+                  <div className="min-w-0">
+                    <p className="text-xs text-muted-foreground mb-1">{t('contact.emailLabel')}</p>
+                    <a
+                      href="mailto:flughafentransfer123@hotmail.com"
+                      className="text-sm font-semibold text-foreground hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded break-words transition-all duration-300"
+                    >
+                      flughafentransfer123@hotmail.com
+                    </a>
+                  </div>
                 </div>
               </li>
             </ul>

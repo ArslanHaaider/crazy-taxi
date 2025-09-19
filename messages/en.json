@@ -275,5 +275,26 @@
         "paymentMethods": ["Paypal", "Cash"]
       }
     }
+  },
+  "footer": {
+    "cta": {
+      "title": "Need a reliable airport transfer? Book in seconds or call us now.",
+      "bookButton": "Book a ride",
+      "callButton": "Call now: +49 6142 499601"
+    },
+    "brand": {
+      "tagline": "Travel Securely With US!"
+    },
+    "quickLinks": {
+      "title": "Quick Links",
+      "home": "Home",
+      "services": "Services",
+      "about": "About"
+    },
+    "contact": {
+      "title": "Contact",
+      "callLabel": "Call for Ride",
+      "emailLabel": "Email Us"
+    }
   }
 }

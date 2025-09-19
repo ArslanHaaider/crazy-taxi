@@ -275,6 +275,27 @@
         "paymentMethods": ["Paypal", "Barzahlung"]
       }
     }
+  },
+  "footer": {
+    "cta": {
+      "title": "Benötigen Sie einen zuverlässigen Flughafentransfer? Buchen Sie in Sekunden oder rufen Sie uns jetzt an.",
+      "bookButton": "Fahrt buchen",
+      "callButton": "Jetzt anrufen: +49 6142 499601"
+    },
+    "brand": {
+      "tagline": "Reisen Sie sicher mit uns!"
+    },
+    "quickLinks": {
+      "title": "Schnelle Links",
+      "home": "Startseite",
+      "services": "Dienstleistungen",
+      "about": "Über uns"
+    },
+    "contact": {
+      "title": "Kontakt",
+      "callLabel": "Anrufen für Fahrt",
+      "emailLabel": "E-Mail an uns"
+    }
   }
 }
   
