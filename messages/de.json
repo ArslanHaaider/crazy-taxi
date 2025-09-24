@@ -220,6 +220,8 @@
       "suitcases": {
         "label": "Koffer (23kg)"
       },
+      "asap": "Sofort",
+      "schedule": "Planen",
       "calculateFare": "Fahrpreis berechnen"
     },
     "vehicleSelection": {

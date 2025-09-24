@@ -15,6 +15,8 @@ import StepOne from './StepOne';
 import StepThree from './StepThree';
 import StepTwo from './StepTwo';
 import { useTranslations } from 'next-intl';
+import { APIProvider } from '@vis.gl/react-google-maps';
+
 
 interface FormValues {
   // Step One Values
@@ -200,7 +202,9 @@ const BookingForm = () => {
             classNames={{ step: styles.step, stepIcon: styles.stepIcon, verticalSeparator: styles.verticalSeparator }}
           >
             <div className="p-3">
+               <APIProvider apiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || ''}>
               <StepOne form={form} />
+               </APIProvider>
             </div>
           </Stepper.Step>
 

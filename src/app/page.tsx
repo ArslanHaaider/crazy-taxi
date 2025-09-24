@@ -7,6 +7,7 @@ import Hero from '@/components/Hero';
 import Services from '@/components/Services';
 import WhyChooseUS from '@/components/WhyChooseUS';
 import { TestimonialsSection } from '@/components/TestimonialsSection';
+import { APIProvider } from '@vis.gl/react-google-maps';
 
 export default function Home() {
 
@@ -36,12 +37,14 @@ export default function Home() {
 
   return (
     <div className="relative">
+      <APIProvider apiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || ''}>
       <EnhancedNavbar />
       <Hero />
       <Services />
       <WhyChooseUS />
       <TestimonialsSection />
       <Footer />
+      </APIProvider>
     </div>
   );
 }

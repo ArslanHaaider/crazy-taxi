@@ -220,6 +220,8 @@
       "suitcases": {
         "label": "Suitcases (23kg)"
       },
+      "asap": "ASAP",
+      "schedule": "Schedule",
       "calculateFare": "Calculate Fare"
     },
     "vehicleSelection": {
