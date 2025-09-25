@@ -109,7 +109,43 @@ const BookingForm = () => {
     }
   };
 
-  const handleStepChange = (nextStep: number) => {
+  const calculateTripDetails = async () => {
+    const { pickUpLocation, dropOffLocation } = form.values;
+    if (!pickUpLocation || !dropOffLocation) return;
+
+    try {
+      const service = new google.maps.DistanceMatrixService();
+      const response = await new Promise<google.maps.DistanceMatrixResponse>((resolve, reject) => {
+        service.getDistanceMatrix({
+          origins: [pickUpLocation],
+          destinations: [dropOffLocation],
+          travelMode: google.maps.TravelMode.DRIVING,
+          unitSystem: google.maps.UnitSystem.METRIC,
+        }, (response, status) => {
+          if (status === google.maps.DistanceMatrixStatus.OK && response) {
+            resolve(response);
+          } else {
+            reject(new Error(`Distance Matrix API error: ${status}`));
+          }
+        });
+      });
+
+      const element = response.rows[0]?.elements[0];
+      if (element && element.status === 'OK') {
+        const distance = element.distance?.value || 0;
+        const duration = element.duration?.text || '';
+        const estimatedPrice = Math.round((distance / 1000) * 2.5); // €2.5 per km
+
+        form.setFieldValue('distance', distance);
+        form.setFieldValue('duration', duration);
+        form.setFieldValue('estimatedPrice', estimatedPrice);
+      }
+    } catch (error) {
+      console.error('Error calculating trip details:', error);
+    }
+  };
+
+  const handleStepChange = async (nextStep: number) => {
     const isOutOfBounds = nextStep > 3 || nextStep < 0;
     if (isOutOfBounds) {
       return;
@@ -119,6 +155,11 @@ const BookingForm = () => {
       // Show validation errors
       form.validate();
       return;
+    }
+
+    // Calculate trip details when moving from Step 1 to Step 2
+    if (active === 0 && nextStep === 1) {
+      await calculateTripDetails();
     }
 
     setActive(nextStep);
@@ -201,11 +242,11 @@ const BookingForm = () => {
             allowStepSelect={shouldAllowSelectStep(0)}
             classNames={{ step: styles.step, stepIcon: styles.stepIcon, verticalSeparator: styles.verticalSeparator }}
           >
-            <div className="p-3">
-               <APIProvider apiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || ''}>
-              <StepOne form={form} />
-               </APIProvider>
-            </div>
+            <APIProvider apiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || ''}>
+              <div className="p-3">
+                <StepOne form={form} />
+              </div>
+            </APIProvider>
           </Stepper.Step>
 
           <Stepper.Step
