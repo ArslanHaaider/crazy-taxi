@@ -69,7 +69,7 @@ export function useAutocompleteSuggestions(
     // after `fetchFields` for one of the returned places is called by calling
     // the `resetSession` function returned from this hook.
     if (!sessionTokenRef.current) {
-                //@ts-ignore
+                //@ts-expect-error - AutocompleteSessionToken constructor is not properly typed
       sessionTokenRef.current = new AutocompleteSessionToken();
     }
 
@@ -89,13 +89,13 @@ export function useAutocompleteSuggestions(
       setSuggestions(res.suggestions);
       setIsLoading(false);
     });
-  }, [placesLib, inputString]);
+  }, [placesLib, inputString, requestOptions, suggestions.length]);
 
   return {
     suggestions,
     isLoading,
     resetSession: () => {
-        //@ts-ignore
+        //@ts-expect-error - sessionTokenRef.current assignment is not properly typed
       sessionTokenRef.current = null;
       setSuggestions([]);
     }

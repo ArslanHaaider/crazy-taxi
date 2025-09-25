@@ -33,17 +33,13 @@ const StepOne = ({ form }: { form: UseFormReturnType<FormValues> }) => {
   // local queries for autocomplete
   const [pickupQuery, setPickupQuery] = useState("");
   const [dropoffQuery, setDropoffQuery] = useState("");
-  const [selected, setSelected] = useState<any>(null);
+  
   // hooks for both inputs
   const {
     suggestions: pickupSuggestions,
-    isLoading: isLoadingPickup,
-    resetSession: resetPickupSession,
   } = useAutocompleteSuggestions(pickupQuery);
   const {
     suggestions: dropoffSuggestions,
-    isLoading: isLoadingDropoff,
-    resetSession: resetDropoffSession,
   } = useAutocompleteSuggestions(dropoffQuery);
 
   const t = useTranslations("forms.rideDetails");
@@ -59,7 +55,7 @@ const StepOne = ({ form }: { form: UseFormReturnType<FormValues> }) => {
       const mm = String(now.getMinutes()).padStart(2, "0");
       form.setFieldValue("pickupTime", `${hh}:${mm}`);
     }
-  }, [timeMode]);
+  }, [timeMode, form]);
   const pickerControl = (
     <ActionIcon
       variant="subtle"

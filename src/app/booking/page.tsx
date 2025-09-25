@@ -3,7 +3,6 @@ import Footer from '@/components/Footer'
 import React from 'react'
 import { getTranslations } from 'next-intl/server'
 import EnhancedNavbar from '@/components/EnhancedNavbar'
-import { APIProvider } from '@vis.gl/react-google-maps'
 
 const Booking = async () => {
   const t = await getTranslations("services");

@@ -5,10 +5,10 @@ import { TestimonialCard } from "@/components/ui/testimonial-card"
 import { useTranslations } from "next-intl"
 import { useState, useEffect } from "react"
 import { useForm } from "@mantine/form"
-import { Autocomplete, NumberInput, Button, rem } from "@mantine/core"
+import { Autocomplete, NumberInput, rem } from "@mantine/core"
 import { DatePickerInput, TimeInput } from "@mantine/dates"
 import { SegmentedControl } from "@mantine/core"
-import { IconLocation, IconClock } from "@tabler/icons-react"
+import { IconLocation } from "@tabler/icons-react"
 import { useAutocompleteSuggestions } from "@/hooks/useAutocompleteSuggestion"
 
 interface TestimonialsSectionProps {
@@ -42,7 +42,6 @@ export function TestimonialsSection({
   className 
 }: TestimonialsSectionProps) {
   const t = useTranslations("testimonials")
-  const tForms = useTranslations("forms.rideDetails")
   
   // Trip summary form state
   const [timeMode, setTimeMode] = useState<"ASAP" | "SCHEDULE">("ASAP")
@@ -52,12 +51,10 @@ export function TestimonialsSection({
   // Autocomplete hooks
   const {
     suggestions: pickupSuggestions,
-    isLoading: isLoadingPickup,
   } = useAutocompleteSuggestions(pickupQuery)
   
   const {
     suggestions: dropoffSuggestions,
-    isLoading: isLoadingDropoff,
   } = useAutocompleteSuggestions(dropoffQuery)
 
   const tripForm = useForm<TripFormValues>({
@@ -111,7 +108,7 @@ export function TestimonialsSection({
     }
 
     calculateDistanceAndPrice()
-  }, [tripForm.values.pickUpLocation, tripForm.values.dropOffLocation, tripForm.values.passengers])
+  }, [tripForm.values.pickUpLocation, tripForm.values.dropOffLocation, tripForm.values.passengers, tripForm])
 
   // Trip Summary Component
   const TripSummary = () => (

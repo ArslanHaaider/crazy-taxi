@@ -5,7 +5,7 @@ import {
 import { DatePickerInput, TimeInput } from "@mantine/dates";
 import { useForm } from "@mantine/form";
 import { IconClock, IconLocation } from "@tabler/icons-react";
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState } from "react";
 import { useTranslations } from 'next-intl';
 import { useAutocompleteSuggestions } from "@/hooks/useAutocompleteSuggestion";
 
@@ -39,13 +39,9 @@ const CalculatePrice = () => {
   // hooks for both inputs
   const {
     suggestions: pickupSuggestions,
-    isLoading: isLoadingPickup,
-    resetSession: resetPickupSession,
   } = useAutocompleteSuggestions(pickupQuery);
   const {
     suggestions: dropoffSuggestions,
-    isLoading: isLoadingDropoff,
-    resetSession: resetDropoffSession,
   } = useAutocompleteSuggestions(dropoffQuery);
 
   const pickerControl = useRef<HTMLInputElement>(null);
@@ -314,7 +310,7 @@ const CalculatePrice = () => {
         
         {!tripDetails && (
           <div className="bg-muted/30 rounded-lg border border-dashed border-border p-6 shadow-sm mt-8 md:mt-0 text-center">
-            <p className="text-muted-foreground">Enter trip details and click "Calculate Fare" to see pricing</p>
+            <p className="text-muted-foreground">Enter trip details and click &quot;Calculate Fare&quot; to see pricing</p>
           </div>
         )}
       </div>
